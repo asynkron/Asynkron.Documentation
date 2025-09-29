@@ -2,5 +2,9 @@
   "label": "Asynkron.Jsome",
   "position": 8,
   "collapsible": true,
-  "collapsed": true
+  "collapsed": true,
+  "link": {
+    "type": "doc",
+    "id": "Jsome/index"
+  }
 }

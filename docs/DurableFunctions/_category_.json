@@ -2,5 +2,9 @@
   "label": "Asynkron.DurableFunctions",
   "position": 3,
   "collapsible": true,
-  "collapsed": true
+  "collapsed": true,
+  "link": {
+    "type": "doc",
+    "id": "DurableFunctions/overview"
+  }
 }

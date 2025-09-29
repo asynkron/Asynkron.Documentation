@@ -2,5 +2,9 @@
   "label": "Asynkron.TraceLens",
   "position": 5,
   "collapsible": true,
-  "collapsed": true
+  "collapsed": true,
+  "link": {
+    "type": "doc",
+    "id": "TraceLens/overview"
+  }
 }

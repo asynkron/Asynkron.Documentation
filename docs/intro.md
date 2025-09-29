@@ -21,7 +21,7 @@ Asynkron is a team of distributed-systems veterans who have spent the last decad
 
 ## LiveView - AI Companion MCP
 
-[Asynkron LiveView](./LiveView/overview.md) brings real-time, reactive UI updates to your applications with a lightweight server-driven model inspired by LiveView frameworks. Learn how to set up the runtime, compose interactive components, and deploy to production.
+[Asynkron LiveView](./LiveView/index.md) brings real-time, reactive UI updates to your applications with a lightweight server-driven model inspired by LiveView frameworks. Learn how to set up the runtime, compose interactive components, and deploy to production.
 
 ## TraceLens - OTEL UI and Collector
 

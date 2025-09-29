@@ -2,5 +2,9 @@
   "label": "Asynkron.OcppServer",
   "position": 7,
   "collapsible": true,
-  "collapsed": true
+  "collapsed": true,
+  "link": {
+    "type": "doc",
+    "id": "OcppServer/index"
+  }
 }
