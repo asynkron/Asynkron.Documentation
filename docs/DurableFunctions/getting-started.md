@@ -1,9 +1,10 @@
 ---
 sidebar_position: 2
-sidebar_label: Quick start
+sidebar_label: Getting Started
+title: Getting Started
 ---
 
-# Quick start
+# Getting Started
 
 The samples folder in the public repository demonstrates every feature, but you only need a handful of steps to run your first orchestration.
 

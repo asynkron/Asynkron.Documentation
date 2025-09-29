@@ -1,9 +1,10 @@
 ---
 sidebar_position: 3
 sidebar_label: Charger Lifecycle
+title: Charger Lifecycle
 ---
 
-# Charger lifecycle management
+# Charger Lifecycle
 
 Understand how Asynkron.OcppServer models the lifecycle of each charging point from onboarding to retirement.
 

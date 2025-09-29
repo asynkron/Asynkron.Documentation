@@ -1,6 +1,7 @@
 ---
 sidebar_position: 3
 sidebar_label: .NET Aspire Integration
+title: .NET Aspire Integration
 ---
 
 # Using TraceLens with .NET Aspire

@@ -1,6 +1,7 @@
 ---
 sidebar_position: 4
 sidebar_label: Operations
+title: Operations
 ---
 
 # Operating Asynkron.OtelMcp

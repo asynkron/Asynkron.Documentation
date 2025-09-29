@@ -1,3 +1,9 @@
+---
+sidebar_position: 1
+sidebar_label: Overview
+title: Asynkron.Jsome
+---
+
 # Asynkron.Jsome
 
 Asynkron.Jsome is a .NET 8 global tool that turns Swagger 2.0/OpenAPI documents or directories full of JSON Schema files into strongly typed client artefacts. The open-source repository now includes the complete CLI, Handlebars template library, and test suite, so you can inspect exactly how DTOs, validators, Protocol Buffers schemas, F# modules, and TypeScript interfaces are produced.
@@ -27,7 +33,7 @@ dotnet tool install -g dotnet-jsome
 
 After installation, ensure `~/.dotnet/tools` is on your `PATH` so your shell can resolve `jsome`.
 
-## Quick start workflow
+## Getting Started
 
 ```bash
 # 1. Generate from the embedded Petstore sample (no arguments required)

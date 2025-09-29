@@ -1,9 +1,10 @@
 ---
 sidebar_position: 2
-sidebar_label: Quick Start
+sidebar_label: Getting Started
+title: Getting Started
 ---
 
-# Quick start
+# Getting Started
 
 Follow these steps to launch Asynkron.OcppServer in a development cluster and attach a charger simulator.
 

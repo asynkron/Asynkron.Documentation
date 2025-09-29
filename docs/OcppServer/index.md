@@ -1,6 +1,7 @@
 ---
 sidebar_position: 1
 sidebar_label: Overview
+title: Asynkron.OcppServer
 ---
 
 # Asynkron.OcppServer
@@ -16,9 +17,9 @@ Asynkron.OcppServer provides an OCPP 1.6 Central System engineered for massive s
 
 ## Documentation map
 
-1. [Quick start](quick-start.md) – Deploy a reference stack and connect a simulator.
-2. [Charger lifecycle](charger-lifecycle.md) – Manage registration, authorization, and firmware updates.
-3. [Scaling guide](scaling.md) – Partition sessions, replicate service pods, and tune persistence.
-4. [Integration recipes](integrations.md) – Bridge to billing systems, DERMS platforms, and demand-response APIs.
+1. [Getting Started](getting-started.md) – Deploy a reference stack and connect a simulator.
+2. [Charger Lifecycle](charger-lifecycle.md) – Manage registration, authorization, and firmware updates.
+3. [Scaling](scaling.md) – Partition sessions, replicate service pods, and tune persistence.
+4. [Integrations](integrations.md) – Bridge to billing systems, DERMS platforms, and demand-response APIs.
 
 Check the samples folder for Terraform modules and Helm charts tailored for leading cloud providers.

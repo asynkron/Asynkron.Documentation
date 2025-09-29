@@ -13,11 +13,11 @@ Asynkron is a team of distributed-systems veterans who have spent the last decad
 
 ## Proto.Actor - The actor framework for .NET and Go
 
-[Proto.Actor](./ProtoActor/overview.md) is our flagship actor framework for .NET and Go. It gives you a lightweight, cloud-native runtime for building resilient, distributed systems with message-driven actors, virtual actors, and cluster support. Explore the quick start, core concepts, and advanced modules like persistence, clustering, and testing utilities.
+[Proto.Actor](./ProtoActor/index.md) is our flagship actor framework for .NET and Go. It gives you a lightweight, cloud-native runtime for building resilient, distributed systems with message-driven actors, virtual actors, and cluster support. Explore the getting started guide, core concepts, and advanced modules like persistence, clustering, and testing utilities.
 
 ## Durable Functions - Reliable workflows for .NET
 
-[Asynkron Durable Functions](./DurableFunctions/overview.md) lets you build long-running, reliable workflows in any .NET application using the durable orchestrator model. Start with the quick start, then dive into hosting guidance, orchestration patterns, and the operations handbook to ship resilient automation in production.
+[Asynkron Durable Functions](./DurableFunctions/index.md) lets you build long-running, reliable workflows in any .NET application using the durable orchestrator model. Start with the getting started guide, then dive into hosting guidance, orchestration patterns, and the operations handbook to ship resilient automation in production.
 
 ## LiveView - AI Companion MCP
 
@@ -25,7 +25,7 @@ Asynkron is a team of distributed-systems veterans who have spent the last decad
 
 ## TraceLens - OTEL UI and Collector
 
-[TraceLens](./TraceLens/overview.md) provides observability tooling tailored for distributed actor systems. Use the guides to ingest telemetry, visualize actor flows, and troubleshoot live systems with minimal overhead.
+[TraceLens](./TraceLens/index.md) provides observability tooling tailored for distributed actor systems. Use the guides to ingest telemetry, visualize actor flows, and troubleshoot live systems with minimal overhead.
 
 ## OtelMcp - AI-aware telemetry platform
 

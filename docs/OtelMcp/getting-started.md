@@ -1,9 +1,10 @@
 ---
 sidebar_position: 2
 sidebar_label: Getting Started
+title: Getting Started
 ---
 
-# Getting started with Asynkron.OtelMcp
+# Getting Started
 
 Set up a sandbox collector, connect sample workloads, and validate that telemetry flows into the search UI and MCP interface.
 
@@ -13,7 +14,7 @@ Set up a sandbox collector, connect sample workloads, and validate that telemetr
 - Access to the services you want to instrument with OpenTelemetry SDKs
 - API credentials for any downstream storage backends you plan to use
 
-## Quick install
+## Installation
 
 1. Clone the deployment samples from the repository.
 2. Bring up the stack with `docker compose up` or apply the Helm chart.

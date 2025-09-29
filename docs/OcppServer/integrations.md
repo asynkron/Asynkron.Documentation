@@ -1,9 +1,10 @@
 ---
 sidebar_position: 5
 sidebar_label: Integrations
+title: Integrations
 ---
 
-# Integration recipes
+# Integrations
 
 Extend Asynkron.OcppServer by connecting downstream services for billing, energy, and customer engagement.
 

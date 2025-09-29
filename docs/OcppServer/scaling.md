@@ -1,9 +1,10 @@
 ---
 sidebar_position: 4
 sidebar_label: Scaling
+title: Scaling
 ---
 
-# Scaling guidance
+# Scaling
 
 Design your Asynkron.OcppServer deployment for high availability and horizontal scale.
 

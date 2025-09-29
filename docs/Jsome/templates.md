@@ -1,4 +1,12 @@
-# Handlebars template customization
+---
+sidebar_position: 3
+sidebar_label: Templates
+title: Templates
+---
+
+# Templates
+
+## Handlebars Template Customization
 
 Every artifact that Jsome emits flows through a Handlebars template. Understanding how templates are discovered, how frontmatter is parsed, and which helpers are available lets you extend the generator confidently—whether you are tweaking the default DTO output or layering in entirely new languages.
 

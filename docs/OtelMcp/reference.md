@@ -1,6 +1,7 @@
 ---
 sidebar_position: 5
 sidebar_label: Reference
+title: Reference
 ---
 
 # Configuration reference

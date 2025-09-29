@@ -1,6 +1,7 @@
 ---
 sidebar_position: 1
 sidebar_label: Overview
+title: Asynkron.OtelMcp
 ---
 
 # Asynkron.OtelMcp
@@ -16,8 +17,8 @@ Asynkron.OtelMcp combines an OpenTelemetry collector, time-series pipeline, and 
 
 ## Documentation map
 
-1. [Getting started](getting-started.md) – Stand up the collector and import your first telemetry streams.
-2. [MCP agents](mcp-agents.md) – Wire up agent prompts, guardrails, and feedback loops.
+1. [Getting Started](getting-started.md) – Stand up the collector and import your first telemetry streams.
+2. [MCP Agents](mcp-agents.md) – Wire up agent prompts, guardrails, and feedback loops.
 3. [Operations](operations.md) – Scale storage tiers, retention policies, and alerting.
 4. [Reference](reference.md) – Configuration schema, ports, and supported exporters.
 

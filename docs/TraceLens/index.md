@@ -1,9 +1,10 @@
 ---
 sidebar_position: 1
 sidebar_label: Overview
+title: TraceLens
 ---
 
-# TraceLens Overview
+# TraceLens
 
 TraceLens is an OpenTelemetry-focused tracing and logging visualizer that also ships with a built-in collector so you can ingest and inspect telemetry from one container. It is published as a beta and is currently free for all users; after the beta concludes it will remain free for personal and open-source projects while commercial use is expected to require a subscription. Because the product is still in beta, the End User License Agreement highlights that the software is provided “as is” and forbids reverse engineering or derivative works.
 

@@ -1,8 +1,14 @@
-# Configuration files
+---
+sidebar_position: 2
+sidebar_label: Configuration
+title: Configuration
+---
+
+# Configuration
 
 Jsome modifier files let you reshape the generated object graph without mutating incoming Swagger or JSON Schema sources. The configuration layer feeds into `CodeGenerator`, so the same schema can yield different DTO names, validation attributes, and enum handling simply by changing YAML or JSON inputs.
 
-## When to reach for configuration
+## When to reach for Configuration
 
 - Apply namespaces, name prefixes/suffixes, or enum defaults across an entire run.
 - Exclude or rename specific definitions and properties when upstream schemas cannot be altered.

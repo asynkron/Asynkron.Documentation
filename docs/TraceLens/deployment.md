@@ -1,13 +1,14 @@
 ---
 sidebar_position: 2
 sidebar_label: Deployment
+title: Deployment
 ---
 
 # Deploying TraceLens
 
 The TraceLens containers ship everything you need to collect and inspect telemetry data. This guide explains how to stand up the service with Docker Compose (recommended for local evaluation) and how to run the standalone image when you already have supporting infrastructure.
 
-## Docker Compose quick start
+## Docker Compose Getting Started
 
 The repository includes a ready-to-run `docker-compose.yml` file. It provisions PostgreSQL for persistence, a PlantUML server for diagram rendering, and the TraceLens container itself. Exposed ports let you reach the UI on `http://localhost:5001`, the collector at `http://localhost:4317`, and the PlantUML server on `http://localhost:8080` so you can inspect or troubleshoot diagram rendering if needed.
 

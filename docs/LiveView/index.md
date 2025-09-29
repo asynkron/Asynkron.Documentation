@@ -31,7 +31,7 @@ The project ships with three cooperating building blocks:
 
 Because the server and watcher run in one process, LiveView works equally well for human-authored notes, automated log pipelines, or MCP-powered assistants.
 
-## Quick start (recommended path)
+## Getting Started
 
 The fastest way to launch LiveView is the convenience script that provisions dependencies (without touching system packages) and starts the unified server:
 
