@@ -57,6 +57,10 @@
   display: block;
 }
 
+.navbar-logo--proto {
+  margin-top: 5px;
+}
+
 @media (max-width: 996px) {
   .navbar-logo-link {
     padding: var(--ifm-navbar-item-padding-vertical) 0;

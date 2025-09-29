@@ -66,7 +66,8 @@ const mermaidThemeCss = `
   }
 
   g .label-container {
-    stroke: none;
+    stroke: #232c34;
+    stroke-width: 2px;
     fill: #007cb4;
   }
 
@@ -125,7 +126,7 @@ const mermaidThemeCss = `
   }
 
   g .cluster rect {
-    fill: #00b3f6;
+    fill: #00b3f624;
     stroke: none;
   }
 
@@ -383,7 +384,7 @@ const config: Config = {
           position: 'right',
           value: `
             <a class="navbar__item navbar__link navbar-logo-link" href="https://proto.actor" target="_blank" rel="noopener noreferrer">
-              <img src="/img/protoactor.png" alt="Proto.Actor" class="navbar-logo" />
+              <img src="/img/protoactor.png" alt="Proto.Actor" class="navbar-logo navbar-logo--proto" />
             </a>
           `,
         },
