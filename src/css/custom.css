@@ -91,3 +91,29 @@ div .mermaid svg {
 :not(pre) > code {
   padding: 2px 6px;
 }
+
+.alert {
+  --ifm-alert-background-color: rgba(0, 173, 248, 0.12);
+  --ifm-alert-background-color-highlight: rgba(0, 173, 248, 0.18);
+  --ifm-alert-border-color: var(--asynkron-color-primary);
+  --ifm-alert-foreground-color: #063b52;
+  --ifm-code-background: rgba(0, 173, 248, 0.18);
+  --ifm-link-color: var(--asynkron-color-primary);
+  --ifm-link-hover-color: var(--asynkron-color-primary);
+  --ifm-link-decoration: underline;
+  --ifm-tabs-color: var(--asynkron-color-primary);
+  --ifm-tabs-color-active: var(--asynkron-color-primary);
+  --ifm-tabs-color-active-border: var(--asynkron-color-primary);
+  color: var(--ifm-alert-foreground-color);
+  background-color: var(--ifm-alert-background-color);
+  border: var(--ifm-alert-border-width) solid var(--ifm-alert-border-color);
+  border-left-width: var(--ifm-alert-border-left-width);
+  border-radius: var(--ifm-alert-border-radius);
+}
+
+[data-theme='dark'] .alert {
+  --ifm-alert-background-color: rgba(79, 208, 255, 0.18);
+  --ifm-alert-background-color-highlight: rgba(79, 208, 255, 0.26);
+  --ifm-alert-foreground-color: #e6f7ff;
+  --ifm-code-background: rgba(79, 208, 255, 0.26);
+}
