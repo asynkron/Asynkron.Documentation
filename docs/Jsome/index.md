@@ -1,173 +1,173 @@
 # Asynkron.Jsome
 
-Asynkron.Jsome is an experimental JSON templating toolkit maintained by the Asynkron team. The library focuses on making it easy to assemble repeatable JSON payloads for integration tests, seeds, and configuration snapshots by layering small reusable fragments together. Instead of maintaining dozens of hand-crafted documents, Jsome lets you describe a base shape once and then stitch in overrides, computed values, and randomised data when you need to exercise a scenario.
+Asynkron.Jsome is a .NET 8 code generator that ingests Swagger 2.0/OpenAPI documents or folders of JSON Schema files and emits strongly typed client artefacts. The public repository now exposes the full CLI, template set, and test suite, so you can study exactly how the generator produces C# DTOs, FluentValidation validators, Protocol Buffers schemas, optional F# modules, and TypeScript interfaces.
 
-> **Note**
-> The upstream repository currently requires authentication, so details below are based on the most recent public code and examples that were available before the repository became private. Update this page if new samples are published.
+## Install the CLI
 
-## Why Jsome exists
-
-Working with JSON payloads by hand quickly turns brittle: copying and pasting large blobs makes it hard to keep them consistent, and sprinkling random GUIDs manually is tedious. Jsome attacks the problem with a lightweight domain specific language (DSL) layered on top of plain JSON:
-
-- **Template composition** – break a payload into fragments and merge them with `include`, `merge`, or `with` directives.
-- **Calculated values** – call helpers such as `guid()`, `int(min,max)`, `faker.name()`, or environment lookups directly inside JSON fields.
-- **Deterministic seeding** – inject a seed so that randomised data remains reproducible across runs.
-- **Type-aware assertions** – optional validation lets you check that the JSON you generated matches an expected shape before shipping it to an API or storing it on disk.
-
-These conventions make it easier to keep test data tidy across the Proto.Actor ecosystem and any other .NET services that rely on structured JSON fixtures.
-
-## Installation
-
-Jsome ships as a .NET tool and as a library package. You can either install the CLI globally to work with templates from the command line or reference the library from your own code.
-
-### CLI
+Install the global tool from NuGet (the package ID is `dotnet-jsome`):
 
 ```bash
-# install or update the command line tool
-dotnet tool install --global Asynkron.Jsome.Tool
-# or update if you already have it
-dotnet tool update --global Asynkron.Jsome.Tool
+# Install or update the CLI
+dotnet tool install -g dotnet-jsome
+# dotnet tool update -g dotnet-jsome
 ```
 
-After installation the `jsome` command is available on your `PATH`.
+The installer drops the `jsome` command into `~/.dotnet/tools`. Add that directory to your `PATH` if the tool is not immediately available.
 
-### Library
+## Repository tour
 
-Add the NuGet package to any project that needs to evaluate templates programmatically:
+Clone `https://github.com/asynkron/Asynkron.Jsome` to inspect the source that backs the tool. The `src/Asynkron.Jsome` project contains the CLI entry point, JSON/Swagger models, configuration types, and built-in Handlebars templates, while `tests/Asynkron.Jsome.Tests` exercises the generator end to end with Roslyn compilation checks, locale edge cases, Protocol Buffers validation, and template overrides. The `testdata` and `schemas` folders hold larger specs (Stripe, OCPP) that mirror real-world usage when you want to experiment locally.
+
+## Generate C# from Swagger
+
+### Run the generator
+
+Point the CLI at a Swagger 2.0 JSON document (or omit it to fall back to the embedded Petstore sample) and choose an output folder:
 
 ```bash
-dotnet add package Asynkron.Jsome
+jsome generate ./sample-swagger.json \
+  --output ./generated \
+  --namespace Sample.Generated \
+  --modern --records \
+  --system-text-json --swashbuckle-attributes \
+  --proto
 ```
 
-Restore packages and build as usual:
+`Program.CreateGenerateCommand` wires up these switches via System.CommandLine, so the CLI prompts for confirmation unless `--yes` is supplied, validates mutually exclusive inputs (`swaggerFile` vs `--schema-dir`), and echoes a Spectre.Console summary of what will be produced. Running the command against the minimal `sample-swagger.json` below yields DTOs, validators, and Protocol Buffers definitions in the target directory.
 
-```bash
-dotnet restore
-dotnet build
+```json title="sample-swagger.json"
+{
+  "swagger": "2.0",
+  "info": { "title": "Sample API", "version": "1.0.0" },
+  "basePath": "/api",
+  "paths": {},
+  "definitions": {
+    "User": {
+      "type": "object",
+      "required": ["id", "name"],
+      "properties": {
+        "id": { "type": "integer", "format": "int64" },
+        "name": { "type": "string" },
+        "email": { "type": "string", "format": "email" }
+      }
+    }
+  }
+}
 ```
 
-## Project layout
+### Example C# output
 
-The repository is organised like a conventional .NET solution:
-
-- `src/Asynkron.Jsome/` – core engine that parses templates, executes helpers, and exposes the high-level API.
-- `src/Asynkron.Jsome.Tool/` – minimal CLI wrapper that uses the engine to render files from the shell.
-- `tests/Asynkron.Jsome.Tests/` – unit and approval tests covering both the DSL syntax and the CLI surface. They double as executable documentation for edge-cases such as merge precedence and seeded randomness.
-- `samples/` – ready-to-run templates demonstrating common use-cases (API payloads, Proto.Actor grain snapshots, etc.).
-
-Clone the repository and inspect those folders to explore real-world usage:
-
-```bash
-git clone https://github.com/asynkron/Asynkron.Jsome.git
-cd Asynkron.Jsome
-dotnet test
-```
-
-## Quick start
-
-1. **Create a template** – start with a `.jsome.json` file that contains plain JSON plus Jsome directives:
-
-   ```json
-   {
-     "$include": "base/user.json",
-     "user": {
-       "id": "${guid()}",
-       "name": "${faker.name.firstName()} ${faker.name.lastName()}",
-       "tags": [
-         "${pick(['qa','staging','load'])}",
-         "${environment('ASPNETCORE_ENVIRONMENT','dev')}"
-       ]
-     }
-   }
-   ```
-
-2. **Render it from the CLI** – point the tool at your template and capture the output:
-
-   ```bash
-   jsome render templates/user.jsome.json --out artifacts/user.json --seed 1234
-   ```
-
-   - `render` reads the template, executes helpers, and writes the final JSON document.
-   - `--seed` keeps the Faker-generated data stable between runs, which is invaluable for snapshot and approval tests.
-
-3. **Use it in tests** – Jsome integrates neatly with `xUnit` or `NUnit` snapshot frameworks. A minimal example:
-
-   ```csharp
-   using Asynkron.Jsome;
-   using FluentAssertions.Json;
-   using Newtonsoft.Json.Linq;
-
-   [Fact]
-   public void can_render_user_template()
-   {
-       var engine = JsomeEngine.Default with { Seed = 1234 };
-       var rendered = engine.RenderFile("templates/user.jsome.json");
-
-       var json = JToken.Parse(rendered);
-       json["user"]!["id"]!.Value<string>()
-           .Should().MatchRegex("^[0-9a-fA-F-]{36}$");
-   }
-   ```
-
-   The tests bundled with the repository show more advanced cases (merging nested arrays, injecting custom helpers, serialising directly into record types, etc.).
-
-## Extending the engine
-
-Jsome exposes extension points so you can tailor the DSL to your domain:
-
-- **Custom helpers** – implement `IJsomeFunction` to add new expressions (for example to fetch secrets from Azure Key Vault during local development).
-- **Named fragments** – register `TemplateSource` instances to load snippets from databases, embedded resources, or remote HTTP endpoints.
-- **Output adapters** – pipe rendered JSON into typed DTOs using `System.Text.Json` or `Newtonsoft.Json` serializers.
-
-Registering everything happens through a fluent builder:
+With `--modern --records --system-text-json --swashbuckle-attributes` enabled, the generated record includes nullable annotations, `JsonPropertyName` attributes, Spectre-enhanced validation error messages, and optional Swagger metadata—exactly what `SystemTextJsonTests` and `ModernCSharpFeaturesTests` assert in the open test suite.
 
 ```csharp
-var engine = new JsomeEngineBuilder()
-    .UseSeed(42)
-    .AddHelper("ulid", _ => Ulid.NewUlid().ToString())
-    .AddSource(new EmbeddedResourceTemplateSource(typeof(Program)))
-    .Build();
+[method: JsonConstructor]
+public partial record User(
+    [property: JsonPropertyName("id")]
+    [property: JsonIgnore(Condition = JsonIgnoreCondition.Never)]
+    [property: SwaggerSchema(Format = "int64")]
+    required long Id,
+    [property: JsonPropertyName("name")]
+    [property: JsonIgnore(Condition = JsonIgnoreCondition.Never)]
+    [property: Required(AllowEmptyStrings = false)]
+    [property: StringLength(50, MinimumLength = 1)]
+    required string Name,
+    [property: JsonPropertyName("email")]
+    [property: JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+    [property: SwaggerSchema(Format = "email")]
+    string? Email
+);
 ```
 
-## Working with the CLI
+Protocol Buffers support is toggled via `--proto`. `CodeGenerator.GetTemplatesToLoad` automatically includes `proto.hbs`, `proto.enum.hbs`, and `proto.string_enum.hbs` when the flag is set, and `ProtoTemplateTests` verify that every DTO, numeric enum, and string enum is rendered with the correct scalars and snake_case field names.
 
-The CLI mirrors the library surface while keeping commands script-friendly:
+## Using configuration files
 
-| Command | Description |
+`ConfigurationLoader` accepts YAML or JSON and materialises a `ModifierConfiguration` object graph composed of `GlobalSettings`, `PropertyRule`, and nested `PropertyValidation` options. The snippet below mirrors the structure asserted in `ModifierConfigurationIntegrationTests`, where dotted property paths let you exclude DTOs, override types, and add custom validation rules.
+
+```yaml title="config.yaml"
+global:
+  namespace: "MyApi.Generated"
+  generateEnumTypes: true
+  type_name_prefix: "Api"
+  type_name_suffix: "Dto"
+
+rules:
+  "User.email":
+    validation:
+      required: true
+      pattern: "^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$"
+      message: "Please enter a valid email"
+  "User.id":
+    description: "Primary key issued by the identity service"
+    format: int64
+  "Order":
+    include: false
+```
+
+* `global` tweaks namespaces, naming prefixes/suffixes, enum generation, and default inclusion—`ModifierConfiguration.IsIncluded` and `ApplyTypeNameFormatting` honour these settings while constructing DTOs.
+* `rules` target specific properties (case-insensitive) using dotted paths; wildcard paths such as `*.Id` are supported and intentionally skipped by `SchemaValidatorTests` when validating configuration safety.
+* `SchemaValidator.ValidatePropertyPaths` flags any rule pointing at a missing schema member before generation proceeds, surfacing friendly Spectre.Console messages instead of silently omitting fixes.
+
+Apply a config file by supplying `--config config.yaml`. Combine it with `--yes` to skip the interactive confirmation prompt `HandleGenerateCommand` displays whenever destructive overwrites are detected.
+
+## Working with Handlebars templates
+
+All artefacts are rendered through Handlebars templates stored in `src/Asynkron.Jsome/Templates`. Each template may contain a YAML front matter header that sets the extension or describes the output. `CodeGenerator` loads the required files, checks for missing assets, and exposes helpers like `proto_type`, `snake_case`, and `add` that are used across the built-in templates and surfaced to your custom templates.
+
+| Template | Description |
 | --- | --- |
-| `jsome render <input> [--out <file>] [--seed <n>]` | Render a single template to STDOUT or a file. |
-| `jsome watch <dir>` | Re-render templates whenever their inputs change (handy while tweaking payloads). |
-| `jsome validate <input>` | Ensure a template is well-formed and all referenced helpers/fragments exist. |
+| `DTO.hbs` | Default C# class template with Newtonsoft.Json support and DataAnnotations |
+| `DTORecord.hbs` | Modern record template activated via `--records`, adding `[method: JsonConstructor]` and property-scoped attributes |
+| `Validator.hbs` | FluentValidation rules for each DTO, including numeric guards that `LocaleIssueTests` keep invariant-culture safe |
+| `Enum.hbs` / `Constants.hbs` | Optional enum/constant outputs controlled by configuration |
+| `proto.hbs`, `proto.enum.hbs`, `proto.string_enum.hbs` | Protocol Buffers templates loaded when `--proto` is set |
+| `FSharp.hbs`, `FSharpModule.hbs` | F# record and module templates with DataAnnotations and helper builders |
+| `TypeScript.hbs` | Optional interface and type guard template |
 
-Global options include `--log-level` (trace the merge process), `--format` (pretty vs. minified output), and `--json-schema` to validate the final payload.
+To customise output you can point `--template-dir` at a folder of `.hbs` files or pass `--templates` with an explicit list. `CustomTemplateTests` exercise both approaches by rendering bespoke files alongside the built-in DTOs and validators.
 
-## Testing strategy
+### Generating F# artefacts
 
-The unit tests double as executable documentation. Pay special attention to:
-
-- `ExpressionTests` – cover the built-in helpers and the error messages you receive when a token fails.
-- `MergeTests` – prove how conflicting keys resolve when multiple fragments target the same section.
-- `ToolSmokeTests` – run the CLI end-to-end to ensure `render`, `watch`, and `validate` behave correctly on Windows, Linux, and macOS runners.
-
-Running the full suite locally is as simple as:
+Pass the F# templates explicitly to produce both C# and F# output in one run:
 
 ```bash
-dotnet test --configuration Release
+jsome generate ./sample-swagger.json \
+  --output ./generated \
+  --templates DTO.hbs Validator.hbs FSharp.hbs FSharpModule.hbs \
+  --namespace Sample.Generated --yes
 ```
 
-CI runs the same command plus a matrix of `jsome render` invocations over the samples directory to ensure templates stay valid.
+`FSharp.hbs` and `FSharpModule.hbs` include YAML headers (`description: …`) and emit idiomatic records with `[<JsonPropertyName>]` or `[<JsonProperty>]` attributes plus modules for validation helpers. `OcppV16IntegrationTests` confirm that nested types, array shapes, and validation metadata round-trip correctly when F# files are requested.
 
-## Troubleshooting
+### Generating Protocol Buffers
 
-| Symptom | Fix |
-| --- | --- |
-| `JSOME1001: Unknown helper 'faker'` | Add the Faker extension package or register your own helper before rendering. |
-| `JSOME2002: Cannot resolve include 'base/user.json'` | Check your working directory or pass `--root` to the CLI so relative imports can be resolved. |
-| Random values differ across machines | Provide an explicit `--seed` or `JsomeEngineOptions.Seed` value. |
+Toggle `--proto` to render `proto3` schemas next to the C# artefacts. The `proto` templates reuse the same `ClassInfo`, `EnumInfo`, and `ConstantsInfo` shapes produced for C#, so enum naming and snake_case conversions stay consistent. `ProtoTemplateTests` and `OcppV16ComplianceTests` assert that the emitted files compile under `buf lint` and respect OCPP 1.6 expectations.
 
-## Additional resources
+### Rendering TypeScript interfaces
 
-- The sample templates under `samples/` double as ready-to-run tutorials.
-- Proto.Actor integration examples show how to pipe rendered JSON directly into grain state snapshots.
-- Keep an eye on the repository README for announcements about new helpers and CLI commands.
+Because `TypeScript.hbs` is a normal Handlebars template you can opt into TypeScript output via `--templates` or by copying the template into a custom directory. The template emits `interface` declarations and runtime guards, and `CustomTemplateTests` show how to assert on the generated `.ts` content for your own templates.
 
+## Parsing sources beyond Swagger
+
+Instead of providing a single Swagger document you can hand `--schema-dir` a directory full of JSON Schema files. `JsonSchemaParser.ParseDirectory` merges every `.json` file, honours schema titles, extracts internal `definitions`, resolves `$ref` entries, and refuses to continue when two files disagree about a definition. `JsonSchemaParserTests` cover duplicate handling, `$ref` validation, and conflict detection so CLI users receive actionable errors.
+
+## What happens under the hood
+
+The compiled assembly exposes a small set of focused types, making it easy to trace how input is transformed into code:
+
+* `Program` wires up the System.CommandLine verbs, including options such as `--modern`, `--records`, `--system-text-json`, `--swashbuckle-attributes`, `--schema-dir`, `--templates`, and `--proto`, before dispatching to `HandleGenerateCommand` for validation and orchestration.
+* `ConfigurationLoader` deserialises YAML/JSON via YamlDotNet or Newtonsoft.Json, feeding a `ModifierConfiguration` tree built from `GlobalSettings`, `PropertyRule`, `PropertyValidation`, and `EnumMemberOverride` nodes that shape the generated models.
+* `SchemaValidator` walks Swagger definitions to warn about rules targeting missing properties so configuration mistakes are caught before generation; tests assert that wildcards are ignored and missing paths surface friendly messages.
+* `CodeGenerator` loads templates, registers Handlebars helpers, converts Swagger models into `ClassInfo`, `PropertyInfo`, `EnumInfo`, and `ConstantsInfo`, and materialises files through the selected templates. `CodeGenerationTests` and `CompilationValidationTests` prove the output compiles, respects `[Required]` logic, and keeps numeric validation culture-invariant.
+* Helper methods such as `ApplyModifierConfiguration`, `MapSwaggerTypeToCSharpType`, and `ExtractInlineNestedObjects` ensure naming consistency, nested schema flattening, and configuration overrides work for both DTOs and derived artefacts—a behaviour validated in `OcppV16IntegrationTests` and `SystemTextJsonTests`.
+
+## Test suite highlights
+
+The repository ships its full xUnit test harness. Running `dotnet test` exercises the scenarios below so you can confirm your own template/config changes stay compatible:
+
+* **Configuration validation** – `SchemaValidatorTests` and `ModifierConfigurationIntegrationTests` ensure invalid paths raise friendly errors, exclusions drop DTOs, and custom validation metadata appears in the generated validators.
+* **Language feature toggles** – `ModernCSharpFeaturesTests`, `SystemTextJsonTests`, and `CodeGenerationTests` cover `--modern`, `--records`, `--system-text-json`, and Swashbuckle attribute flags, preventing regressions in attribute placement or record syntax.
+* **Template outputs** – `ProtoTemplateTests`, `CustomTemplateTests`, and `CompilationValidationTests` assert that Protocol Buffers, bespoke templates, and compiled DTOs stay correct across releases.
+* **Real-world schemas** – `OcppV16IntegrationTests`, `OcppV16ComplianceTests`, and `JsonSchemaParserTests` load the bundled OCPP 1.6 and JSON Schema directories, stress testing nested objects, enums, and localisation edge cases (`LocaleIssueTests`).
+
+Grab the repo, run `dotnet tool install jsome`, and explore the templates or tests that match your scenario. The codebase is intentionally small and well-commented, making it straightforward to extend with new templates or configuration knobs now that everything is public.
