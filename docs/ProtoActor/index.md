@@ -9,8 +9,10 @@ tags: [protoactor, docs]
 
 ## TL;DR: Just show me the code!
 
-:::tip Example repositories
-Explore end-to-end samples in the [Proto.Actor .NET examples](https://github.com/asynkron/protoactor-dotnet/tree/dev/examples) and [Proto.Actor Go examples](https://github.com/asynkron/protoactor-go/tree/dev/examples) repositories.
+:::tip Project links
+- Official site: [proto.actor](https://proto.actor)
+- Source repositories: [asynkron/protoactor-dotnet](https://github.com/asynkron/protoactor-dotnet), [asynkron/protoactor-go](https://github.com/asynkron/protoactor-go)
+- Example repositories: [Proto.Actor .NET examples](https://github.com/asynkron/protoactor-dotnet/tree/dev/examples), [Proto.Actor Go examples](https://github.com/asynkron/protoactor-go/tree/dev/examples)
 :::
 
 - [Hello World](hello-world)

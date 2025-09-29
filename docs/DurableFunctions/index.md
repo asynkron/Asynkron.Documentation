@@ -8,8 +8,9 @@ title: Asynkron Durable Functions
 
 Asynkron Durable Functions brings the familiar Azure Durable Functions programming model to any .NET environment. You register orchestrators and activities with a runtime, back it with the storage provider that fits your deployment, and the framework coordinates reliable, resumable workflows for you.
 
-> **Project links**
-> - Source repository: [asynkron/Asynkron.DurableFunctions.Public](https://github.com/asynkron/Asynkron.DurableFunctions.Public)
+:::tip Project links
+- Source repository: [asynkron/Asynkron.DurableFunctions.Public](https://github.com/asynkron/Asynkron.DurableFunctions.Public)
+:::
 
 The runtime focuses on three goals:
 

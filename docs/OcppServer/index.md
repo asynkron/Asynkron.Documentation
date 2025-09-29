@@ -8,6 +8,10 @@ title: Asynkron.OcppServer
 
 Asynkron.OcppServer provides an OCPP 1.6 Central System engineered for massive scale so you can connect hundreds of thousands of EV chargers simultaneously. Built on Proto.Actor primitives, it delivers elastic routing, per-device isolation, and battle-tested observability hooks.
 
+:::tip Project links
+- Source repository: [asynkron/OCPPNet](https://github.com/asynkron/OCPPNet)
+:::
+
 ## Core highlights
 
 - **Massive concurrency** – Stable under fleets with 100k+ charger sessions thanks to actor-based session handling and quorum-aware clustering.

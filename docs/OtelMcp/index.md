@@ -8,6 +8,10 @@ title: Asynkron.OtelMcp
 
 Asynkron.OtelMcp combines an OpenTelemetry collector, time-series pipeline, and search interface with a Machine Control Protocol (MCP) surface so AI agents can reason about your telemetry. Build automated runbooks, anomaly investigations, and health dashboards that stay current as your distributed systems evolve.
 
+:::tip Project links
+- Source repository: [asynkron/OtelMCP](https://github.com/asynkron/OtelMCP)
+:::
+
 ## Key capabilities
 
 - **Unified telemetry ingest** – Ship traces, metrics, and logs from any OpenTelemetry SDK or collector and normalize them with zero-copy processing.
