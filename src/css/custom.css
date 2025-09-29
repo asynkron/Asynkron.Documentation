@@ -85,6 +85,7 @@ div .mermaid {
 }
 
 .docusaurus-mermaid-container .node.default .outer-path>path:first-of-type,
+.docusaurus-mermaid-container .node.default .label-container>path:first-of-type,
 .docusaurus-mermaid-container .node.default rect,
 .docusaurus-mermaid-container .node.default circle.label-container {
   fill: var(--asynkron-color-primary) !important;
@@ -96,6 +97,7 @@ div .mermaid {
 }
 
 .docusaurus-mermaid-container .node.default.message .outer-path>path:first-of-type,
+.docusaurus-mermaid-container .node.default.message .label-container>path:first-of-type,
 .docusaurus-mermaid-container .node.default.message rect,
 .docusaurus-mermaid-container .node.default.message circle.label-container {
   fill: #ffffff !important;
@@ -107,6 +109,7 @@ div .mermaid {
 }
 
 .docusaurus-mermaid-container .node.default.green .outer-path>path:first-of-type,
+.docusaurus-mermaid-container .node.default.green .label-container>path:first-of-type,
 .docusaurus-mermaid-container .node.default.green rect,
 .docusaurus-mermaid-container .node.default.green circle.label-container {
   fill: var(--asynkron-color-success) !important;
@@ -118,12 +121,14 @@ div .mermaid {
 }
 
 .docusaurus-mermaid-container .node.default.blue .outer-path>path:first-of-type,
+.docusaurus-mermaid-container .node.default.blue .label-container>path:first-of-type,
 .docusaurus-mermaid-container .node.default.blue rect,
 .docusaurus-mermaid-container .node.default.blue circle.label-container {
   fill: var(--ifm-color-primary-darkest) !important;
 }
 
 .docusaurus-mermaid-container .node.default.yellow .outer-path>path:first-of-type,
+.docusaurus-mermaid-container .node.default.yellow .label-container>path:first-of-type,
 .docusaurus-mermaid-container .node.default.yellow rect,
 .docusaurus-mermaid-container .node.default.yellow circle.label-container {
   fill: var(--asynkron-color-warning) !important;
