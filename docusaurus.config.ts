@@ -82,7 +82,7 @@ const config: Config = {
       title: 'Asynkron Docs',
       logo: {
         alt: 'Asynkron logo',
-        src: 'img/logo.svg',
+        src: 'img/asynkron-a.png',
       },
       items: [
         {
