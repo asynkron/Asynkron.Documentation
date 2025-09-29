@@ -25,3 +25,5 @@ yarn-error.log*
 .idea/encodings.xml
 .idea/indexLayout.xml
 .idea/vcs.xml
+.idea/projectSettingsUpdater.xml
+.idea/workspace.xml
