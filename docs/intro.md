@@ -27,6 +27,14 @@ Asynkron is a team of distributed-systems veterans who have spent the last decad
 
 [TraceLens](./TraceLens/overview.md) provides observability tooling tailored for distributed actor systems. Use the guides to ingest telemetry, visualize actor flows, and troubleshoot live systems with minimal overhead.
 
+## OtelMcp - AI-aware telemetry platform
+
+[Asynkron.OtelMcp](./OtelMcp/index.md) fuses an OpenTelemetry collector, search engine, and MCP interface so AI systems can interpret signals in real time. Spin it up to let copilots query telemetry, trigger automations, and surface insights across your distributed services.
+
+## OcppServer - Massive scale EV charging
+
+[Asynkron.OcppServer](./OcppServer/index.md) delivers an OCPP 1.6 Central System tuned for fleets with hundreds of thousands of concurrent chargers. Learn how to onboard devices, keep firmware current, and integrate billing and energy-market workflows.
+
 ## Jsome - DTO generation and validation
 
 [Asynkron.Jsome](./Jsome/index.md) is a .NET global tool that generates strongly typed clients and schema artefacts from Swagger/OpenAPI or JSON Schema sources. Follow the docs to install the CLI, configure templates, and automate DTOs, validators, Protocol Buffers, and more as part of your build pipeline.
