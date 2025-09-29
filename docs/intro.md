@@ -16,7 +16,7 @@ Asynkron is a team of distributed-systems veterans who have spent the last decad
 <table>
   <tr>
     <td width="140" valign="top">
-      <img src="/img/protoactor/protoactor-logo.png" alt="Proto.Actor logo" width="120" />
+      <img src="/img/protoactor-logo.png" alt="Proto.Actor logo" width="120" />
     </td>
     <td valign="top">
       <p><a href="./ProtoActor/index.md">Proto.Actor</a> is our flagship actor framework for .NET and Go. It gives you a lightweight, cloud-native runtime for building resilient, distributed systems with message-driven actors, virtual actors, and cluster support. Explore the getting started guide, core concepts, and advanced modules like persistence, clustering, and testing utilities.</p>
@@ -42,7 +42,7 @@ Asynkron is a team of distributed-systems veterans who have spent the last decad
 <table>
   <tr>
     <td width="140" valign="top">
-      <img src="/img/liveview-logo.svg" alt="LiveView logo" width="120" />
+      <img src="/img/fake-logo4.png" alt="LiveView placeholder logo" width="120" />
     </td>
     <td valign="top">
       <p><a href="./LiveView/index.md">Asynkron LiveView</a> brings real-time, reactive UI updates to your applications with a lightweight server-driven model inspired by LiveView frameworks. Learn how to set up the runtime, compose interactive components, and deploy to production.</p>
@@ -55,7 +55,7 @@ Asynkron is a team of distributed-systems veterans who have spent the last decad
 <table>
   <tr>
     <td width="140" valign="top">
-      <img src="/img/tracelens/component-diagram.png" alt="TraceLens component diagram" width="120" />
+      <img src="/img/tracelens-logo.png" alt="TraceLens logo" width="120" />
     </td>
     <td valign="top">
       <p><a href="./TraceLens/index.md">TraceLens</a> provides observability tooling tailored for distributed actor systems. Use the guides to ingest telemetry, visualize actor flows, and troubleshoot live systems with minimal overhead.</p>
@@ -68,7 +68,7 @@ Asynkron is a team of distributed-systems veterans who have spent the last decad
 <table>
   <tr>
     <td width="140" valign="top">
-      <img src="/img/otelmcp-logo.svg" alt="OtelMcp logo" width="120" />
+      <img src="/img/fake-logo1.png" alt="OtelMcp placeholder logo" width="120" />
     </td>
     <td valign="top">
       <p><a href="./OtelMcp/index.md">Asynkron.OtelMcp</a> fuses an OpenTelemetry collector, search engine, and MCP interface so AI systems can interpret signals in real time. Spin it up to let copilots query telemetry, trigger automations, and surface insights across your distributed services.</p>
@@ -81,7 +81,7 @@ Asynkron is a team of distributed-systems veterans who have spent the last decad
 <table>
   <tr>
     <td width="140" valign="top">
-      <img src="/img/ocppserver-logo.svg" alt="OcppServer logo" width="120" />
+      <img src="/img/ocpp-egg.png" alt="OcppServer charging egg" width="120" />
     </td>
     <td valign="top">
       <p><a href="./OcppServer/index.md">Asynkron.OcppServer</a> delivers an OCPP 1.6 Central System tuned for fleets with hundreds of thousands of concurrent chargers. Learn how to onboard devices, keep firmware current, and integrate billing and energy-market workflows.</p>
@@ -94,7 +94,7 @@ Asynkron is a team of distributed-systems veterans who have spent the last decad
 <table>
   <tr>
     <td width="140" valign="top">
-      <img src="/img/jsome-logo.svg" alt="Jsome logo" width="120" />
+      <img src="/img/fake-logo3.png" alt="Jsome placeholder logo" width="120" />
     </td>
     <td valign="top">
       <p><a href="./Jsome/index.md">Asynkron.Jsome</a> is a .NET global tool that generates strongly typed clients and schema artefacts from Swagger/OpenAPI or JSON Schema sources. Follow the docs to install the CLI, configure templates, and automate DTOs, validators, Protocol Buffers, and more as part of your build pipeline.</p>
