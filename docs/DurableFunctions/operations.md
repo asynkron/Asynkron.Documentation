@@ -74,7 +74,10 @@ flowchart LR
     store -- ready instances --> runtimeC
     classDef host fill:#f3faff,stroke:#7bb3e8,color:#0b3d70;
     class runtimeA,leaseA,runtimeB,leaseB,runtimeC,leaseC host;
-    Note over Host A,Host C: Each host has a distinct identity for leases and health checks
+    note[Each host has a distinct identity for leases and health checks]
+    note -.-> runtimeA
+    note -.-> runtimeC
+    style note fill:#fff8d7,stroke:#d2a300,color:#503800,font-size:12px;
 ```
 
 ## Health monitoring

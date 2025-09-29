@@ -87,3 +87,7 @@ div .mermaid {
 div .mermaid svg {
   height: 100% !important;
 }
+
+:not(pre) > code {
+  padding: 2px 6px;
+}
