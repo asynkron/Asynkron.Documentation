@@ -1,25 +1,16 @@
 ---
 sidebar_position: 1
+sidebar_label: Overview
 ---
 
-# Welcome to the Asynkron docs
+# Asynkron Durable Functions
 
-Asynkron builds actor-based tooling for resilient, cloud-native .NET applications. This documentation site collects the guides,
-reference material, and operational advice for the different projects in the ecosystem.
+Asynkron Durable Functions brings the familiar Azure Durable Functions programming model to any .NET environment. You register orchestrators and activities with a runtime, back it with the storage provider that fits your deployment, and the framework coordinates reliable, resumable workflows for you.
 
-## Projects you will find here
+The runtime focuses on three goals:
 
-- **Proto.Actor** – the lightweight virtual actor framework at the heart of the platform.
-- **Proto.Cluster** – distributed clustering, messaging, and service discovery built on top of Proto.Actor.
-- **Proto.Persistence** – persistence providers and patterns for durable actors.
-- **Ecosystem tooling** – diagnostics, templates, and integrations maintained by the Asynkron team.
+- **Productive orchestration model** – deterministic orchestrators that call activities, wait on events, schedule timers, and compose sub-orchestrations using plain C#.
+- **Portable hosting** – run inside minimal console apps, ASP.NET Core services, containers, or anywhere a .NET runtime is available.
+- **Operational confidence** – multi-host safety, management APIs, and first-class telemetry make the workflows observable and easy to run in production.
 
-## Navigating the documentation
-
-Use the sidebar to drill into topic-specific guides. Each section blends conceptual explanations with runnable samples so you can
-apply the patterns in your services quickly.
-
-## Contributing improvements
-
-Spotted an issue or want to add missing guidance? Every page links back to its Markdown source on GitHub. Open a pull request with
-your proposed changes—the documentation site automatically rebuilds once contributions are merged.
+Use the rest of the documentation to learn how to build, host, and operate orchestrations with confidence.
