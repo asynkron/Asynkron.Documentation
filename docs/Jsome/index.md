@@ -9,6 +9,10 @@ Asynkron.Jsome is a .NET 8 global tool that turns Swagger 2.0/OpenAPI documents 
 - Customise output with YAML/JSON configuration files, template overrides, and helper functions exposed by the CLI.
 - Validate schema and configuration mismatches up front with detailed Spectre.Console diagnostics driven by the included test harness.
 
+## Project links
+
+- Source repository: [asynkron/Asynkron.Jsome](https://github.com/asynkron/Asynkron.Jsome)
+
 ## Install the CLI
 
 Install or update the NuGet global tool (`dotnet-jsome`) to put the `jsome` executable under `~/.dotnet/tools`:

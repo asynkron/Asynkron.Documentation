@@ -8,6 +8,10 @@ sidebar_label: Overview
 
 Asynkron.LiveView is a lightweight web experience that turns a directory of Markdown logs into a continuously updating "control center" for CLI-based AI agents. It watches a folder, orders the Markdown files chronologically, and renders the combined content with live updates in the browser—complete with Mermaid diagrams and syntax-highlighted code. The same runtime can also expose a Model Context Protocol (MCP) endpoint so assistants can create and edit log files programmatically.
 
+## Project links
+
+- Source repository: [asynkron/Asynkron.LiveView](https://github.com/asynkron/Asynkron.LiveView)
+
 ## Why build a live log viewer?
 
 Command-line agents such as Codex CLI or CoPilot CLI typically emit architectural notes, reasoning, and progress reports into Markdown files. Reading those files in the terminal quickly becomes unwieldy. LiveView keeps the full conversation visible at `http://localhost:8080`, so you can:
