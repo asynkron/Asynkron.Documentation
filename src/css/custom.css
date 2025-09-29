@@ -91,6 +91,14 @@ div .mermaid {
   fill: var(--asynkron-color-primary) !important;
 }
 
+.docusaurus-mermaid-container .node.default .outer-path path,
+.docusaurus-mermaid-container .node.default .label-container path,
+.docusaurus-mermaid-container .node.default rect,
+.docusaurus-mermaid-container .node.default circle.label-container {
+  stroke: none !important;
+  stroke-width: 0 !important;
+}
+
 .docusaurus-mermaid-container .node.default .nodeLabel,
 .docusaurus-mermaid-container .node.default .nodeLabel p {
   color: #ffffff !important;
