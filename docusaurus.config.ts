@@ -12,6 +12,10 @@ const mermaidThemeCss = readFileSync(
   'utf8',
 );
 
+const ALGOLIA_APP_ID = process.env.ALGOLIA_APP_ID ?? 'BH4D9OD16A';
+const ALGOLIA_API_KEY = process.env.ALGOLIA_API_KEY ?? 'e7ef9006dc1d0b2ecdd86e9b3e1ae568';
+const ALGOLIA_INDEX_NAME = process.env.ALGOLIA_INDEX_NAME ?? 'asynkronit_protoactor';
+
 const config: Config = {
   title: 'Asynkron Documentation',
   tagline: 'Guides and references for the Asynkron ecosystem.',
@@ -81,6 +85,13 @@ const config: Config = {
   },
 
   themeConfig: {
+    algolia: {
+      appId: ALGOLIA_APP_ID,
+      apiKey: ALGOLIA_API_KEY,
+      indexName: ALGOLIA_INDEX_NAME,
+      contextualSearch: true,
+      searchPagePath: 'search',
+    },
     mermaid: {
       theme: {
         light: 'default',
