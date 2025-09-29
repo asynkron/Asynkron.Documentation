@@ -64,7 +64,7 @@
 .docusaurus-mermaid-container .mermaid,
 div .mermaid {
   display: block;
-  background-color: var(--asynkron-color-surface) !important;
+  background-color: #323f49 !important;
   border-radius: 4px;
   padding: 24px;
   color: #ffffff !important;
