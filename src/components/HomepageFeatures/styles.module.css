@@ -5,7 +5,18 @@
   width: 100%;
 }
 
-.featureSvg {
-  height: 200px;
-  width: 200px;
+.feature {
+  margin-bottom: 2rem;
+}
+
+.featureImage {
+  width: 100%;
+  max-width: 220px;
+  height: auto;
+}
+
+.readMore {
+  display: inline-block;
+  margin-top: 0.5rem;
+  font-weight: 600;
 }
