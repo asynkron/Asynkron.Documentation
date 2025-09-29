@@ -79,6 +79,35 @@ runtime.RegisterJsonOrchestrator("ParallelProcessingOrchestrator", async (contex
 });
 ```
 
+```mermaid
+sequenceDiagram
+    participant Caller
+    participant Runtime as Durable Runtime
+    participant Orchestrator as ParallelProcessingOrchestrator
+    participant A1 as ProcessData("data1")
+    participant A2 as ProcessData("data2")
+    participant A3 as TransformData("data3")
+
+    Caller->>Runtime: Start instance
+    Runtime->>Orchestrator: Replay history and resume
+    Orchestrator->>Runtime: Schedule all three activities
+    Runtime->>A1: Dispatch work item
+    Runtime->>A2: Dispatch work item
+    Runtime->>A3: Dispatch work item
+    par Activity fan-out
+        A1-->>Runtime: Return result1
+        Runtime->>Orchestrator: Deliver result1 on replay
+    and
+        A2-->>Runtime: Return result2
+        Runtime->>Orchestrator: Deliver result2 on replay
+    and
+        A3-->>Runtime: Return result3
+        Runtime->>Orchestrator: Deliver result3 on replay
+    end
+    Orchestrator-->>Runtime: Emit combined payload
+    Runtime-->>Caller: Mark orchestration complete
+```
+
 Because orchestrators are replayed deterministically, avoid non-deterministic APIs (like `DateTime.UtcNow`) in the body. Log progress with `context.CreateReplaySafeLogger()` if you need structured logging.
 
 ## Human-in-the-loop workflows
@@ -104,6 +133,31 @@ runtime.RegisterOrchestrator<ApprovalRequest, string>("HumanApprovalOrchestrator
 });
 ```
 
+```mermaid
+sequenceDiagram
+    participant Client
+    participant Runtime as Durable Runtime
+    participant Orchestrator as HumanApprovalOrchestrator
+    participant Email as SendApprovalEmail Activity
+    participant External as Approver / External System
+
+    Client->>Runtime: Start approval orchestration
+    Runtime->>Orchestrator: Resume deterministic function
+    Orchestrator->>Runtime: CallAsync "SendApprovalEmail"
+    Runtime->>Email: Execute email send
+    Email-->>Runtime: Acknowledge dispatch
+    Runtime-->>Orchestrator: Deliver activity completion
+    Orchestrator->>Runtime: WaitForEvent "ApprovalDecision"
+    Runtime->>External: Expose wait state via management API
+    External-->>Runtime: Raise ApprovalDecision payload
+    Runtime->>Orchestrator: Replay history and supply decision
+    Orchestrator->>Runtime: CallAsync processing activity (approved or rejected)
+    Runtime->>External: (via activity) Perform side effects
+    Runtime-->>Orchestrator: Deliver outcome
+    Orchestrator-->>Runtime: Return approval summary
+    Runtime-->>Client: Surface final status
+```
+
 Raise events with `runtime.RaiseEventAsync(instanceId, "ApprovalDecision", payload)` or via the HTTP management API once the person (or system) has responded.
 
 ## Durable timers
@@ -121,6 +175,24 @@ public async Task<string> ShortSleepOrchestrator([OrchestrationTrigger] IOrchest
 }
 ```
 
+```mermaid
+sequenceDiagram
+    participant Client
+    participant Runtime as Durable Runtime
+    participant Orchestrator as ShortSleepOrchestrator
+    participant Storage
+
+    Client->>Runtime: Trigger ShortSleepOrchestrator
+    Runtime->>Orchestrator: Resume and evaluate next step
+    Orchestrator->>Runtime: Request CreateTimer(dueTime)
+    Runtime->>Storage: Persist timer metadata
+    Runtime-->>Orchestrator: Suspend until due
+    Storage-->>Runtime: Signal timer due
+    Runtime->>Orchestrator: Replay history to deliver timer fire
+    Orchestrator-->>Runtime: Return completion message
+    Runtime-->>Client: Report orchestration complete
+```
+
 Timers are persisted alongside orchestration state. If the process crashes, the runtime simply reschedules execution at the correct moment.
 
 ## Sub-orchestrations
@@ -132,6 +204,24 @@ var payment = await context.CallSubOrchestratorAsync<PaymentReceipt>("ProcessPay
 var shipping = await context.CallSubOrchestratorAsync<ShippingLabel>("ArrangeShipping", payment);
 
 return new OrderResult(payment, shipping);
+```
+
+```mermaid
+sequenceDiagram
+    participant Parent as OrderOrchestrator
+    participant Runtime as Durable Runtime
+    participant Payment as ProcessPayment Orchestrator
+    participant Shipping as ArrangeShipping Orchestrator
+
+    Parent->>Runtime: CallSubOrchestrator ProcessPayment(orderId)
+    Runtime->>Payment: Start child orchestration
+    Payment-->>Runtime: Emit PaymentReceipt
+    Runtime-->>Parent: Deliver PaymentReceipt on replay
+    Parent->>Runtime: CallSubOrchestrator ArrangeShipping(payment)
+    Runtime->>Shipping: Start child orchestration
+    Shipping-->>Runtime: Emit ShippingLabel
+    Runtime-->>Parent: Deliver ShippingLabel on replay
+    Parent-->>Runtime: Return OrderResult(payment, shipping)
 ```
 
 Sub-orchestrators inherit all the reliability guarantees of the parent workflow while keeping the surface area of each orchestrator small.
@@ -156,6 +246,23 @@ runtime.RegisterOrchestrator<GreetingRequest, GreetingResult>("CreateGreeting",
             CreatedAt = context.CurrentUtcDateTime // prefer the deterministic orchestration clock
         };
     });
+```
+
+```mermaid
+sequenceDiagram
+    participant Client
+    participant Runtime as Durable Runtime
+    participant Orchestrator as CreateGreeting
+    participant Activity as FormatGreeting Activity
+
+    Client->>Runtime: Trigger CreateGreeting with GreetingRequest
+    Runtime->>Orchestrator: Replay typed context state
+    Orchestrator->>Runtime: CallAsync "FormatGreeting" (request.Name)
+    Runtime->>Activity: Execute formatter activity
+    Activity-->>Runtime: Return greeting message
+    Runtime-->>Orchestrator: Supply deterministic result
+    Orchestrator-->>Runtime: Return GreetingResult (message, language, timestamp)
+    Runtime-->>Client: Provide typed completion payload
 ```
 
 Pair this with `runtime.TriggerAsyncObject("instance", "CreateGreeting", new GreetingRequest { ... })` and you get compile-time guarantees across orchestrator boundaries.
