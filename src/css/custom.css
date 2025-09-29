@@ -6,27 +6,36 @@
 
 /* You can override the default Infima variables here. */
 :root {
-  --ifm-color-primary: #2e8555;
-  --ifm-color-primary-dark: #29784c;
-  --ifm-color-primary-darker: #277148;
-  --ifm-color-primary-darkest: #205d3b;
-  --ifm-color-primary-light: #33925d;
-  --ifm-color-primary-lighter: #359962;
-  --ifm-color-primary-lightest: #3cad6e;
+  --asynkron-color-primary: #00adf8;
+  --asynkron-color-danger: #c34423;
+  --asynkron-color-warning: #ffbf34;
+  --asynkron-color-info: #727f99;
+  --asynkron-color-success: #00cc66;
+  --asynkron-color-quote: #fff2cc;
+  --asynkron-color-surface: #323f49;
+  --asynkron-color-border: #323f49;
+  --ifm-color-primary: #00adf8;
+  --ifm-color-primary-dark: #009bdc;
+  --ifm-color-primary-darker: #008cc7;
+  --ifm-color-primary-darkest: #006a94;
+  --ifm-color-primary-light: #1fc0ff;
+  --ifm-color-primary-lighter: #4fd0ff;
+  --ifm-color-primary-lightest: #7edcff;
   --ifm-code-font-size: 95%;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
 [data-theme='dark'] {
-  --ifm-color-primary: #25c2a0;
-  --ifm-color-primary-dark: #21af90;
-  --ifm-color-primary-darker: #1fa588;
-  --ifm-color-primary-darkest: #1a8870;
-  --ifm-color-primary-light: #29d5b0;
-  --ifm-color-primary-lighter: #32d8b4;
-  --ifm-color-primary-lightest: #4fddbf;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+  --ifm-color-primary: #4fd0ff;
+  --ifm-color-primary-dark: #2fc4ff;
+  --ifm-color-primary-darker: #1cb8ff;
+  --ifm-color-primary-darkest: #009bdc;
+  --ifm-color-primary-light: #7edcff;
+  --ifm-color-primary-lighter: #a5e7ff;
+  --ifm-color-primary-lightest: #d2f3ff;
+  --asynkron-color-info: #9aa6bd;
+  --docusaurus-highlighted-code-line-bg: rgba(255, 255, 255, 0.08);
 }
 
 .navbar-logo-link {
@@ -55,7 +64,7 @@
 .docusaurus-mermaid-container .mermaid,
 div .mermaid {
   display: block;
-  background-color: #323f49 !important;
+  background-color: var(--asynkron-color-surface) !important;
   border-radius: 4px;
   padding: 24px;
   color: #ffffff !important;

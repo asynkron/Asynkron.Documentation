@@ -4,15 +4,28 @@ import type * as Preset from '@docusaurus/preset-classic';
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
+const brandColors = {
+  primary: '#00adf8',
+  danger: '#c34423',
+  warning: '#ffbf34',
+  info: '#727f99',
+  quote: '#fff2cc',
+  surface: '#323f49',
+  success: '#00cc66',
+  noteText: '#373635',
+  mutedText: '#404040',
+  lightBorder: '#e0e0e0',
+} as const;
+
 const mermaidThemeCss = `
   g .comment .label-container {
-    fill: #fff2cc;
-    stroke: #d6b656;
+    fill: var(--asynkron-color-quote);
+    stroke: var(--asynkron-color-warning);
     stroke-width: 4px;
   }
 
   g .comment .label {
-    color: #404040;
+    color: ${brandColors.mutedText};
     font-family: 'trebuchet ms', verdana, arial !important;
     font-size: 15px;
     font-weight: bold;
@@ -20,53 +33,48 @@ const mermaidThemeCss = `
 
   g .message .label-container {
     fill: #ffffff;
-    stroke: #e0e0e0;
+    stroke: ${brandColors.lightBorder};
     stroke-width: 4px;
   }
 
   g .message .label {
-    color: #404040;
+    color: ${brandColors.mutedText};
   }
 
   g .gray .label-container {
-    fill: #727f99;
-    stroke: #323f49;
+    fill: var(--asynkron-color-info);
+    stroke: var(--asynkron-color-surface);
     stroke-width: 3px;
   }
 
   g .red .label-container {
-    fill: #c34423;
-    stroke: #323f49;
+    fill: var(--asynkron-color-danger);
+    stroke: var(--asynkron-color-surface);
     stroke-width: 3px;
   }
 
   g .yellow .label-container {
-    fill: #ffbf34;
-    stroke: #323f49;
+    fill: var(--asynkron-color-warning);
+    stroke: var(--asynkron-color-surface);
     stroke-width: 3px;
   }
 
   g .green .label-container {
-    fill: #00cc66;
-    stroke: #323f49;
+    fill: var(--asynkron-color-success);
+    stroke: var(--asynkron-color-surface);
     stroke-width: 3px;
   }
 
-  g .blue .label-container {
-    fill: #007cb4;
-    stroke: #323f49;
-    stroke-width: 3px;
-  }
-
+  g .blue .label-container,
   g .light-blue .label-container {
-    fill: #00adf8;
-    stroke: #323f49;
+    fill: var(--asynkron-color-primary);
+    stroke: var(--asynkron-color-surface);
     stroke-width: 3px;
   }
 
   g .label-container {
     stroke: none;
-    fill: #007cb4;
+    fill: var(--asynkron-color-primary);
   }
 
   g .label {
@@ -80,7 +88,7 @@ const mermaidThemeCss = `
   g rect.actor,
   g .actor > rect {
     stroke: none;
-    fill: #007cb4;
+    fill: var(--asynkron-color-primary);
   }
 
   g text.actor {
@@ -97,22 +105,22 @@ const mermaidThemeCss = `
 
   g .edgePath .path {
     stroke-width: 4px;
-    stroke: #00ff00;
+    stroke: var(--asynkron-color-primary);
   }
 
   g .edgePath marker {
-    stroke: #00ff00;
-    fill: #00ff00;
+    stroke: var(--asynkron-color-primary);
+    fill: var(--asynkron-color-primary);
   }
 
   g line {
     stroke-width: 2px !important;
-    stroke: #a0a0a0 !important;
+    stroke: var(--asynkron-color-info) !important;
   }
 
   g line.loopLine {
     stroke-width: 2px !important;
-    stroke: #a0a0a0 !important;
+    stroke: var(--asynkron-color-info) !important;
   }
 
   g [id^='flowchart-empty'],
@@ -124,7 +132,7 @@ const mermaidThemeCss = `
   }
 
   g .cluster rect {
-    fill: #00b3f6;
+    fill: var(--asynkron-color-primary);
     stroke: none;
   }
 
@@ -164,37 +172,36 @@ const mermaidThemeCss = `
 
   .messageLine0,
   g .messageLine0 {
-
     marker-end: url(#arrowhead) !important;
     stroke-width: 4px !important;
-    stroke: #00ff00 !important;
+    stroke: var(--asynkron-color-primary) !important;
   }
 
   .messageLine1,
   g .messageLine1 {
     stroke-width: 1.5px !important;
     stroke-dasharray: 2 2 !important;
-    stroke: #00ff00 !important;
+    stroke: var(--asynkron-color-primary) !important;
   }
 
   #arrowhead path,
   g [id^='arrowhead'] path {
-    stroke: #00ff00 !important;
-    fill: #00ff00 !important;
+    stroke: var(--asynkron-color-primary) !important;
+    fill: var(--asynkron-color-primary) !important;
   }
 
   g .arrowheadPath {
-    fill: #00ff00;
+    fill: var(--asynkron-color-primary);
     stroke: none;
   }
 
   g .note {
-    fill: #ffbb00;
+    fill: var(--asynkron-color-warning);
     stroke: none;
   }
 
   g .note > tspan {
-    fill: #373635;
+    fill: ${brandColors.noteText};
   }
 
   g .selected .label-container {
@@ -204,14 +211,14 @@ const mermaidThemeCss = `
 
   g .marker {
     stroke-width: 4px !important;
-    stroke: #00ff00 !important;
-    fill: #00ff00 !important;
+    stroke: var(--asynkron-color-primary) !important;
+    fill: var(--asynkron-color-primary) !important;
   }
 
   .root .nodes .node circle,
   .root .nodes .node rect {
     stroke: none;
-    fill: #007cb4;
+    fill: var(--asynkron-color-primary);
   }
 
   .root .nodes .node .nodeLabel {
@@ -220,15 +227,15 @@ const mermaidThemeCss = `
 
   .root .flowchart-link {
     stroke-width: 4px !important;
-    stroke: #00ff00 !important;
+    stroke: var(--asynkron-color-primary) !important;
   }
 
   .actor-line {
-    stroke: grey !important;
+    stroke: var(--asynkron-color-info) !important;
   }
 
   .activation0 {
-    fill: #ffc107 !important;
+    fill: var(--asynkron-color-warning) !important;
     stroke: #000000 !important;
   }
 `;
@@ -316,31 +323,31 @@ const config: Config = {
         themeCSS: mermaidThemeCss,
         themeVariables: {
           fontFamily: "'trebuchet ms', verdana, arial",
-          primaryColor: '#323f49',
+          primaryColor: brandColors.primary,
           primaryTextColor: '#ffffff',
-          primaryBorderColor: '#007cb4',
-          primaryBorderColorDark: '#007cb4',
-          secondaryColor: '#007cb4',
+          primaryBorderColor: brandColors.primary,
+          primaryBorderColorDark: brandColors.primary,
+          secondaryColor: brandColors.info,
           secondaryTextColor: '#ffffff',
-          actorBkg: '#007cb4',
+          actorBkg: brandColors.primary,
           actorTextColor: '#ffffff',
-          actorLineColor: '#007cb4',
+          actorLineColor: brandColors.primary,
           activationBorderColor: '#000000',
-          activationBkgColor: '#ffc107',
-          lineColor: '#00ff00',
+          activationBkgColor: brandColors.warning,
+          lineColor: brandColors.primary,
           signalTextColor: '#ffffff',
-          signalColor: '#00ff00',
-          background: '#323f49',
-          mainBkg: '#323f49',
-          nodeBorder: '#007cb4',
-          clusterBkg: '#00b3f6',
-          noteBkgColor: '#ffbb00',
-          noteTextColor: '#373635',
-          noteBorderColor: '#ffbb00',
+          signalColor: brandColors.primary,
+          background: brandColors.surface,
+          mainBkg: brandColors.surface,
+          nodeBorder: brandColors.primary,
+          clusterBkg: brandColors.primary,
+          noteBkgColor: brandColors.warning,
+          noteTextColor: brandColors.noteText,
+          noteBorderColor: brandColors.warning,
           labelBoxBkgColor: '#ffffff',
-          labelBoxBorderColor: '#00ff00',
+          labelBoxBorderColor: brandColors.primary,
           labelTextColor: '#000000',
-          sequenceNumberColor: '#00ff00',
+          sequenceNumberColor: brandColors.primary,
         },
       },
     },
