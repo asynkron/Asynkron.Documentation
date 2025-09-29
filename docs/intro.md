@@ -3,14 +3,12 @@ sidebar_position: 1
 sidebar_label: Overview
 ---
 
-# Asynkron Durable Functions
+# Asynkron product documentation
 
-Asynkron Durable Functions brings the familiar Azure Durable Functions programming model to any .NET environment. You register orchestrators and activities with a runtime, back it with the storage provider that fits your deployment, and the framework coordinates reliable, resumable workflows for you.
+This site collects documentation for the products built and maintained by Asynkron. Each product has its own space with guides, reference material, and runnable examples.
 
-The runtime focuses on three goals:
+## Durable Functions
 
-- **Productive orchestration model** – deterministic orchestrators that call activities, wait on events, schedule timers, and compose sub-orchestrations using plain C#.
-- **Portable hosting** – run inside minimal console apps, ASP.NET Core services, containers, or anywhere a .NET runtime is available.
-- **Operational confidence** – multi-host safety, management APIs, and first-class telemetry make the workflows observable and easy to run in production.
+[Asynkron Durable Functions](./DurableFunctions/overview.md) lets you build long-running, reliable workflows in any .NET application using the durable orchestrator model. Start with the quick start, then dive into hosting guidance, orchestration patterns, and the operations handbook to ship resilient automation in production.
 
-Use the rest of the documentation to learn how to build, host, and operate orchestrations with confidence.
+More product families will be added over time. Check back regularly for new guides and updates.
