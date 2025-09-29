@@ -1,5 +1,118 @@
 # Mermaid Diagram Examples
 
+## Shared styling
+
+The documentation site now keeps the Mermaid theme in `scripts/mermaid-theme.css` so it can be reused from other projects (like the public website). That stylesheet carries our custom colours and the "magic" selectors that hide layout helpers. When you need a hidden spacer node or edge, name it with an `empty` or `free` prefix (for example `empty1` or `free-route`). The generated Mermaid id/class will include that word, which matches selectors like `[id^='flowchart-empty']`, `LS-empty`, and `LE-free`; the node stays invisible while still influencing the layout. Edges connected to those helpers get ids such as `L_empty1_*`, and the theme hides them too so arrows into spacer nodes never show up.
+
+## Placeholder examples from other docs
+
+### Cluster identity activation
+
+Copied from `docs/ProtoActor/cluster.md`, this diagram uses placeholder nodes (`empty1`, `empty2`, `empty3`, `empty4`) to keep the three member columns aligned while the grain is still pending activation.
+
+```mermaid
+graph LR;
+    empty1(XXXXXXXXXXXXXXXXXXX)
+    empty2(XXXXXXXXXXXXXXXXXXX)
+    empty3(XXXXXXXXXXXXXXXXXXX)
+    ClusterIdentity(ClusterIdentity <br/> user/123)
+    Client[Client]
+    class Pid green
+    class ClusterIdentity green
+    class Client yellow
+    class Grain blue
+
+    subgraph Member1[Member1 - your-app.com:5001]
+        empty1
+    end
+    subgraph Member2[Member2 - your-app.com:5002]
+        empty2
+    end
+    subgraph Member3[Member3 - your-app.com:5003]
+        empty3
+    end
+
+
+Client --> ClusterIdentity
+ClusterIdentity --> empty4
+empty4 --> empty1
+empty4 --> empty2
+empty4 --> empty3
+
+```
+
+### Cluster identity after activation
+
+Also from `docs/ProtoActor/cluster.md`, this version shows the PID and grain once activation has happened. Hidden placeholders keep the column layout even though the grain only lives on one member.
+
+```mermaid
+graph LR;
+    empty1(XXXXXXXXXXXXXXXXXXX)
+    empty2(XXXXXXXXXXXXXXXXXXX)
+    empty3(XXXXXXXXXXXXXXXXXXX)
+    ClusterIdentity(ClusterIdentity <br/> user/123)
+    Pid(Pid <br/> your-app.com:5002/partition-activator/123$31183)
+    Grain{{Some Grain}}
+    Client[Client]
+    class Pid green
+    class ClusterIdentity green
+    class Client yellow
+    class Grain blue
+
+    subgraph Member1[Member1 - your-app.com:5001]
+        empty1
+    end
+    subgraph Member2[Member2 - your-app.com:5002]
+        Grain
+    end
+    subgraph Member3[Member3 - your-app.com:5003]
+        empty3
+    end
+
+
+Client --> ClusterIdentity
+ClusterIdentity --> Pid
+Pid --> Grain
+Pid --> empty1
+Pid --> empty3
+
+```
+
+### Gossip fan-out spacing helpers
+
+Taken from `docs/ProtoActor/cluster/gossip.md`, placeholder nodes (`empty`, `empty2`) help route arrows cleanly between members without visible artefacts.
+
+```mermaid
+graph LR
+    Topology(Topology)
+    class Topology message
+
+    ClusterProvider
+    class ClusterProvider red
+
+    Gossip2(Gossip)
+    class Gossip2 message
+
+    Gossip4(Gossip)
+    class Gossip4 message
+
+    Gossip5(Gossip)
+    class Gossip5 message
+
+    ClusterProvider --- Topology
+    Topology --> Member1
+    Member1 --- Gossip2 --> Member2
+    Member1 --> empty --> Member3
+    Member1 --- Gossip4 --> Member4
+    Member1 --- Gossip5 --> Member5
+    Member1 --> empty2 --> Member6
+
+
+
+```
+
+## Additional Examples
+
 ```mermaid
 sequenceDiagram
     participant Alice
@@ -13,8 +126,6 @@ sequenceDiagram
     Jonathan->>Bob: How about you?
     Bob-->>Jonathan: splendid!
 ```
-
-## Additional Examples
 
 ```mermaid
   graph TD;
