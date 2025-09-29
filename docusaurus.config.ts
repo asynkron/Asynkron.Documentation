@@ -1,6 +1,7 @@
 import { themes as prismThemes } from 'prism-react-renderer';
 import type { Config } from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
+import protoPrismTheme from './prismProtoTheme';
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
@@ -330,8 +331,8 @@ const config: Config = {
           lineColor: '#00ff00',
           signalTextColor: '#ffffff',
           signalColor: '#00ff00',
-          background: '#323f49',
-          mainBkg: '#323f49',
+          background: '#232c34',
+          mainBkg: '#232c34',
           nodeBorder: '#007cb4',
           clusterBkg: '#00b3f6',
           noteBkgColor: '#ffbb00',
@@ -425,7 +426,7 @@ const config: Config = {
     },
     prism: {
       theme: prismThemes.github,
-      darkTheme: prismThemes.dracula,
+      darkTheme: protoPrismTheme,
       additionalLanguages: ['csharp', 'bash', 'shell-session', 'markup-templating', 'handlebars'],
     },
   } satisfies Preset.ThemeConfig,
