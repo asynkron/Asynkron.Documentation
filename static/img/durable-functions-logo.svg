@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-labelledby="durableTitle durableDesc">
+  <title id="durableTitle">Durable Functions mark</title>
+  <desc id="durableDesc">Rounded square with interlocking arrows around the letters DF.</desc>
+  <defs>
+    <linearGradient id="durableGradient" x1="18" y1="18" x2="102" y2="102" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0f62fe" />
+      <stop offset="1" stop-color="#3ddbd9" />
+    </linearGradient>
+  </defs>
+  <rect x="6" y="6" width="108" height="108" rx="20" fill="#071633" />
+  <path d="M36 60c0-13.3 10.7-24 24-24h4l-6-10 10-6 16 28-16 28-10-6 6-10h-4c-6.6 0-12 5.4-12 12 0 6.5 5.4 12 12 12h10v12H60c-13.3 0-24-10.7-24-24Z" fill="url(#durableGradient)" />
+  <text x="60" y="70" text-anchor="middle" font-size="34" font-family="'Segoe UI', Arial, sans-serif" font-weight="700" fill="#f4f4f4">DF</text>
+</svg>

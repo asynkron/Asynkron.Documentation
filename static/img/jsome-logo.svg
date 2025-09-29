@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-labelledby="jsomeTitle jsomeDesc">
+  <title id="jsomeTitle">Jsome logo</title>
+  <desc id="jsomeDesc">Stylised brackets framing the letters JS.</desc>
+  <defs>
+    <linearGradient id="jsomeGradient" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffb100" />
+      <stop offset="1" stop-color="#ff5c35" />
+    </linearGradient>
+  </defs>
+  <rect x="6" y="6" width="108" height="108" rx="20" fill="#2d1300" />
+  <path d="M36 36h10v12H48v-8h12v40H48v-8h-2v12H36c-6.6 0-12-5.4-12-12V48c0-6.6 5.4-12 12-12Zm54 0c6.6 0 12 5.4 12 12v32c0 6.6-5.4 12-12 12H80V88h-2v8H66V56h12v-8h2V36h10Z" fill="url(#jsomeGradient)" opacity="0.7" />
+  <text x="60" y="70" text-anchor="middle" font-size="36" font-family="'Segoe UI', Arial, sans-serif" font-weight="700" fill="#fff9f0">JS</text>
+</svg>

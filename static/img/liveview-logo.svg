@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-labelledby="liveViewTitle liveViewDesc">
+  <title id="liveViewTitle">LiveView symbol</title>
+  <desc id="liveViewDesc">Circular gradient with a stylised waveform around the letters LV.</desc>
+  <defs>
+    <radialGradient id="liveViewGradient" cx="50%" cy="50%" r="70%">
+      <stop offset="0" stop-color="#ff6f61" />
+      <stop offset="1" stop-color="#8a3ffc" />
+    </radialGradient>
+  </defs>
+  <rect x="6" y="6" width="108" height="108" rx="30" fill="#130c28" />
+  <circle cx="60" cy="60" r="40" fill="url(#liveViewGradient)" />
+  <path d="M28 60h12l6-12 8 24 6-16 6 12h26" fill="none" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" opacity="0.9" />
+  <text x="60" y="73" text-anchor="middle" font-size="30" font-family="'Segoe UI', Arial, sans-serif" font-weight="700" fill="#ffffff">LV</text>
+</svg>

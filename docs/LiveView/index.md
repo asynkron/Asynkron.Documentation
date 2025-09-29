@@ -1,7 +1,7 @@
 ---
 title: Asynkron.LiveView
 sidebar_position: 1
-sidebar_label: Overview
+sidebar_label: Asynkron.LiveView
 ---
 
 # Asynkron.LiveView
