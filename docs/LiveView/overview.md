@@ -33,19 +33,21 @@ Because the server and watcher run in one process, LiveView works equally well f
 
 ## Quick start (recommended path)
 
-The fastest way to launch LiveView is the convenience script that provisions a virtual environment and starts the unified server:
+The fastest way to launch LiveView is the convenience script that provisions dependencies (without touching system packages) and starts the unified server:
 
 ```bash
-./run_unified.sh
+./run_all.sh
 ```
 
 This one command will:
 
 1. Detect a suitable Python (3.7+) interpreter.
-2. Create or reuse a virtual environment.
-3. Install dependencies from `requirements.txt`.
+2. Install the required dependencies if they are missing.
+3. Ensure the watched Markdown directory exists.
 4. Start the unified server on port 8080, watching the `markdown/` folder.
 5. Print the URL you can open in your browser.
+
+Set `ENABLE_STDIO=true ./run_all.sh` when you also want to expose the MCP stdio transport in addition to the HTTP endpoint.
 
 Visit `http://localhost:8080/` and you will see existing logs; add Markdown files to the watched directory to watch LiveView update instantly.
 
@@ -55,16 +57,16 @@ Prefer to control each step yourself? You can run the server manually:
 
 ```bash
 pip install -r requirements.txt
-python unified_server.py --dir markdown --port 8080
+python unified_server.py --dir markdown --port 8080  # add --mcp-stdio to expose the stdio transport alongside HTTP
 ```
 
-Or launch the original server without MCP support:
+Or disable MCP when you only need the LiveView HTTP server:
 
 ```bash
-python server.py --dir markdown --port 8080
+python unified_server.py --dir markdown --port 8080 --disable-mcp
 ```
 
-Set `PORT=3000` or `MARKDOWN_DIR=docs` (or export `LIVEVIEW_PATH`) before starting the script to change the listening port or default directory.
+Set `PORT=3000` or `MARKDOWN_DIR=docs` (or export `LIVEVIEW_PATH`) before running `./run_all.sh` to change the listening port or default directory, or pass `--port` / `--dir` flags when using the Python entry points directly.
 
 ## Pointing LiveView at the right directory
 
@@ -94,7 +96,7 @@ Asynkron.LiveView also speaks the Model Context Protocol so AI assistants can ma
 
 ### Unified MCP endpoint (HTTP JSON-RPC)
 
-1. Start the unified server (`./run_unified.sh` or `python unified_server.py`).
+1. Start the unified server (`./run_all.sh` or `python unified_server.py`).
 2. Configure your assistant to send MCP JSON-RPC requests to `POST http://localhost:8080/mcp`.
 3. Use the built-in tools to create, list, read, update, or delete Markdown files:
    - `create_markdown_file`
@@ -109,8 +111,6 @@ Asynkron.LiveView also speaks the Model Context Protocol so AI assistants can ma
 If you prefer the original separation of concerns, you can still run the historical `mcp_server.py` alongside the LiveView HTTP server:
 
 ```bash
-./run_with_mcp.sh
-# or
 python mcp_server.py --dir markdown
 ```
 
@@ -137,12 +137,10 @@ Run them whenever you modify the automation scripts or upgrade dependencies to c
 
 ```
 Asynkron.LiveView/
-├── unified_server.py   # Combined LiveView + MCP process
-├── server.py           # Legacy LiveView-only server
+├── unified_server.py   # Combined LiveView + MCP process (with optional stdio toggle)
 ├── mcp_server.py       # Legacy MCP stdio server
-├── run_unified.sh      # Automation script for the unified process
-├── run.sh              # Automation script for LiveView-only mode
-├── run_with_mcp.sh     # Helper for running both legacy components
+├── run_all.sh          # Automation script for the unified process (HTTP + MCP)
+├── start.py            # Cross-platform bootstrapper for manual setups
 ├── markdown/           # Default directory that gets watched
 ├── requirements.txt    # Python dependencies (aiohttp, watchdog, mcp, ...)
 ├── templates/          # HTML templates for the UI
