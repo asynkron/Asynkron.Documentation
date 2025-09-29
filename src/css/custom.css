@@ -84,6 +84,11 @@ div .mermaid {
   text-align: center;
 }
 
+.docusaurus-mermaid-container .node.default.message .outer-path>path:first-of-type {
+  fill: #ffffff !important;
+  color: #f0f0f0;
+}
+
 .docusaurus-mermaid-container svg,
 .docusaurus-mermaid-container .mermaid svg,
 div .mermaid svg {
