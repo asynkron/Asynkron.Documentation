@@ -64,7 +64,7 @@ Let's consider the following example:
 When a cluster starts, the grain `user/123` is not spawned anywhere. Nothing is stopping us from sending requests to it, though:
 
 ```mermaid
-graph BT;
+graph LR;
     empty1(XXXXXXXXXXXXXXXXXXX)
     empty2(XXXXXXXXXXXXXXXXXXX)
     empty3(XXXXXXXXXXXXXXXXXXX)
@@ -103,7 +103,7 @@ Also, a request we've sent is delivered to the newly created grain.
 From now on, when you send a request to this grain, its cluster identity (`user/123`) will be translated into a PID pointing to that specific host and actor (e.g. `your-app.com:5002/partition-activator/123$31183`). This is all transparent from the client's perspective.
 
 ```mermaid
-graph BT;
+graph LR;
     empty1(XXXXXXXXXXXXXXXXXXX)
     empty2(XXXXXXXXXXXXXXXXXXX)
     empty3(XXXXXXXXXXXXXXXXXXX)
@@ -138,7 +138,7 @@ Pid --> empty3
 The topology of the cluster may change over time. Let's say `Member 2` goes down. In this case, sooner or later (depending on the cluster's configuration) that grain will be respawned on a different node as a different actor (with a new PID, e.g. `your-app.com:5001/partition-activator/123$4235`). Again, this is transparent to the client.
 
 ```mermaid
-graph BT;
+graph LR;
     empty1(XXXXXXXXXXXXXXXXXXX)
     empty2(XXXXXXXXXXXXXXXXXXX)
     empty3(XXXXXXXXXXXXXXXXXXX)
