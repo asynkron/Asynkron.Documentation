@@ -216,7 +216,7 @@ const config: Config = {
     prism: {
       theme: prismThemes.github,
       darkTheme: protoPrismTheme,
-      additionalLanguages: ['csharp', 'bash', 'shell-session', 'markup-templating', 'handlebars'],
+      additionalLanguages: ['csharp', 'bash', 'shell-session', 'markup-templating', 'handlebars', 'protobuf'],
     },
   } satisfies Preset.ThemeConfig,
 };
