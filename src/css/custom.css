@@ -50,3 +50,20 @@
     height: 28px;
   }
 }
+
+.docusaurus-mermaid-container,
+.docusaurus-mermaid-container .mermaid,
+div .mermaid {
+  display: block;
+  background-color: #323f49 !important;
+  border-radius: 4px;
+  padding: 24px;
+  color: #ffffff !important;
+  text-align: center;
+}
+
+.docusaurus-mermaid-container svg,
+.docusaurus-mermaid-container .mermaid svg,
+div .mermaid svg {
+  height: 100% !important;
+}
