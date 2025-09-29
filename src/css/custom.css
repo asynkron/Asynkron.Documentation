@@ -14,7 +14,7 @@
   --asynkron-color-quote: #fff2cc;
   --asynkron-color-surface: #323f49;
   --asynkron-color-border: #323f49;
-  --asynkron-code-surface: #232c34;
+  --asynkron-code-surface: #2c3944;
   --asynkron-code-foreground: #f8f8f2;
   --asynkron-code-keyword: #51cfff;
   --asynkron-code-string: #ffcc5e;
@@ -27,6 +27,7 @@
   --ifm-color-primary-light: #1fc0ff;
   --ifm-color-primary-lighter: #4fd0ff;
   --ifm-color-primary-lightest: #7edcff;
+  --ifm-background-color: #242526;
   --ifm-code-font-size: 95%;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
 }
@@ -40,6 +41,7 @@
   --ifm-color-primary-light: #7edcff;
   --ifm-color-primary-lighter: #a5e7ff;
   --ifm-color-primary-lightest: #d2f3ff;
+  --ifm-background-color: #242526;
   --asynkron-color-info: #9aa6bd;
   --asynkron-code-comment: #7a88b8;
   --docusaurus-highlighted-code-line-bg: rgba(255, 255, 255, 0.08);
