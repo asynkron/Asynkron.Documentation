@@ -1,0 +1,11 @@
+
+> asynkron-documentation@0.0.0 build
+> docusaurus build --no-minify
+
+[INFO] [en] Creating an optimized production build...
+[webpackbar] ℹ Compiling Client
+[webpackbar] ℹ Compiling Server
+[webpackbar] ✔ Server: Compiled successfully in 12.24s
+[webpackbar] ✔ Client: Compiled successfully in 12.46s
+[SUCCESS] Generated static files in "build".
+[INFO] Use `npm run serve` command to test your build locally.
