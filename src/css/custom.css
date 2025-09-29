@@ -84,9 +84,54 @@ div .mermaid {
   text-align: center;
 }
 
-.docusaurus-mermaid-container .node.default.message .outer-path>path:first-of-type {
+.docusaurus-mermaid-container .node.default .outer-path>path:first-of-type,
+.docusaurus-mermaid-container .node.default rect,
+.docusaurus-mermaid-container .node.default circle.label-container {
+  fill: var(--asynkron-color-primary) !important;
+}
+
+.docusaurus-mermaid-container .node.default .nodeLabel,
+.docusaurus-mermaid-container .node.default .nodeLabel p {
+  color: #ffffff !important;
+}
+
+.docusaurus-mermaid-container .node.default.message .outer-path>path:first-of-type,
+.docusaurus-mermaid-container .node.default.message rect,
+.docusaurus-mermaid-container .node.default.message circle.label-container {
   fill: #ffffff !important;
-  color: #f0f0f0;
+}
+
+.docusaurus-mermaid-container .node.default.message .nodeLabel,
+.docusaurus-mermaid-container .node.default.message .nodeLabel p {
+  color: #000000 !important;
+}
+
+.docusaurus-mermaid-container .node.default.green .outer-path>path:first-of-type,
+.docusaurus-mermaid-container .node.default.green rect,
+.docusaurus-mermaid-container .node.default.green circle.label-container {
+  fill: var(--asynkron-color-success) !important;
+}
+
+.docusaurus-mermaid-container .node.default.green .nodeLabel,
+.docusaurus-mermaid-container .node.default.green .nodeLabel p {
+  color: #ffffff !important;
+}
+
+.docusaurus-mermaid-container .node.default.blue .outer-path>path:first-of-type,
+.docusaurus-mermaid-container .node.default.blue rect,
+.docusaurus-mermaid-container .node.default.blue circle.label-container {
+  fill: var(--ifm-color-primary-darkest) !important;
+}
+
+.docusaurus-mermaid-container .node.default.yellow .outer-path>path:first-of-type,
+.docusaurus-mermaid-container .node.default.yellow rect,
+.docusaurus-mermaid-container .node.default.yellow circle.label-container {
+  fill: var(--asynkron-color-warning) !important;
+}
+
+.docusaurus-mermaid-container .node.default.yellow .nodeLabel,
+.docusaurus-mermaid-container .node.default.yellow .nodeLabel p {
+  color: #000000 !important;
 }
 
 .docusaurus-mermaid-container svg,
