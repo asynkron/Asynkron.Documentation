@@ -7,6 +7,11 @@ sidebar_label: Overview
 
 TraceLens is an OpenTelemetry-focused tracing and logging visualizer that also ships with a built-in collector so you can ingest and inspect telemetry from one container. It is published as a beta and is currently free for all users; after the beta concludes it will remain free for personal and open-source projects while commercial use is expected to require a subscription. Because the product is still in beta, the End User License Agreement highlights that the software is provided “as is” and forbids reverse engineering or derivative works.
 
+## Project links
+
+- Official website: [tracelens.io](https://tracelens.io)
+- Source repository: [asynkron/TraceLens](https://github.com/asynkron/TraceLens)
+
 ## What TraceLens provides
 
 - **Collector and UI in a single image.** The Docker image exposes the web experience on port `5001` and an OTLP gRPC endpoint on `4317`, making it easy to point your applications at TraceLens without deploying a separate collector.

@@ -2,6 +2,10 @@
 
 Asynkron.Jsome is a .NET 8 code generator that ingests Swagger 2.0/OpenAPI documents or folders of JSON Schema files and emits strongly typed client artefacts. The public repository now exposes the full CLI, template set, and test suite, so you can study exactly how the generator produces C# DTOs, FluentValidation validators, Protocol Buffers schemas, optional F# modules, and TypeScript interfaces.
 
+## Project links
+
+- Source repository: [asynkron/Asynkron.Jsome](https://github.com/asynkron/Asynkron.Jsome)
+
 ## Install the CLI
 
 Install the global tool from NuGet (the package ID is `dotnet-jsome`):

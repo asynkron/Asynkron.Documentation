@@ -7,6 +7,59 @@ sidebar_label: Orchestration patterns
 
 The examples directory in the public repository maps every major concept to a runnable sample. Use the snippets below as a starting point and adapt them to your domain.
 
+## Visualising orchestrator lifecycles
+
+Durable orchestrators run deterministically: they emit decisions, persist them to storage, and replay from history whenever the runtime needs to resume work. The sequence diagrams below show how that coordination plays out in practice.
+
+```mermaid
+sequenceDiagram
+    actor Caller as Client / Trigger
+    participant Runtime as Durable Runtime
+    participant Orchestrator
+    participant Storage
+    participant Activity as Activity Worker
+
+    Caller->>Runtime: Start "CreateGreeting"
+    Runtime->>Storage: Append StartInstance
+    Runtime->>Orchestrator: Execute deterministic function
+    Orchestrator->>Runtime: Schedule "FormatGreeting"
+    Runtime->>Storage: Append ScheduleActivity
+    Runtime->>Activity: Invoke worker
+    Activity-->>Runtime: Complete with result
+    Runtime->>Storage: Append ActivityCompleted
+    Runtime->>Orchestrator: Replay history and deliver result
+    Orchestrator-->>Runtime: Return GreetingResult
+    Runtime->>Storage: Mark instance Complete
+    Runtime-->>Caller: Signal completion
+```
+
+Waiting for external input follows the same deterministic workflow. The orchestrator records that it is waiting, and the runtime resumes execution only after the event arrives.
+
+```mermaid
+sequenceDiagram
+    participant Orchestrator
+    participant Runtime as Durable Runtime
+    participant Storage
+    participant Activity as Activity Worker
+    participant External as External System
+
+    Orchestrator->>Runtime: Schedule "SendApprovalEmail" activity
+    Runtime->>Storage: Append ScheduleActivity
+    Runtime->>Activity: Dispatch work item
+    Activity->>External: Send approval email
+    External-->>Activity: Acknowledge send
+    Activity-->>Runtime: Activity completed
+    Runtime->>Storage: Append ActivityCompleted
+    Orchestrator->>Runtime: Wait for ApprovalDecision
+    Runtime->>Storage: Append WaitForExternalEvent
+    External-->>Runtime: Raise ApprovalDecision
+    Runtime->>Storage: Append ExternalEventReceived
+    Runtime->>Orchestrator: Replay and deliver payload
+    Orchestrator-->>Runtime: Continue workflow
+```
+
+These diagrams mirror the call sites you will see in the code listings below, helping you map orchestration APIs to the underlying control flow.
+
 ## Parallel work (fan-out/fan-in)
 
 `SqliteExample` launches three activities in parallel and waits for all of them before emitting a combined result.
