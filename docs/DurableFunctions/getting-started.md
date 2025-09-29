@@ -41,6 +41,33 @@ public class SampleOrchestrator
 }
 ```
 
+The orchestration progresses step by step as the runtime replays deterministic decisions and dispatches the `SayHello` activity for each city.
+
+```mermaid
+sequenceDiagram
+    participant Client
+    participant Runtime as Durable Runtime
+    participant Orchestrator as SampleOrchestrator
+    participant Activity as SayHello Activity
+
+    Client->>Runtime: Trigger "SampleOrchestrator"
+    Runtime->>Orchestrator: Replay history and resume
+    Orchestrator->>Runtime: CallAsync "SayHello" ("Tokyo")
+    Runtime->>Activity: Execute SayHello("Tokyo")
+    Activity-->>Runtime: Return "Hello Tokyo!"
+    Runtime-->>Orchestrator: Deliver result during replay
+    Orchestrator->>Runtime: CallAsync "SayHello" ("Seattle")
+    Runtime->>Activity: Execute SayHello("Seattle")
+    Activity-->>Runtime: Return "Hello Seattle!"
+    Runtime-->>Orchestrator: Deliver result during replay
+    Orchestrator->>Runtime: CallAsync "SayHello" ("London")
+    Runtime->>Activity: Execute SayHello("London")
+    Activity-->>Runtime: Return "Hello London!"
+    Runtime-->>Orchestrator: Deliver result during replay
+    Orchestrator-->>Runtime: Return combined greeting
+    Runtime-->>Client: Report completion + output
+```
+
 ## 3. Configure and start the runtime
 
 The console host in `Program.cs` mirrors what you would normally do in `CreateHostBuilder` inside ASP.NET Core. Use the concurrent runtime to make multi-instance deployments safe by default.
