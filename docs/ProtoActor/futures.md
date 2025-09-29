@@ -14,7 +14,7 @@ Because the actor blocks, incoming messages are stuck in the mailbox.
 package main
 
 import (
-	"github.com/AsynkronIT/protoactor-go/actor"
+	"github.com/Asynkron/protoactor-go/actor"
 	"log"
 	"os"
 	"os/signal"
@@ -129,8 +129,8 @@ When the execution times out, the response is sent to dead letter mailbox and th
 package main
 
 import (
-	"github.com/AsynkronIT/protoactor-go/actor"
-	"github.com/AsynkronIT/protoactor-go/router"
+	"github.com/Asynkron/protoactor-go/actor"
+	"github.com/Asynkron/protoactor-go/router"
 	"log"
 	"os"
 	"os/signal"
@@ -243,8 +243,8 @@ The message execution is done in the same way as Future.PipeTo, but a callback f
 package main
 
 import (
-	"github.com/AsynkronIT/protoactor-go/actor"
-	"github.com/AsynkronIT/protoactor-go/router"
+	"github.com/Asynkron/protoactor-go/actor"
+	"github.com/Asynkron/protoactor-go/router"
 	"log"
 	"os"
 	"os/signal"
@@ -297,7 +297,7 @@ func (p *pingActor) Receive(ctx actor.Context) {
 		ctx.AwaitFuture(future, func(res interface{}, err error) {
 			if err != nil {
 				// Context.Message() returns the exact message that was present on Context.AwaitFuture call.
-				// ref. https://github.com/AsynkronIT/protoactor-go/blob/3992780c0af683deb5ec3746f4ec5845139c6e42/actor/local_context.go#L289
+				// ref. https://github.com/Asynkron/protoactor-go/blob/3992780c0af683deb5ec3746f4ec5845139c6e42/actor/local_context.go#L289
 				log.Printf("Failed to handle: %d. message: %#v.", cnt, ctx.Message())
 				return
 			}

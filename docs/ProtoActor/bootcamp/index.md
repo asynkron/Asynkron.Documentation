@@ -148,7 +148,7 @@ Thus, if you want to follow the bootcamp we recommend doing the following:
 A few things to bear in mind when you're following the step-by-step instructions::
 
 - **Don't just copy and paste the code shown in the lesson's README**. You will memorize and learn all the built-in Proto.Actor functions if you will typewriter this code yourself. [Kinesthetic learning](http://en.wikipedia.org/wiki/Kinesthetic_learning) FTW!
-- Don't be afraid to ask questions. You can reach the Proto.Actor team and other Proto.Actor users in our Gitter chat [here](https://gitter.im/AsynkronIT/protoactor).
+- Don't be afraid to ask questions. You can reach the Proto.Actor team and other Proto.Actor users in our Gitter chat [here](https://gitter.im/Asynkron/protoactor).
 
 ## Docs
 

@@ -253,7 +253,7 @@ const config: Config = {
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'AsynkronIT', // Usually your GitHub org/user name.
+  organizationName: 'Asynkron', // Usually your GitHub org/user name.
   projectName: 'Asynkron.Documentation', // Usually your repo name.
 
   onBrokenLinks: 'throw',
@@ -274,7 +274,7 @@ const config: Config = {
           sidebarPath: './sidebars.ts',
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
-          editUrl: 'https://github.com/AsynkronIT/Asynkron.Documentation/tree/main/',
+          editUrl: 'https://github.com/Asynkron/Asynkron.Documentation/tree/main/',
         },
         blog: {
           showReadingTime: true,
@@ -284,7 +284,7 @@ const config: Config = {
           },
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
-          editUrl: 'https://github.com/AsynkronIT/Asynkron.Documentation/tree/main/',
+          editUrl: 'https://github.com/Asynkron/Asynkron.Documentation/tree/main/',
           // Useful options to enforce blogging best practices
           onInlineTags: 'warn',
           onInlineAuthors: 'warn',
@@ -366,7 +366,7 @@ const config: Config = {
         },
         { to: '/blog', label: 'Blog', position: 'left' },
         {
-          href: 'https://github.com/AsynkronIT/Asynkron.Documentation',
+          href: 'https://github.com/Asynkron/Asynkron.Documentation',
           label: 'GitHub',
           position: 'right',
         },
@@ -402,7 +402,7 @@ const config: Config = {
         {
           title: 'Community',
           items: [
-            { label: 'GitHub Organization', href: 'https://github.com/AsynkronIT' },
+            { label: 'GitHub Organization', href: 'https://github.com/Asynkron' },
             {
               label: 'Proto.Actor Project',
               href: 'https://proto.actor',
@@ -418,7 +418,7 @@ const config: Config = {
             },
             {
               label: 'GitHub',
-              href: 'https://github.com/AsynkronIT/Asynkron.Documentation',
+              href: 'https://github.com/Asynkron/Asynkron.Documentation',
             },
           ],
         },

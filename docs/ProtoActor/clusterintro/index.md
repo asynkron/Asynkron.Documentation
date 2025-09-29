@@ -236,7 +236,7 @@ Because messages are sent from one member to another over wire, they must be ser
 Before getting started, be sure to install protoc and gogoprotobuf’s protoc-gen-gogoslick to generate Golang code. In addition to those tools, one proto.actor-specific tool is required. Run the below command to install the binary. A developer needs to specify dev branch by adding @dev at the end since this is not yet merged to master branch as of 2021-05-03.
 
 ```bash
-$ go get github.com/AsynkronIT/protoactor-go/protobuf/protoc-gen-gograinv2@dev
+$ go get github.com/Asynkron/protoactor-go/protobuf/protoc-gen-gograinv2@dev
 ```
 
 Below is an example of two messages: `PingMessage` and `PongMessage`. These two message definitions are sufficient to send ping and pong messages to each other. However, a service definition is required to utilize the gRPC-based messaging. That is Ponger. Ponger lets the caller send a `Ping` message with `SendPing()` method and the receiver sends back `Pong` message.
@@ -379,10 +379,10 @@ To activate the ponger grain, a process must be defined as below code. Comments 
 package main
 
 import (
-	"github.com/AsynkronIT/protoactor-go/actor"
-	"github.com/AsynkronIT/protoactor-go/cluster"
-	"github.com/AsynkronIT/protoactor-go/cluster/automanaged"
-	"github.com/AsynkronIT/protoactor-go/remote"
+	"github.com/Asynkron/protoactor-go/actor"
+	"github.com/Asynkron/protoactor-go/cluster"
+	"github.com/Asynkron/protoactor-go/cluster/automanaged"
+	"github.com/Asynkron/protoactor-go/remote"
 	"log"
 	"os"
 	"os/signal"
@@ -520,10 +520,10 @@ Below is the example code to run pinger actor.
 package main
 
 import (
-	"github.com/AsynkronIT/protoactor-go/actor"
-	"github.com/AsynkronIT/protoactor-go/cluster"
-	"github.com/AsynkronIT/protoactor-go/cluster/automanaged"
-	"github.com/AsynkronIT/protoactor-go/remote"
+	"github.com/Asynkron/protoactor-go/actor"
+	"github.com/Asynkron/protoactor-go/cluster"
+	"github.com/Asynkron/protoactor-go/cluster/automanaged"
+	"github.com/Asynkron/protoactor-go/remote"
 	"log"
 	"os"
 	"os/signal"
