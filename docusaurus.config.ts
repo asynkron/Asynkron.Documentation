@@ -97,6 +97,24 @@ const config: Config = {
           label: 'GitHub',
           position: 'right',
         },
+        {
+          type: 'html',
+          position: 'right',
+          value: `
+            <a class="navbar__item navbar__link navbar-logo-link" href="https://asynkron.se" target="_blank" rel="noopener noreferrer">
+              <img src="/img/asynkron.png" alt="Asynkron" class="navbar-logo" />
+            </a>
+          `,
+        },
+        {
+          type: 'html',
+          position: 'right',
+          value: `
+            <a class="navbar__item navbar__link navbar-logo-link" href="https://proto.actor" target="_blank" rel="noopener noreferrer">
+              <img src="/img/protoactor.png" alt="Proto.Actor" class="navbar-logo" />
+            </a>
+          `,
+        },
       ],
     },
     footer: {

@@ -28,3 +28,25 @@
   --ifm-color-primary-lightest: #4fddbf;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
+
+.navbar-logo-link {
+  display: flex;
+  align-items: center;
+  padding: 0 var(--ifm-navbar-item-padding-horizontal);
+}
+
+.navbar-logo {
+  height: 32px;
+  width: auto;
+  display: block;
+}
+
+@media (max-width: 996px) {
+  .navbar-logo-link {
+    padding: var(--ifm-navbar-item-padding-vertical) 0;
+  }
+
+  .navbar-logo {
+    height: 28px;
+  }
+}
