@@ -11,6 +11,28 @@ Actors can change their behavior at any time. This is achieved through the Behav
 
 We're going to use the example of modelling a light bulb to demonstrate this:
 
+```mermaid
+stateDiagram-v2
+    [*] --> Off
+    Off --> On: PressSwitch
+    On --> Off: PressSwitch
+    Off --> Off: Touch / "Cold"
+    On --> On: Touch / "Hot!"
+    Off --> Smashed: HitWithHammer
+    On --> Smashed: HitWithHammer
+    Smashed --> Off: ReplaceBulb
+```
+
+The state diagram mirrors the sample code so readers can match the textual handlers with concrete transitions.
+
+:::tip Project tip example
+Need hands-on samples? Browse the Proto.Actor .NET examples and Proto.Actor Go examples.
+:::
+
+:::note Reference
+Remember that our style guide has the canonical guidance for tone and terminology.
+:::
+
 ```csharp
 public class LightBulb : IActor
 {

@@ -30,6 +30,17 @@ type MyMessage struct {
 }
 ```
 
+```mermaid
+classDiagram
+    class MyMessage {
+        +string Name
+    }
+    class MyActor {
+        -string lastActorName
+        +ReceiveAsync(context)
+    }
+    MyActor --> MyMessage : consumes
+```
 
 Proto.Actor allows you to automatically pass around these messages to any actor, whether it's an actor running inside your application's local process or a remote actor running on a different machine. Proto.Actor can automatically serialize and route your message to its intended recipient(s.)
 
@@ -72,8 +83,8 @@ public class MyActor : IActor
                 lastActorName = msg.Name;
                 break;
             case Hi _:
-                Console.WriteLine( $"Hi {lastActorName}!");
-                break,
+                Console.WriteLine($"Hi {lastActorName}!");
+                break;
         }
         return Task.CompletedTask;
     }
@@ -84,7 +95,7 @@ public class Program
     public static void Main()
     {
         var system = new ActorSystem();
-        var myActor = system.Root.Spawn(Props.FromProducer(() => new MyActor));
+        var myActor = system.Root.Spawn(Props.FromProducer(() => new MyActor()));
         system.Root.Send(myActor, new MyMessage("Hello World"));
         system.Root.Send(myActor,new Hi());
     }
@@ -96,6 +107,16 @@ public class Program
 
 This is how you should expect to modify your actor's mutable state inside Proto.Actor - by passing stateful messages.
 
+```mermaid
+sequenceDiagram
+    participant Root as Root Context
+    participant MyActor
+    Root->>MyActor: MyMessage(Name)
+    MyActor-->>Root: (side effect)
+    Root->>MyActor: Hi
+    MyActor-->>Root: Console output
+```
+
 ## Messages are immutable
 
 Immutable messages are inherently thread-safe.  No thread can modify the content of an immutable message, so a second thread receiving the original message doesn't have to worry about a previous thread altering the state in an unpredictable way.
@@ -104,9 +125,9 @@ Hence, in Proto.Actor - all messages should be immutable and thus thread-safe. T
 
 ## Message-passing is asynchronous
 
-In OOP, your objects communicate with each-other via function calls. The same is true for procedural programming. Class A calls a function on Class B and waits for that function to return before Class A can move onto the rest of its work.
+In OOP, your objects communicate with each other via function calls. The same is true for procedural programming. Class A calls a function on Class B and waits for that function to return before Class A can move onto the rest of its work.
 
-In the Proto.Actor and the Actor model, actors communicate with each-other by sending messages.
+In the Proto.Actor and the Actor model, actors communicate with each other by sending messages.
 
 So what's so radical about this idea?
 
@@ -116,6 +137,19 @@ So in effect, every interaction one actor has with any other actor is going to b
 That's a dramatic change, but here's another big one...
 
 Since all "function calls" have been replaced by messages, i.e. distinct instances of objects, actors can store a history of their function calls and even defer processing some function calls until later in the future!
+
+```mermaid
+flowchart LR
+    Sender(Actor A)
+    Mailbox((Mailbox))
+    Receiver(Actor B)
+    Sender -- Send --> Mailbox
+    Mailbox -- Dispatch --> Receiver
+    Receiver -- Optional Reply --> Sender
+    subgraph Async Buffer
+        Mailbox
+    end
+```
 
 Imagine how easy it would be to build something like the Undo button in Microsoft Word with an actor - by default you have a message that represents every change someone made to a document. To undo one of those changes, you just have to pop the message off of the UndoActor's stash of messages and push that change back to another actor who manages the current state of the Word document. This is a pretty powerful concept in practice.
 
