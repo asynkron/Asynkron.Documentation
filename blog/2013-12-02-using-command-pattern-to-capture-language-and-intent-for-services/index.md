@@ -30,6 +30,23 @@ class Detail
     string ProductId
 ```
 
+```mermaid
+classDiagram
+    class Order {
+        int Id
+        string DeliveryAddress
+        ICollection~Detail~ Details
+    }
+    class Detail {
+        int Id
+        decimal Quantity
+        string ProductId
+    }
+    Order "1" -- "many" Detail : contains
+```
+
+The class diagram distills the aggregate structure so the relationship between the `Order` and `Detail` entities is clear before we explore behavioral changes.
+
 Maybe our domain experts have told us that we need to be able to do the following:
 
 Place new orders.  
@@ -75,7 +92,7 @@ public void AddProduct(int orderId,string productId,double quantity)
     {
        var order = UoW.Find(o => o.Id == orderId);
        if (order.IsCancelled)
-          throw new Exception("Can not add products to cancelled orders");
+          throw new Exception("Cannot add products to cancelled orders");
 
        var detail = new Detail
        {
@@ -93,24 +110,27 @@ public void ShipOrder(int orderId,DateTime shippingDate)
 }
 ```
 
-This is of-course a very naive example, but still, we managed to capture the language of the domain experts, and even if this will make our code more verbose, it captures explicit state transitions in a very clean way.  
+This is of course a very naive example, but still, we managed to capture the language of the domain experts, and even if this will make our code more verbose, it captures explicit state transitions in a very clean way.
 Someone new to the project can open up this code and they will be able to figure out what is going on in each individual method.  
 e.g. you will most likely not misunderstand the intention of a method called “ShipOrder” which takes an argument called ShippingDate.
 
 So far so good, but from a technical point of view, this code is horrible, we can’t expose a service interface that is this fine-grained over the wire.  
 This is where command pattern comes in.
 
-Lets redesign our code to something along the lines of:
+Let's redesign our code to something along the lines of:
 
 ```csharp
 public static class OrderService
 {
-    public static void Process(IEnumerable<command></command> commands)
+    public static void Process(IEnumerable<Command> commands)
     {
         var ctx = new MyContext();
         Order order = null;
         foreach (var command in commands)
+        {
+            // Preserve the evolving order instance across command executions.
             order = command.Execute(ctx, order);
+        }
         ctx.SaveChanges();
     }
 }
@@ -157,7 +177,7 @@ public class RemoveProduct : Command
 
     public override Order Execute(MyContext container, Order order)
     {
-        order.Details.Remove(d => d.Name == ProductId);
+        order.Details.Remove(d => d.ProductId == ProductId);
         return order;
     }
 }
@@ -171,7 +191,7 @@ public class AddProduct : Command
     {
         var detail = new Detail
         {
-            Name = ProductId,
+            ProductId = ProductId,
             Quantity = Quantity,
         };
         order.Details.Add(detail);
@@ -180,6 +200,22 @@ public class AddProduct : Command
 }
 ...etc
 ```
+
+```mermaid
+flowchart TD
+    A[Client Request] --> B[Compose Command Batch]
+    B --> C{Existing Order?}
+    C -- No --> D[CreateNewOrder]
+    C -- Yes --> E[EditExistingOrder]
+    D --> F[SetDeliveryAddress]
+    E --> F
+    F --> G[AddProduct]
+    G --> H[RemoveProduct]
+    H --> I[Execute Remaining Commands]
+    I --> J[Persist Once]
+```
+
+The flow above illustrates how callers compose a batch that maintains intention while deferring persistence until all state transitions succeed.
 
 So, what happened here?  
 We have created a single operation, Execute, that receives a sequence of “commands”.  
@@ -205,8 +241,12 @@ Cons:
 - Verbose
 - Puts somewhat more responsibility on the client
 
-The code in this example can of-course be improved, we are using an anemic domain model right now, but the essence of the command pattern can be seen here.
+The code in this example can of course be improved, we are using an anemic domain model right now, but the essence of the command pattern can be seen here.
 
 I will post a more “correct” implementation in my next post
 
 That’s all for now
+
+:::warning Pre-release feature
+OtelMcp is still evolving. Follow the roadmap issue to see what’s coming next.
+:::

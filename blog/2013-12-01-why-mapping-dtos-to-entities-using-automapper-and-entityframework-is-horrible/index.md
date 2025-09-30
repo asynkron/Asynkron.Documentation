@@ -18,7 +18,7 @@ I will try to explain why this is a truly horrible approach.
 
 # Horrible from a technical perspective
 
-Firstly, lets set up a scenario that we can reason about here:  
+Firstly, let's set up a scenario that we can reason about here:
 The scenario here is an Order service with an Order entity and an OrderDTO.
 
 Example code (pseudo code):
@@ -45,9 +45,37 @@ Example code (pseudo code):
      string ProductId
 ```
 
+```mermaid
+classDiagram
+    class Order {
+        +int Id
+        +List~Detail~ Details
+    }
+    class Detail {
+        +int Id
+        +decimal Quantity
+        +string ProductId
+    }
+    class OrderDTO {
+        +int Id
+        +List~DetailDTO~ DetailsDTO
+    }
+    class DetailDTO {
+        +int Id
+        +decimal Quantity
+        +string ProductId
+    }
+    Order "1" *-- "many" Detail
+    OrderDTO "1" *-- "many" DetailDTO
+    OrderDTO ..> Order : Mapping intent
+    DetailDTO ..> Detail
+```
+
+The diagram underlines the duplication introduced by DTO mirroring, making the mismatch between transport and domain models visible at a glance.
+
 I’m pretty sure you have seen something similar to this before.
 
-Lets also assume there is some sort of service that updates orders:
+Let's also assume there is some sort of service that updates orders:
 
 ```csharp
     public void CreateOrUpdateOrder(OrderDTO orderDTO)
@@ -77,11 +105,11 @@ Maybe you do something like this:
 
 Looks fair enough?
 
-This will work fine for a new order, the above code will map from DTOs to new entities and then add the new entities to the dbcontext and save the changes.  
+This will work fine for a new order, the above code will map from DTOs to new entities and then add the new entities to the dbcontext and save the changes.
 All is fine and dandy.
 
-But what happens if we pass an existing order?  
-We will get into trouble because of the context.OrderSet.Add, existing orders will become new orders in the DB because we are always “adding”.  
+But what happens if we pass an existing order?
+We will get into trouble because of the context.OrderSet.Add, existing orders will become new orders in the DB because we are always “adding”.
 So what can we do about this?
 
 Maybe we can do it like this?
@@ -110,8 +138,19 @@ public void CreateOrUpdateOrder(OrderDTO orderDTO)
    Mapper.Map<OrderDTO,Order>(orderDTO,order); 
    context.OrderSet.Add(order); 
    context.SaveChanges();
-}      
+}
 ```
+
+```mermaid
+flowchart LR
+    DTO[OrderDTO arrives] --> Map[AutoMapper maps to Order]
+    Map --> Add[context.OrderSet.Add(order)]
+    Add --> Persist[context.SaveChanges()]
+    Persist -->|Existing Id| Duplicate[(Duplicate rows created)]
+    Persist -->|New Id| Success[New order persisted]
+```
+
+The flow clarifies why blindly adding mapped entities causes duplicates as soon as the DTO targets an existing aggregate.
 
 Ah, that’s better, right?  
 Now we will not add new orders every time we try to update an existing one.  
@@ -120,7 +159,7 @@ So, whats the problem now?
 We still create new entities every time for each detail, AutoMapper knows nothing about EF and ID’s so it will simply recreate every object in the .Details collection.  
 So even if we can create and update the order entity, we are still messed up when dealing with the details.
 
-Lets try again:
+Let's try again:
 
 ```csharp
 public void CreateOrUpdateOrder(OrderDTO orderDTO)
@@ -169,10 +208,10 @@ All of the magic is in the AutoMapper config.
 Nice, right?  
 This will work fine for every Create or Update scenario.
 
-Well, err.. it won’t handle deleted details. if a detain have been removed from the orderDTO detail collection, then we will have detail entities that are unbound in entity framework.  
+Well, err.. it won’t handle deleted details. If a detail has been removed from the orderDTO detail collection, then we will have detail entities that are unbound in Entity Framework.
 We have to delete those otherwise we will have a foreign key exception when calling SaveChanges.
 
-OK, so lets see what we can do about this:
+OK, so let's see what we can do about this:
 
 ```csharp
 public void CreateOrUpdateOrder(OrderDTO orderDTO)

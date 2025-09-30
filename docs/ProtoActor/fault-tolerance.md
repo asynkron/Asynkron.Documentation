@@ -13,6 +13,32 @@ This strategy cannot be changed afterward, as it is an integral part of the acto
 
 Data store errors are a common source of failure in real-world applications. A typical approach is to catch exceptions and use `ReenterAfter` to retry the operation after a delay. The exact strategy depends on the application's tolerance for duplicates and latency.
 
+```mermaid
+sequenceDiagram
+    participant Caller
+    participant Child as Child Actor
+    participant Supervisor
+    Caller->>Child: Process message
+    Child-->>Caller: Failure raised
+    Child->>Supervisor: Failure notification
+    Supervisor->>Supervisor: Evaluate failure
+    alt Restart
+        Supervisor-->>Child: Restart directive
+    else Resume
+        Supervisor-->>Child: Resume directive
+    else Stop
+        Supervisor-->>Child: Stop directive
+    else Escalate
+        Supervisor-->>Caller: Escalate failure
+    end
+```
+
+The sequence highlights how supervisors react to failures while isolating callers from the recovery mechanics.
+
+:::info Heads up
+Documentation updates land daily. Watch the release notes for the latest additions.
+:::
+
 ## Creating a Supervisor Strategy
 
 The following sections explain the fault handling mechanism and alternatives
@@ -33,6 +59,17 @@ public override SupervisorStrategy SupervisorStrategy => new OneForOneStrategy(
 
 We have chosen a few well-known exception types in order to demonstrate the
 application of the fault handling directives described in [Supervision](supervision.md).
+
+```mermaid
+flowchart TD
+    Start[Failure detected] --> Inspect{Exception type}
+    Inspect -- SqlException --> Restart[SupervisorDirective.Restart]
+    Inspect -- Other --> Stop[SupervisorDirective.Stop]
+    Restart --> ResumeChild[Child restarted]
+    Stop --> Cleanup[Child stopped and cleaned up]
+```
+
+The flow makes it explicit that a supervisor's decision tree is data driven and easy to adapt as the system grows.
 First off, it is a one-for-one strategy, meaning that each child is treated
 separately (an all-for-one strategy works very similarly, the only difference
 is that any decision is applied to all children of the supervisor, not only the
@@ -68,6 +105,10 @@ in the same way as the default strategy defined above.
 
 You can combine your own strategy with the default strategy:
 
+:::danger Breaking change ahead
+Major API updates roll out with the next Proto.Actor version. Read the migration guide before upgrading production clusters.
+:::
+
 ### Logging of Actor Failures
 
 By default the `SupervisorStrategy` logs failures unless they are escalated.
@@ -79,6 +120,10 @@ You can mute the default logging of a `SupervisorStrategy` by setting
 can be done inside the `Decider`. Note that the reference to the currently
 failed child is available as the `Sender` when the `SupervisorStrategy` is
 declared inside the supervising actor.
+
+:::caution Beware of stale caches
+If the site looks outdated, purge the Docusaurus cache with `npm run clear` before rebuilding.
+:::
 
 You may also customize the logging in your own ``SupervisorStrategy`` implementation
 by overriding the `logFailure` method.
