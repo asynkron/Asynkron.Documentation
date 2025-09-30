@@ -12,7 +12,7 @@ So Pigeon now uses HOCON notation for the config files, and thus, allows for re-
 
 This means you can write configurations like:
 
-```
+```csharp
 var config = ConfigurationFactory.ParseString(@"
 # we use real Akka Hocon notation configs
 akka {

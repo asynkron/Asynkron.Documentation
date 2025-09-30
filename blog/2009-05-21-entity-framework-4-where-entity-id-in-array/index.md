@@ -8,7 +8,7 @@ Here is a little trick if you want to issue a query to the database and select a
 
 <!-- truncate -->
 
-```
+```csharp
 //assemble an array of ID values
 int[] customerIds= new int[] { 1, 2, 3 };
 

@@ -15,7 +15,7 @@ Let’s say we need to implement a search method with the following signature:
 If the requirement is that you should be able to pass zero to three arguments to this method and only apply a “where” criteria for the arguments that are not null.  
 Then we can use the following code to make it work: 
 
-```
+```csharp
 IList<Customer> FindCustomers(string name,string contactName,string city)
 {
      var query = context.Cutomers;

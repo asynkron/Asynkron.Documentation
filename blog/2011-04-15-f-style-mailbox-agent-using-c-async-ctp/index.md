@@ -10,7 +10,7 @@ More info on TPL DataFlow can be found here : [http://www.microsoft.com/download
 
 Here is a (naive) F# style Mailbox / Agent using the C# async CTP :
 
-```
+```csharp
     class Program
     {
         static void Main(string[] args)

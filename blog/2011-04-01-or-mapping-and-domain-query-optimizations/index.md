@@ -11,7 +11,7 @@ You write object-oriented code and often forget about eventual performance probl
 
 Take this (somewhat naive) example:
 
-```
+```csharp
 class Customer
 {
    ...
@@ -52,7 +52,7 @@ Using an unit of work container such as [https://github.com/rogeralsing/Precio.I
 
 We can then rewrite the above code slightly:
 
-```
+```csharp
 class Customer
 {
    ...

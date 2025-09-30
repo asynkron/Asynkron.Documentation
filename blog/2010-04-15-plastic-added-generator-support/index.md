@@ -15,7 +15,7 @@ It’s so brilliant, no AST transformations and I could implement the whole thin
 
 This enables me to write code like this:
 
-```
+```csharp
 //a generator function
 func Range(low,high)
 {

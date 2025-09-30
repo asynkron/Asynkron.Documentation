@@ -13,7 +13,7 @@ You will be able to consume them *as if* they were async, and in some cases this
 
 The wrapper code provided here may still be a decent start for you to do this, since you can start migrating code to use async calls, while you rewrite the methods that need rewriting later.
 
-```
+```csharp
 
     class Program
     {

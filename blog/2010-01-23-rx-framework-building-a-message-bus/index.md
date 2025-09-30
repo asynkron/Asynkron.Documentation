@@ -13,7 +13,7 @@ Just check this out:
 
 **Our in proc message bus:**
 
-```
+```csharp
 public class MiniVan
 {
     private Subject<object> messageSubject = new Subject<object>();
@@ -35,7 +35,7 @@ public class MiniVan
 
 **Subscribing to messages:**
 
-```
+```csharp
 bus.AsObservable<MyMessage>()
     .Do(m => Console.WriteLine(m))
     .Subscribe();

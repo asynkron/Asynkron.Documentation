@@ -12,7 +12,7 @@ I have to say I was sort of pleasantly surprised how well the entire concept wor
 
 This is only a spike on my part so don’t expect too much, but the code shows how Gregs ideas can be implemented using F#
 
-```
+```fsharp
 //state for order line items
 type LineItem =
     {

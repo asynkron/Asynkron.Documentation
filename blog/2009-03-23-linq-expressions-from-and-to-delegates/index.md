@@ -13,7 +13,7 @@ I’m getting quite a few hits on my blog regarding Linq Expressions and how to 
 This is not really possible, you can never cast or convert an existing delegate into an expression tree.  
 You can however assign lambda expressions to expression trees exactly the same way as you assign them to a delegate.
 
-```
+```csharp
 //assign a lambda expression to a delegate
 Func<int> myDelegate = () => 1 + 2 + a +b;
 
@@ -32,7 +32,7 @@ While the expression tree version will complile the expression into code that bu
 
 You can also pass lambda expressions exactly the same way;
 
-```
+```csharp
 //pass a lambda expression as a delegate
 
 Foo( () => 1 + 2 + a +b );
@@ -67,7 +67,7 @@ Linq expression can not be casted or converted into delegates, they can however 
 
 eg:
 
-```
+```csharp
 //create an linq expression
 Expression<Func<int>> myExpressionTree = () => 1 + 2 + a +b;
 

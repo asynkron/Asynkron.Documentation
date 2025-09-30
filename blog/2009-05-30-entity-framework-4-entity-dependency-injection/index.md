@@ -14,7 +14,7 @@ But when it comes to Lazy Load, we can no longer do this, in this case we need t
 
 If you are aiming to use Entity Framework 4 once it is released, you can accomplish this with the following code snippet:
 
-```
+```csharp
 
 ..inside your own EF container class..
 

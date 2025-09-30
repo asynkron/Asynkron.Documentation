@@ -11,7 +11,7 @@ Since F# supports quotations (for you C# devs, think Linq Expressions on roids) 
 
 Imagine the following code for a fractal calculation:
 
-```
+```fsharp
 for y = 0 to 100000 do
     CloudExec(
             <@

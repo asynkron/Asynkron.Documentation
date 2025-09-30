@@ -14,7 +14,7 @@ Since my old post [“Linq Expressions: Access private fields”](http://rogeral
 
 So here it is, the code for assigning private fields using pure Linq Expressions:
 
-```
+```csharp
 public static Action<T, I> GetFieldAssigner<T, I>(string fieldName)
 {
 
@@ -41,7 +41,7 @@ The code works pretty much the same way that my old field reader did except that
 
 Some sample usage code:
 
-```
+```csharp
 Person roger = .....
 var assigner = GetFieldAssigner<Person,string>("firstName");
 assigner(roger, "Roggan");

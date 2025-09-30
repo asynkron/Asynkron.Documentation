@@ -20,7 +20,7 @@ A fulent API will let us read and write the requirements just like a specificati
 
 **Here is an example of the consumer:**
 
-```
+```csharp
 public static void MyMethod(string someArg,int someOtherArg)
 {
     someArg.RequireArgument("someArg")
@@ -48,7 +48,7 @@ But enough talking, here is the required code to accomplish this:
 
 **The implementation of the Validation\<T\> class:**
 
-```
+```csharp
 public class Validation<T>
 {
     public T Value { get; set; }
@@ -63,7 +63,7 @@ public class Validation<T>
 
 **The implementation of the Require method:**
 
-```
+```csharp
 public static class Extensions
 {
     public static Validation<T> RequireArgument<T>(this T item, string argName)
@@ -75,7 +75,7 @@ public static class Extensions
 
 **And the implementation of the different validation methods:**
 
-```
+```csharp
 public static class ValidationExtender
 {
     [DebuggerHidden]

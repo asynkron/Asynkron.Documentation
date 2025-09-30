@@ -25,7 +25,7 @@ This was using a single threaded client, so maybe the difference is not that big
 
 And for those who are just looking for some example code, here it is:
 
-```
+```csharp
 using System;
 using System.Collections.Generic;
 using System.Globalization;

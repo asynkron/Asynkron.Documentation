@@ -11,7 +11,7 @@ Boolean logic
 I’ve seen quite a few blog and forum posts about how developers “abuse” boolean logic.  
 The most common of these examples would probably be something like:
 
-```
+```csharp
 bool userIsAuthenticated = Foo || Bar;
 if (userIsAuthenticated)
 {
@@ -25,14 +25,14 @@ else
 
 And people are arguing about how bad that is and that it can be shortened down to:
 
-```
+```csharp
 bool userIsAuthenticated = Foo || Bar;
 return userIsAuthenticated;
 ```
 
 And then the next guy comes along and says it can be shortened down even more to:
 
-```
+```csharp
 return Foo || Bar;
 ```
 
@@ -58,7 +58,7 @@ e.g. Special logging messages when the result is true.
 
 And I have to say that the same goes for:
 
-```
+```bash
 if ( Foo == false )
 ```
 

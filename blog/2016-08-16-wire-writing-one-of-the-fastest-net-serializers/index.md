@@ -14,7 +14,7 @@ Given the following POCO type.
 
 <div class="wp-block-syntaxhighlighter-code">
 
-```
+```csharp
 public class Poco
 {
    public string StringProp { get; set; }
@@ -67,7 +67,7 @@ Instead of having code like:
 
 <div class="wp-block-syntaxhighlighter-code">
 
-```
+```csharp
 public ValueSerializer GetSerializerByType(Type type)
 {
   ValueSerializer serializer;
@@ -85,7 +85,7 @@ I turned the code into something like:
 
 <div class="wp-block-syntaxhighlighter-code">
 
-```
+```csharp
 public ValueSerializer GetSerializerByType(Type type)
 {
   if (type == typeof(string))
@@ -108,7 +108,7 @@ Calls to `typeof()` actually generates a bit of IL code:
 
 <div class="wp-block-syntaxhighlighter-code">
 
-```
+```csharp
 ldtoken      [mscorlib]System.String
 call         class [mscorlib]System.Type [mscorlib]System.Type::GetTypeFromHandle(valuetype [mscorlib]System.RuntimeTypeHandle)
 ```
@@ -119,7 +119,7 @@ We can prevent these extra calls per type simply by storing references to each p
 
 <div class="wp-block-syntaxhighlighter-code">
 
-```
+```csharp
 public ValueSerializer GetSerializerByType(Type type)
 {
   if (ReferenceEquals(type.GetTypeInfo().Assembly, ReflectionEx.CoreAssembly))
@@ -175,7 +175,7 @@ For example, when deserializing a string, the code looked something like:
 
 <div class="wp-block-syntaxhighlighter-code">
 
-```
+```csharp
 //StringValueSerializer.cs
 public override object ReadValue(Stream stream)
 {
@@ -198,7 +198,7 @@ This allowed us to do something like this:
 
 <div class="wp-block-syntaxhighlighter-code">
 
-```
+```csharp
 //StringValueSerializer.cs
 public override object ReadValue(Stream stream, DeserializerSession session)
 {
@@ -229,7 +229,7 @@ This allowed us to go from code that looked like this:
 
 <div class="wp-block-syntaxhighlighter-code">
 
-```
+```csharp
 //Int64ValueSerializer.cs
 public override void WriteValue(Stream stream, object value)
 {
@@ -245,7 +245,7 @@ To something like this:
 
 <div class="wp-block-syntaxhighlighter-code">
 
-```
+```csharp
 //Int64ValueSerializer.cs
 public override void WriteValue(Stream stream, object value, SerializerSession session)
 {
@@ -296,7 +296,7 @@ Like this:
 
 <div class="wp-block-syntaxhighlighter-code">
 
-```
+```csharp
 public class FastTypeUShortDictionary
 {
   private int _length; //this keeps track on how many types have been added
@@ -329,7 +329,7 @@ We let the value serializer emit its code using an `ICompiler` abstraction, like
 
 <div class="wp-block-syntaxhighlighter-code">
 
-```
+```csharp
 public sealed override void EmitWriteValue(ICompiler<ObjectWriter> c, int stream, int fieldValue, int session)
 {
     var byteArray = c.GetVariable<byte[]>;(DefaultCodeGenerator.PreallocatedByteBuffer);
@@ -349,7 +349,7 @@ You can however extract this information:
 
 <div class="wp-block-syntaxhighlighter-code">
 
-```
+```csharp
 var defaultCtor = type.GetTypeInfo().GetConstructor(new Type[] {});
 var il = defaultCtor?.GetMethodBody()?.GetILAsByteArray();
 var sideEffectFreeCtor = il != null && il.Length <= 8; //this is the size of an empty ctor

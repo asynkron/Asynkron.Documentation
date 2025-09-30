@@ -31,7 +31,7 @@ at the same time achive the pluggability of instance methods (or rather of diffe
 
 Here is some sample code:
 
-```
+```csharp
 
 //The Class that you use to get your objects
 public static class Config
@@ -72,7 +72,7 @@ This allows me to assign new implementations to that static field if I want to, 
 
 My code can then consume the factory like this:
 
-```
+```csharp
 IDbCommand cmd = Config.GetCommand();
 ```
 
@@ -80,13 +80,13 @@ That looks quite OK, doesn’t it?
 
 And in order to change the implementation for some resolve method:
 
-```
+```csharp
 Config.GetCommand = () => new MySpecialCommand();
 ```
 
 Or if you like the old delegate syntax:
 
-```
+```csharp
 Config.GetCommand = delegate
                     {
                         return new MySpecialCommand();

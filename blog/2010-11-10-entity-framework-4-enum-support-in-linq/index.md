@@ -20,7 +20,7 @@ For me this solution is good enough, I can make the integer property private and
 
 Example
 
-```
+```csharp
 public class Order
 {
      //this is the backing integer property that is mapped to the database
@@ -43,7 +43,7 @@ So how do we get our linq queries to translate from the enum property to the in
 
 The solution is far simpler that I first thought, using the new ExpressionVisitor base class I can use the following code to make it all work:
 
-```
+```csharp
 namespace Alsing.Data.EntityFrameworkExtensions
 {
     public static class ObjectSetEnumExtensions
@@ -105,7 +105,7 @@ The second class is the actual Linq Expression rewriter.
 
 By including this and adding the appropriate using clause to your code, you can now make queries like this:
 
-```
+```csharp
 var cancelledOrders = myContainer.Orders.Where(order => order.Status == OrderStatus.Cancelled).ToList();
 ```
 

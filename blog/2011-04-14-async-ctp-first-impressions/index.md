@@ -14,7 +14,7 @@ The SP1 Refresh can be found here: [http://msdn.microsoft.com/sv-se/vstudio/asyn
 The new async and await features makes async programming so much sweeter, it lets you write async code in a sequential manner.  
 e.g.
 
-```
+```csharp
 static async void ShowGoogleHtmlCode()
 {
   WebClient client = new WebClient();
@@ -31,7 +31,7 @@ However, there are some design considerations.
 
 Consider this:
 
-```
+```csharp
 public async void SetupUi()
 {
   var blogService = new BlogServiceClient();
@@ -46,7 +46,7 @@ public async void SetupUi()
 This code will call GetCategories and GetLatestPosts at the same time and then wait for \_both\_ of them to complete before continuing to fill the GUI elements.  
 If you are doing a Silverlight app, then you probably want to display each GUI element as soon as possible, and thus, the above code could be rewritten to:
 
-```
+```csharp
 public async void SetupUi()
 {
   SetupCategories();
@@ -72,7 +72,7 @@ This way, the async calls will be independent of each other and fill the corre
 
 Also, if you were to write the first code in this way:
 
-```
+```csharp
 public async void SetupUi()
 {
   var blogService = new BlogServiceClient();

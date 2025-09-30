@@ -10,7 +10,7 @@ Here is a small sample of how you can consume WCF services using the new Async C
 
 **Example, filling a listbox with categories of some sort.**
 
-```
+```csharp
 private async void FillCategories()
 {
     var client = new MyServiceReference.MyServiceClient();

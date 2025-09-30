@@ -13,7 +13,7 @@ This is now used for generators.
 Yield is no longer a core function, instead, each generator takes a closure as its last argument which is then supplied by the foreach function.  
 This way the foreach body don’t have to be stored as a symbol, it is just passed as an argument to the generator.
 
-```
+```csharp
 func Range(low,high,yield)
 {
     for(let i=low,i<=high,i++)
@@ -46,7 +46,7 @@ Before, a break would only exit the most inner loop of the generator.
 
 Now I can do things like this:
 
-```
+```csharp
 func primes(low,high,yield)
 {    
     foreach(i in range(low,high))   

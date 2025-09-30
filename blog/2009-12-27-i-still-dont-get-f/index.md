@@ -11,7 +11,7 @@ I think that Microsoft are trying to sell F# to us as something new and awesome,
 **But F# can do function currying!**  
 Well, so can C#.
 
-```
+```csharp
 string Foo(int a,bool b)
 {
     //do stuff
@@ -29,7 +29,7 @@ void UseCurry()
 **F# can do pipelining!**  
 Well, so can C#
 
-```
+```csharp
 
 var listOfInts = new List<int> {1,2,3,4,5,6};
 Func<int,int> squared = x => x*x;
