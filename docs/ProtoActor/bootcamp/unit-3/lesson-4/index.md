@@ -78,15 +78,5 @@ The original bootcamp image `3_4_2.png` was unavailable in the source export, so
 
 As you can see, the actor successfully completed job.
 
-:::tip Code samples
-The following files accompany this section:
-- [`PlaybackActor.cs`](dotnet/MovieStreaming/Actors/PlaybackActor.cs)
-- [`PlayMovieMessage.cs`](dotnet/MovieStreaming/Messages/PlayMovieMessage.cs)
-- [`MovieStreaming.csproj`](dotnet/MovieStreaming/MovieStreaming.csproj)
-- [`Program.cs`](dotnet/MovieStreaming/Program.cs)
-- [`MovieStreaming.sln`](dotnet/MovieStreaming.sln)
-
-You can also explore more samples in the [Proto.Actor .NET examples](https://github.com/asynkron/protoactor-dotnet/tree/dev/examples).
-:::
 
 [Go ahead!](../lesson-5)

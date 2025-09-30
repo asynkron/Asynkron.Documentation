@@ -55,15 +55,3 @@ private void ApplySnapshot(Snapshot snapshot)
 }
 ```
 
-:::tip Code samples
-The following files accompany this section:
-- [`Calculator.cs`](dotnet/CalculatorExample/Calculator.cs)
-- [`CalculatorExample.csproj`](dotnet/CalculatorExample/CalculatorExample.csproj)
-- [`Program.cs`](dotnet/CalculatorExample/Program.cs)
-- [`CalculatorExample.sln`](dotnet/CalculatorExample.sln)
-- [`Messages.csproj`](dotnet/Messages/Messages.csproj)
-- [`Protos.proto`](dotnet/Messages/Protos.proto)
-
-You can also explore more samples in the [Proto.Actor .NET examples](https://github.com/asynkron/protoactor-dotnet/tree/dev/examples).
-:::
-

@@ -89,15 +89,4 @@ If we run our application, we can make sure that it is no different from what we
 
 Also, the Proto.Actor platform allows you to create messages based on gRPC technology, allowing actors written in different programming languages to communicate between themselves. But we will talk about this in the next lessons.
 
-:::tip Code samples
-The following files accompany this section:
-- [`PlaybackActor.cs`](dotnet/MovieStreaming/Actors/PlaybackActor.cs)
-- [`PlayMovieMessage.cs`](dotnet/MovieStreaming/Messages/PlayMovieMessage.cs)
-- [`MovieStreaming.csproj`](dotnet/MovieStreaming/MovieStreaming.csproj)
-- [`Program.cs`](dotnet/MovieStreaming/Program.cs)
-- [`MovieStreaming.sln`](dotnet/MovieStreaming.sln)
-
-You can also explore more samples in the [Proto.Actor .NET examples](https://github.com/asynkron/protoactor-dotnet/tree/dev/examples).
-:::
-
 [To the next unit!](../../unit-3)

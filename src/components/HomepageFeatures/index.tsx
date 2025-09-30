@@ -22,7 +22,7 @@ const FeatureList: FeatureItem[] = [
         thread management, making it easier to write reliable parallel code.
       </>
     ),
-    linkHref: '/docs/actors',
+    linkHref: '/docs/ProtoActor/actors',
     image: require('@site/static/img/protoactor/actor-illustration.png').default,
     imageAlt: 'Actor model illustration',
   },
@@ -35,7 +35,7 @@ const FeatureList: FeatureItem[] = [
         concurrency, fault tolerance, or resource management.
       </>
     ),
-    linkHref: '/docs/cluster',
+    linkHref: '/docs/ProtoActor/cluster',
     image: require('@site/static/img/protoactor/grains-illustration.png').default,
     imageAlt: 'Virtual actors in different servers',
   },
@@ -48,7 +48,7 @@ const FeatureList: FeatureItem[] = [
         for real-time stream processing.
       </>
     ),
-    linkHref: '/docs/local-affinity',
+    linkHref: '/docs/ProtoActor/local-affinity',
     image: require('@site/static/img/protoactor/stream-illustration.png').default,
     imageAlt: 'Actor migrating to where its messages arrive',
   },
@@ -61,7 +61,7 @@ const FeatureList: FeatureItem[] = [
         events in real time.
       </>
     ),
-    linkHref: '/docs/local-affinity',
+    linkHref: '/docs/ProtoActor/local-affinity',
     image: require('@site/static/img/protoactor/digitaltwins-illustration.png').default,
     imageAlt: 'Digital twins illustration',
   },
@@ -74,7 +74,7 @@ const FeatureList: FeatureItem[] = [
         and Grafana.
       </>
     ),
-    linkHref: '/docs/metrics',
+    linkHref: '/docs/ProtoActor/metrics',
     image: require('@site/static/img/protoactor/metrics-illustration.png').default,
     imageAlt: 'Metrics and tracing illustration',
   },
