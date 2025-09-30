@@ -48,7 +48,7 @@ You can then either store this as static snapshots on your own server, or, simpl
 
 Lets see how this can be done (using ASP.NET MVC4)
 
-```
+```csharp
 public ActionResult Index()
 {
     string fragment = Request.QueryString["_escaped_fragment_"];

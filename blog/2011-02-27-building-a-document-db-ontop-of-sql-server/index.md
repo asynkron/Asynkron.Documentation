@@ -1,22 +1,22 @@
 ---
 slug: building-a-document-db-ontop-of-sql-server
-title: "Building a Document DB ontop of Sql Server"
+title: "Building a Document DB on Top of SQL Server"
 authors: [rogerjohansson]
 tags: ["documentdb", "mongodb", "ravendb", "xml-columns"]
 ---
-I’ve started to build a Document DB emulator ontop of Sql Server XML columns.  
-Sql Server XML columns can store schema free xml documents, pretty much like RavenDB or MongoDB stores schema free Json/Bson documents.
+I’ve started to build a Document DB emulator on top of SQL Server XML columns.
+SQL Server XML columns can store schema-free XML documents, pretty much like RavenDB or MongoDB stores schema-free JSON/BSON documents.
 
 <!-- truncate -->
 
-XML Columns can be indexed and queried using XPath queries.
+XML columns can be indexed and queried using XPath queries.
 
-So I decided to build an abstraction layer ontop of this in order to achieve similair ease of use.  
+So I decided to build an abstraction layer on top of this in order to achieve similar ease of use.
 I’ve built a serializer/deserializer that deals with my own XML structure for documents (state + metadata) and also an early Linq provider for querying.
 
 Executing the following code:
 
-```
+```csharp
 var ctx = new DocumentContext("main");
 var customers = ctx.GetCollection<Customer>().AsQueryable();
 
@@ -35,7 +35,7 @@ foreach (var item in result)
 
 Will yield the following SQL + XPath query:
 
-```
+```sql
 select *
 
 from documents
