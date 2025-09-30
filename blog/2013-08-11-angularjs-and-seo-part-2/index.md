@@ -15,7 +15,7 @@ There is nothing built in for AngularJS to deal with this, so we had to roll our
 
 We do use TypeScript, but you can easily convert this to plain javascript.
 
-```
+```typescript
 module directives {
     class ViewTitleDirective implements ng.IDirective {
         restrict = 'E';
@@ -42,7 +42,7 @@ module directives {
 
 And to use this you simply place a view-title inside one of your view templates, like so:
 
-```
+```html
 <view-title>Some page title</view-title>
 <view-description>Some page description</view-description>
 .. the rest of your ng-view template here

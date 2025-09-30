@@ -27,7 +27,7 @@ The goal was to be able to:
 1\) This is really important IMO, I’m not a big fan of ripple loading where a single entity fetch results in a ton of database calls.  
 This can be accomplished using entity framework using projections (or .Include()).
 
-```
+```csharp
 var result = model.Users.Select (u => new {
         id = u.Id,
         name = u.Name,
@@ -51,7 +51,7 @@ This makes it possible to get/post/put/delete directly to the href of the resour
 
 To solve this I like to do something along the lines of this:
 
-```
+```csharp
 var result = model.Users.Select (u => new {
         href = "/api/v1/users/" + u.Id,
         name = u.Name,
@@ -81,7 +81,7 @@ e.g.
 You can do var res = model.Users.Select(someProjectionExpression);  
 But you can not do this for subqueries:
 
-```
+```csharp
 Expression<Func<Item,object>> itemProjection = i => new {
           id = i.Id,
           name = i.Name,
@@ -101,7 +101,7 @@ This was also solved using the ExpressionVisitor, I simply expand the Linq Expre
 
 Here is a real world example using the framework in WebApi:
 
-```
+```csharp
 //projection for "Site" resource
 public Expression<Func<Site, object>> SiteSelector()
 {
