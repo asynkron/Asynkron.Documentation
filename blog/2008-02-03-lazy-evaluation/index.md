@@ -15,31 +15,39 @@ For those who don’t know what lazy evaluation is about, the purpose of lazy ev
 
 Take the following example (in C#)
 
-    public static void FooBar () 
-    { 
-      int res = GetSomeValue();         
-      //pass the value to a logger 
-      Logger.Log ("value of GetSomeValue was:" , res); 
-    }          
+```
+public static void FooBar () 
+{ 
+  int res = GetSomeValue();         
+  //pass the value to a logger 
+  Logger.Log ("value of GetSomeValue was:" , res); 
+}          
+```
 
-    public static int GetSomeValue() 
-    { 
-     //some realy heavy algorithm here 
-     ... heavy code ... 
-     ... more heavy code ...   
-     return res; 
-    }           
+```
+public static int GetSomeValue() 
+{ 
+ //some realy heavy algorithm here 
+ ... heavy code ... 
+ ... more heavy code ...   
+ return res; 
+}           
+```
 
-    ... logger code ...           
+```
+... logger code ...           
+```
 
-    public void Log (string message,params object[] args) 
-    { 
-     //lets assume we can attach multiple providers to our logger 
-     foreach (LogProvider provider in LogProviders) 
-     { 
-      provider.WriteString(message,args); 
-     } 
-    }
+```
+public void Log (string message,params object[] args) 
+{ 
+ //lets assume we can attach multiple providers to our logger 
+ foreach (LogProvider provider in LogProviders) 
+ { 
+  provider.WriteString(message,args); 
+ } 
+}
+```
 
 In this case, we would always need to execute “GetSomeValue” first in order to call our logger.  
 EVEN if there is no provider attached to the logger.  
@@ -59,25 +67,35 @@ However, you do have to know that you are passing delegates and not simple value
 
 In My Lisp, the code would look something like this:
 
-    (func FooBar () 
-        ( 
-            (= res (GetSomeValue)) 
-            (call logger log "value of GetSomeValue was:" res)))     
+```
+(func FooBar () 
+    ( 
+        (= res (GetSomeValue)) 
+        (call logger log "value of GetSomeValue was:" res)))     
+```
 
-    (lazy-func GetSomeValue () 
-        ( 
-             ... heavy code ... 
-             ... more heavy code ... 
-            (return res)))     
+```
+(lazy-func GetSomeValue () 
+    ( 
+         ... heavy code ... 
+         ... more heavy code ... 
+        (return res)))     
+```
 
-    ...logger...     
+```
+...logger...     
+```
 
-    (func Log (message data) 
-        ( 
-            (foreach provider Providers     
+```
+(func Log (message data) 
+    ( 
+        (foreach provider Providers     
+```
 
-                ;;; GetSomeValue will be called here 
-                (call provider WriteString message data))))
+```
+            ;;; GetSomeValue will be called here 
+            (call provider WriteString message data))))
+```
 
 As you see, there is no special code to handle the lazy evaluation.  
 The only thing that I need to do was define “GetSomeValue” as a lazy function.

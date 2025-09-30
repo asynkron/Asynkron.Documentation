@@ -14,27 +14,31 @@ I just have to produce valid NPath, which is pretty similair to Linq.
 
 Just look at the following code:
 
-    private string ConvertAnyExpression(MethodCallExpression expression) 
-    { 
-        string fromWhere = ConvertExpression(expression.Arguments[0]);     
-        if (expression.Arguments.Count == 1) 
-            return string.Format("(select count(*) from {0}) > 0", fromWhere); 
-        else 
-        { 
-            LambdaExpression lambda = expression.Arguments[1] as LambdaExpression; 
-            string anyCond = ConvertExpression(lambda.Body); 
-            return string.Format("(select count(*) from {0} and {1}) > 0", fromWhere,anyCond); 
-        } 
-    } 
+```
+private string ConvertAnyExpression(MethodCallExpression expression) 
+{ 
+    string fromWhere = ConvertExpression(expression.Arguments[0]);     
+    if (expression.Arguments.Count == 1) 
+        return string.Format("(select count(*) from {0}) > 0", fromWhere); 
+    else 
+    { 
+        LambdaExpression lambda = expression.Arguments[1] as LambdaExpression; 
+        string anyCond = ConvertExpression(lambda.Body); 
+        return string.Format("(select count(*) from {0} and {1}) > 0", fromWhere,anyCond); 
+    } 
+} 
+```
 
 Thats all the code that we needed in order to support “list.Any()” and “list.Any(x =\> ….)”  
 This both makes the Linq provider easier to build, and it makes it way easier to unit test it too.  
 We simply have to compare the result with an expected NPath string.  
 Like this:
 
-    string expected = "select * from Customer where ((Customer != ?))"; 
-    string actual = res.Query.ToNPath(); 
-    Assert.AreEqual<string>(expected, actual);
+```
+string expected = "select * from Customer where ((Customer != ?))"; 
+string actual = res.Query.ToNPath(); 
+Assert.AreEqual<string>(expected, actual);
+```
 
 So I think we have most of the standard query elements in place now.  
 I just have to add support for a few more things inside NPath, things like “skip”, “is” etc.

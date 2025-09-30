@@ -1,0 +1,145 @@
+
+> asynkron-documentation@0.0.0 build
+> docusaurus build --no-minify
+
+[INFO] [en] Creating an optimized production build...
+[WARNING] Tags [c, debugger, domain-specific-languages, lisp, net] used in 2008-01-30-lisp-debugger/index.md are not defined in tags.yml
+[WARNING] Tags [c, linq, o-r-mapping] used in 2008-01-10-making-a-custom-linq-engine/index.md are not defined in tags.yml
+[WARNING] Tags [aspect-oriented-programming, debug-visualizer, naspect] used in 2008-01-08-naspect-the-first-debuggable-aop-framework-for-net/index.md are not defined in tags.yml
+[WARNING] Tags [aspect-oriented-programming, c, naspect] used in 2008-01-08-code-mangling-aop-vs-runtime-proxy-aop/index.md are not defined in tags.yml
+[WARNING] Tags [c-lambda, domain-specific-languages, lisp, net] used in 2008-01-27-32/index.md are not defined in tags.yml
+[WARNING] Tags [anonymous-types, c, linq, o-r-mapping] used in 2008-01-09-orm-and-c3-anonymous-types/index.md are not defined in tags.yml
+[WARNING] Tags [c, lisp, mylisp, syntaxbox, windows-forms] used in 2008-02-08-mylisp-editor/index.md are not defined in tags.yml
+[WARNING] Tags [c, l, lisp, mylisp, optimizing] used in 2008-02-08-optimizing-mylisp/index.md are not defined in tags.yml
+[WARNING] Tags [c, darwin, evolution, genetic-algorithms, genetic-programming] used in 2008-02-07-genetic-programming-math/index.md are not defined in tags.yml
+[WARNING] Tags [npersist, o-r-mapping, puzzle] used in 2008-02-09-npersist-updates/index.md are not defined in tags.yml
+[WARNING] Tags [c, design-patterns, factory-methods, managed-new] used in 2008-02-21-typed-factories-in-c3-managed-new/index.md are not defined in tags.yml
+[WARNING] Tags [c, class-chart, class-designer, class-diagram, diagramming, net, windows-forms] used in 2008-02-14-albinohorse/index.md are not defined in tags.yml
+[WARNING] Tags [linq, ms-access, npersist, sub-queries] used in 2008-02-24-linq-to-npersist-to-ms-access/index.md are not defined in tags.yml
+[WARNING] Tags [c, domain-specific-languages, dslisp, net] used in 2008-02-12-dslisp/index.md are not defined in tags.yml
+[WARNING] Tags [class-designer, objectmapper, puzzle-framework, uml-editor, whitehorse] used in 2008-02-11-objectmapper-2008/index.md are not defined in tags.yml
+[WARNING] Tags [domain-specific-languages, npath, npersist, query-objects] used in 2008-01-08-query-objects-vs-dsl/index.md are not defined in tags.yml
+[WARNING] Tags [cil, compiler-construction, compilers, emit, gold-parser, msil, reflection] used in 2008-03-03-cil-compiler-construction/index.md are not defined in tags.yml
+[WARNING] Tags [c, framework, linq, net, o-r-mapping, puzzle] used in 2008-02-10-adding-linq-support-to-npersist/index.md are not defined in tags.yml
+[WARNING] Tags [delegates, lambda, linq, linq-expressions] used in 2008-02-28-linq-expressions-creating-objects/index.md are not defined in tags.yml
+[WARNING] Tags [delegates, generic-algorithms, generic-math, lambda, linq, linq-expressions] used in 2008-02-27-linq-expressions-calculating-with-generics/index.md are not defined in tags.yml
+[WARNING] Tags [asp-net, c, objectdatasource, type-gettype, type-names] used in 2008-03-11-hidden-gem-buildmanagergettype/index.md are not defined in tags.yml
+[WARNING] Tags [linq, npath] used in 2008-02-20-more-linq-support-for-npersist/index.md are not defined in tags.yml
+[WARNING] Tags [delegate, lambda, linq, net2, object-queries] used in 2008-03-31-linq-to-objects-for-net-2-available/index.md are not defined in tags.yml
+[WARNING] Tags [arguments, extension-methods, fluent-interface, validation] used in 2008-05-10-followup-how-to-validate-a-methods-arguments/index.md are not defined in tags.yml
+[WARNING] Tags [caramel-code-generator, code-generator, codesmith, mygeneration, objectmapper, scripts, templates] used in 2008-04-09-caramel-code-generator/index.md are not defined in tags.yml
+[WARNING] Tags [delegates, lambda, linq, linq-expressions] used in 2008-02-26-linq-expressions-access-private-fields/index.md are not defined in tags.yml
+[WARNING] Tags [gdi, idisposable, template-method-pattern, wrapper] used in 2008-04-17-disposer-idisposable-and-template-pattern/index.md are not defined in tags.yml
+[WARNING] Tags [delegates, lambda, memoization, stateful] used in 2008-06-04-net-stateful-delegates-and-memoization/index.md are not defined in tags.yml
+[WARNING] Tags [deserialization, deserializer, generics, serialization, serializer, soap, xml] used in 2008-07-14-robus-xml-serialization/index.md are not defined in tags.yml
+[WARNING] Tags [ast, book, compilers, language] used in 2008-06-19-book-compiler-principles-the-red-dragon-book/index.md are not defined in tags.yml
+[WARNING] Tags [compona-syntaxbox, parsing, puzzle-syntaxbox, syntax-highlight, syntaxbox] used in 2008-06-09-syntaxbox-20/index.md are not defined in tags.yml
+[WARNING] Tags [async, fluent-interface, fork, threading, threads] used in 2008-05-09-async-calls-fork/index.md are not defined in tags.yml
+[WARNING] Tags [c, caramel, code-generation, domain-specific-languages, o-r-mapping, orm] used in 2008-06-19-caramel-alpha-source-code-is-public/index.md are not defined in tags.yml
+[WARNING] Tags [delegates, linq, linq-expressions] used in 2008-08-09-lambda-expressions-are-not-delegates/index.md are not defined in tags.yml
+[WARNING] Tags [ddd, linq, nworkspace] used in 2008-10-03-nworkspace-linq-workspace-followup/index.md are not defined in tags.yml
+[WARNING] Tags [identity, life, pdc] used in 2008-11-02-the-importance-of-domain-modelling/index.md are not defined in tags.yml
+[WARNING] Tags [dlr, private-fields, reflection] used in 2008-11-03-linq-expressions-assign-private-fields-c-4/index.md are not defined in tags.yml
+[WARNING] Tags [gold-parser, m-grammar, oslo, parsers] used in 2008-11-10-m-grammar-vs-gold-parser/index.md are not defined in tags.yml
+[WARNING] Tags [domain-specific-languages, m, oslo] used in 2008-11-04-i-call-bs-on-the-oslo-m-language/index.md are not defined in tags.yml
+[WARNING] Tags [cluster, ga, gp, mpi] used in 2009-01-04-scaling-clustere-evolution-1-1-4/index.md are not defined in tags.yml
+[WARNING] Tags [f] used in 2009-12-27-f-pipelining-in-c/index.md are not defined in tags.yml
+[WARNING] Tags [ast, dsl, gold-parser, intentional] used in 2010-03-23-generic-dsl-grammar-and-parser/index.md are not defined in tags.yml
+[WARNING] Tags [before-and-after, nuss, pectus] used in 2010-02-25-chest-reconstructuion-nuss-procedure/index.md are not defined in tags.yml
+[WARNING] Tags [ast, dsl, f, gold-parser, parsing] used in 2010-03-26-f-gold-parser-true/index.md are not defined in tags.yml
+[WARNING] Tags [cloud, f, parallelism] used in 2009-12-29-massive-parallelism-f-in-the-cloud/index.md are not defined in tags.yml
+[WARNING] Tags [f] used in 2009-12-27-i-still-dont-get-f/index.md are not defined in tags.yml
+[WARNING] Tags [composite-oriented-programming, cop, qi4j] used in 2009-06-25-composite-oriented-programming-qi4j-running-on-net/index.md are not defined in tags.yml
+[WARNING] Tags [ast, dsl, parsing] used in 2010-03-26-generic-dsl-using-f/index.md are not defined in tags.yml
+[WARNING] Tags [darwin, dawkins, ea, ga, gp] used in 2010-07-30-evolutionary-algorithms-directing-the-undirected/index.md are not defined in tags.yml
+[WARNING] Tags [documentdb, mongodb, ravendb, xml-columns] used in 2011-02-27-building-a-document-db-ontop-of-sql-server/index.md are not defined in tags.yml
+[WARNING] Tags [forloop, jit, native, x86] used in 2011-02-10-net-disassembled-part-2-for-loops/index.md are not defined in tags.yml
+[WARNING] Tags [ddd, ef4] used in 2011-04-01-or-mapping-and-domain-query-optimizations/index.md are not defined in tags.yml
+[WARNING] Tags [darwin, dawkins, ea, ga] used in 2010-07-29-evolutionary-algorithms-problems-with-directed-evolution/index.md are not defined in tags.yml
+[WARNING] Tags [documentdb, sql-server, xml, xpath, xquery] used in 2011-02-28-linq-to-sqlxml/index.md are not defined in tags.yml
+[WARNING] Tags [documentdb, mongodb, nosql, ravendb, xml, xquery] used in 2011-03-02-linq-to-sqlxml-github/index.md are not defined in tags.yml
+[WARNING] Tags [ajax, angularjs, htmlsnapshot, seo] used in 2013-08-06-seo-indexing-angularjs-sites-or-other-ajax-sites-with-wombit-crawlr/index.md are not defined in tags.yml
+[WARNING] Tags [cqrs, entity] used in 2013-11-29-ddd-prentity/index.md are not defined in tags.yml
+[WARNING] Tags [actor-model, akka, async, pigeon] used in 2014-01-03-hotswap-and-supervision-pigeon-akka-actors-for-net/index.md are not defined in tags.yml
+[WARNING] Tags [actor-model, akka, routing, supervision] used in 2014-02-08-actor-lifecycle-management-and-routers-akka-actors-for-net/index.md are not defined in tags.yml
+[WARNING] Tags [actor-model, akka, pigeon, throughput] used in 2014-01-16-throughput-of-pigeon-akka-actors-for-net/index.md are not defined in tags.yml
+[WARNING] Tags [actor-model, akka, pigeon] used in 2014-01-01-pigeon-akka-actors-for-net/index.md are not defined in tags.yml
+[WARNING] Tags [actor-model, akka, pigeon] used in 2014-01-26-3294/index.md are not defined in tags.yml
+[WARNING] Tags [actor-model, akka, hocon, pigeon, typesafe] used in 2014-02-01-configuring-pigeon-akka-actors-for-net/index.md are not defined in tags.yml
+[WARNING] Tags [automapper, cqrs, datatransferobject, ddd, dto, entities, entityframework, linq, mapping] used in 2013-12-01-why-mapping-dtos-to-entities-using-automapper-and-entityframework-is-horrible/index.md are not defined in tags.yml
+[WARNING] Tags [actors, akka, deployment, remoting] used in 2014-03-09-deploying-actors-with-akka-net/index.md are not defined in tags.yml
+[WARNING] Tags [actor-model, akka, net, pigeon] used in 2014-02-21-massive-improvements-to-pigeon-akka-actors-for-net/index.md are not defined in tags.yml
+[WARNING] Tags [akka, akka-net, distributed-programming, infrastructure, microsoft-orleans] used in 2017-05-19-do-not-do-in-code-what-can-be-done-in-infrastructure/index.md are not defined in tags.yml
+[WARNING] Tags [actor-model, akka, akka-net, concurrency, nethouse-se] used in 2014-11-10-akka-net-concurrency-control/index.md are not defined in tags.yml
+[WARNING] Tags [netbeans, theme, vs-net] used in 2010-03-28-vs2010-theme-netbeans-clone/index.md are not defined in tags.yml
+[WARNING] Tags [actor-model, akka, message-passing, open-source] used in 2015-07-26-building-a-framework-the-early-akka-net-history/index.md are not defined in tags.yml
+[WARNING] Tags [actor-model, akka, akka-net, async] used in 2014-03-05-introducing-akka-net/index.md are not defined in tags.yml
+[WARNING] Tags [servicebus] used in 2014-12-18-learning-azure-day-2-servicebus/index.md are not defined in tags.yml
+[WARNING] Tags [akka, akka-net, distributed-transactions, msdtc, transactions] used in 2014-11-15-actor-based-distributed-transactions/index.md are not defined in tags.yml
+[WARNING] Tags [servicebus] used in 2014-12-17-learning-azure-day-1-servicebus/index.md are not defined in tags.yml
+[WARNING] Docusaurus found blog posts without truncation markers:
+- "blog/2008-02-21-typed-factories-in-c3-managed-new/index.md"
+- "blog/2008-02-21-typed-factories-in-c3-v2/index.md"
+
+We recommend using truncation markers (`<!-- truncate -->` or `{/* truncate */}`) in blog posts to create shorter previews on blog paginated lists.
+Tip: turn this security off with the `onUntruncatedBlogPosts: 'ignore'` blog plugin option.
+[webpackbar] ℹ Compiling Client
+[webpackbar] ℹ Compiling Server
+[webpackbar] ✔ Server: Compiled with some errors in 37.78s
+[webpackbar] ✔ Client: Compiled with some errors in 41.43s
+[ERROR] Client bundle compiled with errors therefore further build is impossible.
+Error: MDX compilation failed for file "/Users/rogerjohansson/git/asynkron/Asynkron.Documentation/blog/2008-01-09-orm-and-c3-anonymous-types/index.md"
+Cause: Could not parse expression with acorn
+Details:
+{
+  "cause": {
+    "pos": 1168,
+    "loc": {
+      "line": 30,
+      "column": 60
+    }
+  },
+  "column": 61,
+  "file": "",
+  "message": "Could not parse expression with acorn",
+  "line": 30,
+  "name": "30:61",
+  "place": {
+    "line": 30,
+    "column": 61,
+    "offset": 1168
+  },
+  "reason": "Could not parse expression with acorn",
+  "ruleId": "acorn",
+  "source": "micromark-extension-mdx-expression",
+  "url": "https://github.com/micromark/micromark-extension-mdx-expression/tree/main/packages/micromark-extension-mdx-expression#could-not-parse-expression-with-acorn"
+}
+
+--------------------------
+
+Error: MDX compilation failed for file "/Users/rogerjohansson/git/asynkron/Asynkron.Documentation/blog/2008-01-10-making-a-custom-linq-engine/index.md"
+Cause: Could not parse expression with acorn
+Details:
+{
+  "cause": {
+    "pos": 1629,
+    "loc": {
+      "line": 49,
+      "column": 38
+    }
+  },
+  "column": 39,
+  "file": "",
+  "message": "Could not parse expression with acorn",
+  "line": 49,
+  "name": "49:39",
+  "place": {
+    "line": 49,
+    "column": 39,
+    "offset": 1629
+  },
+  "reason": "Could not parse expression with acorn",
+  "ruleId": "acorn",
+  "source": "micromark-extension-mdx-expression",
+  "url": "https://github.com/micromark/micromark-extension-mdx-expression/tree/main/packages/micromark-extension-mdx-expression#could-not-parse-expression-with-acorn"
+}

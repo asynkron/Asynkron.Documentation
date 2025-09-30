@@ -1,0 +1,51 @@
+{
+  "comments": [
+    {
+      "createdBy": {
+        "_links": {
+          "avatar": {
+            "href": "https://dev.azure.com/if-it/_apis/GraphProfile/MemberAvatars/aad.YjM4ZWFmYTItYzBmNy03ZjBlLTg3NGYtMTI0MTI4MWViNmY4"
+          }
+        },
+        "descriptor": "aad.YjM4ZWFmYTItYzBmNy03ZjBlLTg3NGYtMTI0MTI4MWViNmY4",
+        "displayName": "Zariņš, Kristers",
+        "id": "b38eafa2-c0f7-6f0e-874f-1241281eb6f8",
+        "imageUrl": "https://dev.azure.com/if-it/_apis/GraphProfile/MemberAvatars/aad.YjM4ZWFmYTItYzBmNy03ZjBlLTg3NGYtMTI0MTI4MWViNmY4",
+        "uniqueName": "kristers.zarins@if.lv",
+        "url": "https://spsprodweu3.vssps.visualstudio.com/A18418ec0-f777-4f1d-83a0-a531fd9cbb6d/_apis/Identities/b38eafa2-c0f7-6f0e-874f-1241281eb6f8"
+      },
+      "createdDate": "2025-09-16T13:49:37.983Z",
+      "format": "html",
+      "id": 21444733,
+      "mentions": [
+        {
+          "artifactId": "4a709b97-19e2-614a-b83f-986dcea8eb12",
+          "artifactType": "Person",
+          "commentId": 21444733,
+          "targetId": "4a709b97-19e2-614a-b83f-986dcea8eb12"
+        }
+      ],
+      "modifiedBy": {
+        "_links": {
+          "avatar": {
+            "href": "https://dev.azure.com/if-it/_apis/GraphProfile/MemberAvatars/aad.YjM4ZWFmYTItYzBmNy03ZjBlLTg3NGYtMTI0MTI4MWViNmY4"
+          }
+        },
+        "descriptor": "aad.YjM4ZWFmYTItYzBmNy03ZjBlLTg3NGYtMTI0MTI4MWViNmY4",
+        "displayName": "Zariņš, Kristers",
+        "id": "b38eafa2-c0f7-6f0e-874f-1241281eb6f8",
+        "imageUrl": "https://dev.azure.com/if-it/_apis/GraphProfile/MemberAvatars/aad.YjM4ZWFmYTItYzBmNy03ZjBlLTg3NGYtMTI0MTI4MWViNmY4",
+        "uniqueName": "kristers.zarins@if.lv",
+        "url": "https://spsprodweu3.vssps.visualstudio.com/A18418ec0-f777-4f1d-83a0-a531fd9cbb6d/_apis/Identities/b38eafa2-c0f7-6f0e-874f-1241281eb6f8"
+      },
+      "modifiedDate": "2025-09-16T13:49:37.983Z",
+      "renderedText": "",
+      "text": "<div><a href=\"#\" data-vss-mention=\"version:2.0,4a709b97-19e2-614a-b83f-986dcea8eb12\">@Johansson, Roger</a>&nbsp;in case you are interested:<br><br>Steps to reproduce the issue locally:<br></div><ol><li>Make sure you are NOT connected to If's VPN. This will simulate a timeout.</li><li>Spin up Spectre.PolicyAPI function, open /api/swagger/ui page</li><li>Launch the /policies/search function</li><li>After 10s, you should see exception thrown in GuidewireHttpClientBase.SendAsync method. It gets caught in the same method, and then ExternalRequestResult with the value of NULL is returned back to the private Search method in PolicySearchService.cs. This method then again returns null without logging anything, and to the end user of our API it looks like we didn't find a policy. But in reality there was a timeout.</li></ol><div>Places to fix:<br><ol><li>private Search method in&nbsp;<span style=\"text-align:left;display:inline !important;\">PolicySearchService.cs should pass the optional &quot;stickySessionId&quot; to&nbsp;<span style=\"display:inline !important;\">GuidewireHttpClientBase.SendAsync method. This should be the normal correlationId used internally in Spectre. This will ensure that guidewire receives our correlationId in headers.</span></span></li><li><span style=\"text-align:left;display:inline !important;\"><span style=\"display:inline !important;\">In case private Search method in PolicySearchService.cs receives null back from GuidewireHttpClientBase.SendAsync, it shouldn't just return null. It should log there was a failure and include both the correlationId and also masked registration number.</span></span></li><li><span style=\"text-align:left;display:inline !important;\"><span style=\"display:inline !important;\">Lastly, `await policyService.GetPolicyByRegistrationNumber in PolicySearch.cs` file - result pattern should be applied there to ensure we can pass error up to PolicySearch.cs and it can return 503 to our consumer.</span></span></li></ol></div>",
+      "url": "https://dev.azure.com/if-it/52591d4a-be4a-48c3-9767-c2603519559d/_apis/wit/workItems/1316450/comments/21444733",
+      "version": 1,
+      "workItemId": 1316450
+    }
+  ],
+  "count": 1,
+  "totalCount": 1
+}
