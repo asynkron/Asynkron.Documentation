@@ -4,38 +4,38 @@ title: "Linq Expressions – Access private fields"
 authors: [rogerjohansson]
 tags: ["delegates", "lambda", "linq", "linq-expressions"]
 ---
-In this post I will show how you can use Linq Expressions to access private(or public) class fields instead of using Reflection.FieldInfo.
+In this post I will show how you can use Linq Expressions to access private (or public) class fields instead of using Reflection.FieldInfo.
 
 <!-- truncate -->
 
 Normally when you want to access a field by its name on a type you have to resort to reflection.  
 You will end up with something like this:
 
-```
-FieldInfo field = MyType.GetField("someField",BindingFlags.NonPublic | .... ); 
+```csharp
+FieldInfo field = MyType.GetField("someField",BindingFlags.NonPublic | .... );
 object res = field.GetValue (MyObj);
 ```
 
-This suffers from allot of drawbacks, it’s ugly, it’s untyped and its horribly slow to access data via FieldInfo.
+This suffers from a lot of drawbacks, it’s ugly, it’s untyped and it’s horribly slow to access data via FieldInfo.
 
 Instead of playing around with FieldInfo, you can now use Linq Expressions to build a typed delegate that does this for you.
 
 Here is how you do it:
 
-```
-public static Func<T,R> GetFieldAccessor<T,R>(string fieldName) 
-{ 
-  ParameterExpression param = 
-  Expression.Parameter (typeof(T),"arg");  
+```csharp
+public static Func<T,R> GetFieldAccessor<T,R>(string fieldName)
+{
+    ParameterExpression param =
+        Expression.Parameter(typeof(T), "arg");
 
-  MemberExpression member = 
-  Expression.Field(param, fieldName);   
+    MemberExpression member =
+        Expression.Field(param, fieldName);
 
-  LambdaExpression lambda = 
-  Expression.Lambda(typeof(Func<T,R>), member, param);   
+    LambdaExpression lambda =
+        Expression.Lambda(typeof(Func<T,R>), member, param);
 
-  Func<T,R> compiled = (Func<T,R>)lambda.Compile(); 
-  return compiled; 
+    Func<T,R> compiled = (Func<T,R>)lambda.Compile();
+    return compiled;
 }
 ```
 
@@ -53,10 +53,10 @@ The last part of the code will compile our lambda into a typed delegate: Func\<T
 
 Here is an example on how to use this code:
 
-```
-Person person = new Person(); 
-person.FirstName = "Roger"; 
-var getFirstName = GetFieldAccessor<Person,string> ("firstName"); 
+```csharp
+Person person = new Person();
+person.FirstName = "Roger";
+var getFirstName = GetFieldAccessor<Person,string> ("firstName");
 ... 
 //typed access via delegate 
 string result = getFirstName(person);
@@ -69,7 +69,7 @@ I made a little benchmark where I accessed the same field a million times.
 
 The Reflection.FieldInfo approach took **6.2 seconds** to complete.  
 The Compiled lambda approach took **0.013 seconds** to complete.  
-That’s quit a big difference.
+That’s quite a big difference.
 
 So with this approach you can optimize your old reflection code and get some serious performance gains..
 
