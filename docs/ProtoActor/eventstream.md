@@ -40,10 +40,22 @@ orderSubscription = Cluster.System.EventStream.Subscribe<Order>(msg =>
     Console.WriteLine("message received"))
 ```
 
+```go
+orderSubscription := system.EventStream.Subscribe(func(evt interface{}) {
+        if msg, ok := evt.(*Order); ok {
+                fmt.Println("message received", msg)
+        }
+})
+```
+
 When the subscription is no longer necessary, for example, when the gift campaign is over, you can use `Unsubscribe` method. In this example, we have canceled the subscription of the GiftModule component, and after calling this method, the actor will stop receiving Order messages.
 
 ```csharp
 orderSubscription.Unsubscribe()
+```
+
+```go
+system.EventStream.Unsubscribe(orderSubscription)
 ```
 
 It is all that is required to subscribe GiftModule component to receive Order messages. After calling the `Subscribe` method, the GiftModule component will be receiving all Order messages published in EventStream. This method can be invoked for any actor that is interested in receiving Order messages. And when an actor needs to receive messages of different types, the `Subscribe` method can be called several times with varying kinds of messages.
@@ -52,6 +64,10 @@ Publishing messages in EventStream is as easy as that; just call the Publish met
 
 ```csharp
 system.EventStream.Publish(msg);
+```
+
+```go
+system.EventStream.Publish(msg)
 ```
 
 After that, the msg message will be passed to all subscribed actors. In fact, this completes description of the realization of channels like "publisher/subscriber" in Proto.Actor.

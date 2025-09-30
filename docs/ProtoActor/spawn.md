@@ -21,6 +21,13 @@ var pid2 = system.Root.SpawnPrefix(props, "prefix"); // spawn an actor with a pr
 var pid3 = system.Root.SpawnNamed(props, "my-actor"); // spawn an actor with an exact name
 ```
 
+```go
+system := actor.NewActorSystem()
+pid1 := system.Root.Spawn(props)                  // spawn an actor with an auto-generated name
+pid2 := system.Root.SpawnPrefix(props, "prefix") // spawn an actor with a prefix followed by an auto-generated name
+pid3 := system.Root.SpawnNamed(props, "my-actor")// spawn an actor with an exact name
+```
+
 :::note
 If an actor already exists with the specified name, this will throw a `ProcessNameExistException`.
 :::
@@ -33,5 +40,16 @@ public Task ReceiveAsync(IContext context)
     var pid1 = context.Spawn(props);
     var pid2 = context.SpawnPrefix(props, "prefix");
     var pid3 = context.SpawnNamed(props, "my-actor");
+}
+```
+
+```go
+func (state *MyActor) Receive(context actor.Context) {
+        pid1 := context.Spawn(props)
+        pid2 := context.SpawnPrefix(props, "prefix")
+        pid3 := context.SpawnNamed(props, "my-actor")
+        _ = pid1
+        _ = pid2
+        _ = pid3
 }
 ```

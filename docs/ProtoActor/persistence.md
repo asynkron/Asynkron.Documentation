@@ -45,6 +45,10 @@ public delegate Task PersistRoomState(RoomState roomState);
 
 ```
 
+```go
+//TODO: missing
+```
+
 Both delegates might be injected in the actor's constructor. Then on actor's start, state is loaded.
 
 ``` csharp
@@ -74,6 +78,10 @@ Both delegates might be injected in the actor's constructor. Then on actor's sta
 
 ```
 
+```go
+//TODO: missing
+```
+
 After applying any change on actor's state, the second delegate is used and the state of actor is persisted.
 
 ```csharp
@@ -99,6 +107,10 @@ After applying any change on actor's state, the second delegate is used and the 
 
 ```
 
+```go
+//TODO: missing
+```
+
 ## Batched Persistence
 
 Batched persistence groups several persistence operations before writing them to the underlying
@@ -114,6 +126,10 @@ graph LR
 ```csharp
 var props = Props.FromProducer(() => new MyPersistentActor())
     .WithPersistence(new BatchingPersistence(batchSize: 50));
+```
+
+```go
+//TODO: missing
 ```
 
 At the time of writing there is no Go implementation for batched persistence.

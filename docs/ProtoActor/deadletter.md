@@ -72,9 +72,37 @@ static async Task Main(string[] args)
 }
 ```
 
+```go
+func main() {
+        system := actor.NewActorSystem()
+        props := actor.PropsFromProducer(func() actor.Actor { return &Echo{} })
+        pid := system.Root.Spawn(props)
+
+        subscription := system.EventStream.Subscribe(func(evt interface{}) {
+                if dl, ok := evt.(*actor.DeadLetterEvent); ok {
+                        fmt.Printf("Sender: %v, Pid: %v, Message: %v\n", dl.Sender, dl.PID, dl.Message)
+                }
+        })
+
+        system.Root.Send(pid, &TestMessage{})
+        system.Root.Poison(pid)
+        system.Root.Send(pid, &TestMessage{})
+
+        system.EventStream.Unsubscribe(subscription)
+}
+```
+
 Messages sent to a terminated actor cannot be processed and the PID on that actor must no longer be used. When messages are sent to a terminated actor, they are placed in the DeadLetter queue. This confirms receipt of the message by our handler.
 
 ```csharp
 system.EventStream.Subscribe<DeadLetterEvent>(msg =>
     Console.WriteLine($"Sender: {msg.Sender}, Pid: {msg.Pid}, Message: {msg.Message}"));
+```
+
+```go
+subscription := system.EventStream.Subscribe(func(evt interface{}) {
+        if dl, ok := evt.(*actor.DeadLetterEvent); ok {
+                fmt.Printf("Sender: %v, Pid: %v, Message: %v\n", dl.Sender, dl.PID, dl.Message)
+        }
+})
 ```

@@ -31,6 +31,20 @@ public async Task Receive(IContext context)
 
 ```
 
+```go
+func (state *MyActor) Receive(context actor.Context) {
+        switch context.Message().(type) {
+        case *DoStuff:
+                result, err := state.service.DoStuff(context, time.Second)
+                if err != nil {
+                        context.Logger().Error("do stuff failed", "err", err)
+                        return
+                }
+                _ = result
+        }
+}
+```
+
 This would execute as follows:
 
 ```mermaid
@@ -67,6 +81,22 @@ public async Task Receive(IContext context)
     //Exit
 }
 
+```
+
+```go
+func (state *MyActor) Receive(context actor.Context) {
+        switch msg := context.Message().(type) {
+        case *DoStuff:
+                future := context.RequestFuture(state.workerPID, msg, time.Second)
+                context.ReenterAfter(future, func(res interface{}, err error) {
+                        if err != nil {
+                                context.Logger().Error("worker failed", "err", err)
+                                return
+                        }
+                        context.Send(context.Sender(), res)
+                })
+        }
+}
 ```
 
 We instead get this execution flow:
@@ -136,6 +166,21 @@ public override async Task DoStuff(DoStuffRequest request, Action<DoStuffRespons
 
 // You do need to override the abstract version of the generated DoStuff method to appease the compiler, but it won't be invoked.
 public override async Task<DoStuffResponse> DoStuff(DoStuffRequest request) => Task.FromResult(new DoStuffResponse());
+```
+
+```go
+func (g *MyGrain) DoStuff(ctx actor.Context, req *DoStuffRequest) {
+        future := ctx.RequestFuture(g.workerPID, req, time.Second)
+        ctx.ReenterAfter(future, func(res interface{}, err error) {
+                if err != nil {
+                        ctx.Send(ctx.Sender(), &DoStuffResponse{Error: err.Error()})
+                        return
+                }
+                if reply, ok := res.(*DoStuffResponse); ok {
+                        ctx.Send(ctx.Sender(), reply)
+                }
+        })
+}
 ```
 
 This modification enables your actor to handle other incoming messages while the asynchronous task is running, enhancing throughput and avoiding potential deadlocks (see [deadlock prevention](./deadlocks)). The `respond` callback is invoked with the task result once it completes, maintaining the ability to return results to the caller.

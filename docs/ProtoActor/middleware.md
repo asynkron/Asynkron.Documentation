@@ -35,6 +35,25 @@ var props = Actor.FromFunc(c => {
 
 ```
 
+```go
+props := actor.PropsFromFunc(func(ctx actor.Context) {
+        fmt.Println("actor")
+}, actor.WithReceiverMiddleware(
+        func(next actor.ReceiverFunc) actor.ReceiverFunc {
+                return func(ctx actor.ReceiverContext, envelope *actor.MessageEnvelope) {
+                        fmt.Println("middleware 1")
+                        next(ctx, envelope)
+                }
+        },
+        func(next actor.ReceiverFunc) actor.ReceiverFunc {
+                return func(ctx actor.ReceiverContext, envelope *actor.MessageEnvelope) {
+                        fmt.Println("middleware 2")
+                        next(ctx, envelope)
+                }
+        },
+))
+```
+
 The above code will print `middleware 1`, then `middleware 2`, then `actor`. The `next` argument to the first middleware will be the second middleware, and the `next` argument to the second middleware will be the actor's `Receive` method.
 
 ## Sender middleware
@@ -63,6 +82,25 @@ var props = Actor.FromFunc(c => {
         }
     );
 
+```
+
+```go
+props := actor.PropsFromFunc(func(ctx actor.Context) {
+        fmt.Println("actor")
+}, actor.WithSenderMiddleware(
+        func(next actor.SenderFunc) actor.SenderFunc {
+                return func(ctx actor.SenderContext, target *actor.PID, envelope *actor.MessageEnvelope) {
+                        fmt.Println("middleware 1")
+                        next(ctx, target, envelope)
+                }
+        },
+        func(next actor.SenderFunc) actor.SenderFunc {
+                return func(ctx actor.SenderContext, target *actor.PID, envelope *actor.MessageEnvelope) {
+                        fmt.Println("middleware 2")
+                        next(ctx, target, envelope)
+                }
+        },
+))
 ```
 
 The above code will print `actor`, then `middleware 1`, then `middleware 2`. The `next` argument to the first middleware will be the second middleware, and the `next` argument to the second middleware.

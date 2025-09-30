@@ -20,6 +20,10 @@ The simplest way is to use one the Actor convenience methods, `FromProducer()` o
 var props = Actor.FromProducer(() => new MyActor());
 ```
 
+```go
+props := actor.PropsFromProducer(func() actor.Actor { return &MyActor{} })
+```
+
 **From an actor receive delegate**
 
 ```csharp
@@ -28,6 +32,12 @@ var props = Actor.FromFunc(context =>
         Console.WriteLine($"Received message {context.Message}");
         return Task.CompletedTask;
     });
+```
+
+```go
+props := actor.PropsFromFunc(func(context actor.Context) {
+        fmt.Printf("Received message %v\n", context.Message())
+})
 ```
 
 ## Customizing Props
@@ -75,6 +85,34 @@ var props = new Props()
         })
     // the default spawner constructs the Actor, Context and Process
     .WithSpawner(Props.DefaultSpawner);
+```
+
+```go
+props := actor.PropsFromProducer(func() actor.Actor { return &MyActor{} },
+    // configure a dispatcher with explicit throughput
+    actor.WithDispatcher(actor.NewDefaultDispatcher(300)),
+    // swap the mailbox implementation
+    actor.WithMailbox(actor.Unbounded()),
+    // supervise children using a restart strategy
+    actor.WithSupervisor(actor.NewOneForOneStrategy(10, 10*time.Second, func(reason interface{}) actor.Directive {
+            return actor.RestartDirective
+    })),
+    // register receive middleware to run before and after actor processing
+    actor.WithReceiverMiddleware(func(next actor.ReceiverFunc) actor.ReceiverFunc {
+            return func(ctx actor.ReceiverContext, envelope *actor.MessageEnvelope) {
+                    fmt.Printf("middleware 1 enter %T\n", envelope.Message)
+                    next(ctx, envelope)
+                    fmt.Println("middleware 1 exit")
+            }
+    }),
+    actor.WithSenderMiddleware(func(next actor.SenderFunc) actor.SenderFunc {
+            return func(sender actor.SenderContext, target *actor.PID, envelope *actor.MessageEnvelope) {
+                    fmt.Println("sender middleware 1 enter")
+                    next(sender, target, envelope)
+                    fmt.Println("sender middleware 1 exit")
+            }
+    }),
+)
 ```
 
 ## See also

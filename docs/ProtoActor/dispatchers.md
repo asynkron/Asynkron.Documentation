@@ -45,6 +45,12 @@ var dispatcher = new ThreadPoolDispatcher(throughput = 100);
 var props = Props.FromProducer(() => new MyActor()).WithDispatcher(dispatcher);
 ```
 
+```go
+dispatcher := actor.NewDefaultDispatcher(100)
+props := actor.PropsFromProducer(func() actor.Actor { return &MyActor{} },
+        actor.WithDispatcher(dispatcher))
+```
+
 #### Built-in dispatchers
 
 Some dispatchers are available out-of-the-box for convenience.

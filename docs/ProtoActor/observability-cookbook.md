@@ -17,6 +17,12 @@ Include correlation IDs to link logs to traces.
 log.LogInformation("{CorrelationId} handling {Message}", id, msg);
 ```
 
+```go
+logger.Info("handling message",
+    slog.String("correlation_id", id),
+    slog.Any("message", msg))
+```
+
 ## Metrics to watch
 
 - Mailbox depth per actor
