@@ -81,7 +81,7 @@ Asynkron is a team of distributed-systems veterans who have spent the last decad
 <table>
   <tr>
     <td width="140" valign="top">
-      <img src="/img/ocpp-egg.png" alt="OcppServer charging egg" width="120" />
+      <img src="/img/ocpp-server.png" alt="OcppServer logo" width="120" />
     </td>
     <td valign="top">
       <p><a href="./OcppServer/index.md">Asynkron.OcppServer</a> delivers an OCPP 1.6 Central System tuned for fleets with hundreds of thousands of concurrent chargers. Learn how to onboard devices, keep firmware current, and integrate billing and energy-market workflows.</p>
@@ -94,7 +94,7 @@ Asynkron is a team of distributed-systems veterans who have spent the last decad
 <table>
   <tr>
     <td width="140" valign="top">
-      <img src="/img/fake-logo3.png" alt="Jsome placeholder logo" width="120" />
+      <img src="/img/jsome-logo.png" alt="Jsome logo" width="120" />
     </td>
     <td valign="top">
       <p><a href="./Jsome/index.md">Asynkron.Jsome</a> is a .NET global tool that generates strongly typed clients and schema artefacts from Swagger/OpenAPI or JSON Schema sources. Follow the docs to install the CLI, configure templates, and automate DTOs, validators, Protocol Buffers, and more as part of your build pipeline.</p>
