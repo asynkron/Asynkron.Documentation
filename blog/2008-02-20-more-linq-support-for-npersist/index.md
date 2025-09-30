@@ -10,12 +10,12 @@ I’ve added a bit more Linq support for NPersist today.
 
 The nice thing is that we can “cheat” in our Linq provider, we can transform our Linq queries into NPath queries.  
 Thus, I don’t have to touch the wicked SQL generation.  
-I just have to produce valid NPath, which is pretty similair to Linq.
+I just have to produce valid NPath, which is pretty similar to Linq.
 
 Just look at the following code:
 
-```
-private string ConvertAnyExpression(MethodCallExpression expression) 
+```csharp
+private string ConvertAnyExpression(MethodCallExpression expression)
 { 
     string fromWhere = ConvertExpression(expression.Arguments[0]);     
     if (expression.Arguments.Count == 1) 
@@ -29,13 +29,13 @@ private string ConvertAnyExpression(MethodCallExpression expression)
 } 
 ```
 
-Thats all the code that we needed in order to support “list.Any()” and “list.Any(x =\> ….)”  
+That’s all the code that we needed in order to support “list.Any()” and “list.Any(x =\> ….)”.
 This both makes the Linq provider easier to build, and it makes it way easier to unit test it too.  
 We simply have to compare the result with an expected NPath string.  
 Like this:
 
-```
-string expected = "select * from Customer where ((Customer != ?))"; 
+```csharp
+string expected = "select * from Customer where ((Customer != ?))";
 string actual = res.Query.ToNPath(); 
 Assert.AreEqual<string>(expected, actual);
 ```

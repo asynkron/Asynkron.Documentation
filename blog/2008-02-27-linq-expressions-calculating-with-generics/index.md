@@ -31,23 +31,23 @@ But now when we have Linq Expression Trees we can solve this. and do it quite ni
 We can produce delegates that performs the math operations for us.  
 Like this:
 
-```
-private static Func<T, T, T> CompileDelegate 
- (Func<Expression,Expression,Expression> operation) 
-{ 
-    //create two inprameters 
-    ParameterExpression leftExp = 
- Expression.Parameter(typeof(T), "left");                   
+```csharp
+private static Func<T, T, T> CompileDelegate
+ (Func<Expression,Expression,Expression> operation)
+{
+    //create two input parameters
+    ParameterExpression leftExp =
+        Expression.Parameter(typeof(T), "left");
 
-    ParameterExpression rightExp = 
- Expression.Parameter(typeof(T), "right");                   
+    ParameterExpression rightExp =
+        Expression.Parameter(typeof(T), "right");
 
-    //create the body from the delegate that we passed in 
-    Expression body = operation (leftExp,rightExp);              
+    //create the body from the delegate that we passed in
+    Expression body = operation(leftExp, rightExp);
 
     //create a lambda that takes two args of T and returns T 
-    LambdaExpression lambda = 
-Expression.Lambda(typeof(Func<T, T, T>), body, leftExp, rightExp);              
+    LambdaExpression lambda =
+        Expression.Lambda(typeof(Func<T, T, T>), body, leftExp, rightExp);
 
      //compile the lambda to a delegate 
     // that takes two args of T and returns T 
@@ -58,8 +58,8 @@ Expression.Lambda(typeof(Func<T, T, T>), body, leftExp, rightExp);
 
  We can now call this method and get our typed delegates for math operations:
 
-```
-private static readonly Func<T, T, T> Add = 
+```csharp
+private static readonly Func<T, T, T> Add =
     CompileDelegate(Expression.Add);
 ```
 
@@ -71,9 +71,9 @@ I have created a generic class that support all the standard operators based on 
 
 This makes it possible to use code like this:
 
-```
-private static T DoStuff<T>(T arg1, T arg2, T arg3) 
-{ 
+```csharp
+private static T DoStuff<T>(T arg1, T arg2, T arg3)
+{
     if (!Number<T>.IsNumeric) 
         throw new Exception("The type is not numeric");       
 
@@ -81,11 +81,11 @@ private static T DoStuff<T>(T arg1, T arg2, T arg3)
     Number<T> v2 = arg2; 
     Number<T> v3 = arg3; 
          
-    return v1 * v2 - v3; //not possible with normal generics 
+    return v1 * v2 - v3; //not possible with normal generics
 }
 ```
 
-OK that was a very naive example, but atleast you can see that it is possible to perform calcualtions on the generic type.  
+OK that was a very naive example, but at least you can see that it is possible to perform calculations on the generic type.
 So no more provider based calculator classes, just fast typed delegates 🙂
 
 Enjoy

@@ -9,7 +9,7 @@ The compiler uses Gold parser for parsing and Reflection.Emit to generate the co
 
 <!-- truncate -->
 
-Initially I intended to make a sample on how to use Gold parser to parse and then compile Linq expressions, thus the name GoldLinq, however, Linq have now been replaced with Reflection.Emit.
+Initially I intended to make a sample on how to use Gold parser to parse and then compile Linq expressions, thus the name GoldLinq, however, Linq has now been replaced with Reflection.Emit.
 
 **Links:  **
 My compiler source: [http://www.puzzleframework.com/Roger/GoldLinq.zip](http://www.puzzleframework.com/Roger/GoldLinq.zip)  
@@ -34,7 +34,7 @@ Grammar: [http://www.devincook.com/goldparser/grammars/index.htm](http://www.dev
 
 - <div>
 
-  The AST is verified using visitor pattern, the verifier handles type inferrence and auto casts.
+  The AST is verified using visitor pattern, the verifier handles type inference and auto casts.
 
   </div>
 
@@ -78,14 +78,14 @@ Blastoff: 
 
 Miles and kilometers: 
 
-```
-Display 
-'Do you want to convert 1) Miles to Kilometers or 2) Kilometers to Miles?' 
-Read Choice        
+```text
+Display
+'Do you want to convert 1) Miles to Kilometers or 2) Kilometers to Miles?'
+Read Choice
 ```
 
-```
-if Choice == 1 then 
+```text
+if Choice == 1 then
     Display 'Please enter the number of miles' Read Miles 
     Display Miles & ' Miles = ' & (Miles * 1.609)  & ' Kilometers' 
 else 
@@ -96,8 +96,8 @@ end
 
 Secret number: 
 
-```
-Assign SecretNumber = 64 
+```text
+Assign SecretNumber = 64
 
 Display 'Please guess the secret number' 
 Read Guess          
@@ -116,16 +116,16 @@ Display 'Correct!'
 
 **How to compile the samples:**
 
-First you need a source file to compile, just create a normal textfile and paste one of the samples above into it.  
+First you need a source file to compile, just create a normal text file and paste one of the samples above into it.
 Once you have the code file you can compile it using the compiler:
 
-```
+```shell
 c:whatever\bin\debug> GoldSample.exe mysource.txt
 ```
 
 When the compiler is done, you can start the compiled application with:
 
-```
+```shell
 c:\whatever\bin\debug> output.exe
 ```
 

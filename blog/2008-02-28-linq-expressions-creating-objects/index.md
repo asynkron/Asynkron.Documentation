@@ -11,24 +11,24 @@ This post shows how you can use Linq expression trees to replace Activator.Creat
 **but first, please note that this is a followup on Oren’s post so read it before you read mine:  **
 [http://www.ayende.com/Blog/archive/2008/02/27/Creating-objects–Perf-implications.aspx](http://www.ayende.com/Blog/archive/2008/02/27/Creating-objects--Perf-implications.aspx)
 
-In C#3 we can use Linq expression trees to solve this problem to.  
-I’m not saying that it is a better or faster solution than Oren’s IL emit version.  
-The IL emit is completely optimized for what it is supposed to do, so its hard to beat.  
-This is just an alternative if you are a bit affraid of IL emit ;-), Linq expressions are just easier to understand for most people. 
+In C#3 we can use Linq expression trees to solve this problem too.
+I’m not saying that it is a better or faster solution than Oren’s IL emit version.
+The IL emit is completely optimized for what it is supposed to do, so it’s hard to beat.
+This is just an alternative if you are a bit afraid of IL emit ;-), Linq expressions are just easier to understand for most people.
 
 So how is it done?  
 First we need a delegate declaration:
 
-```
+```csharp
 delegate T ObjectActivator<T>(params object[] args);
 ```
 
 We will use this delegate in order to create our instances.  
 We also need a generator that can compile our delegates from expression trees:
 
-```
+```csharp
 public static ObjectActivator<T> GetActivator<T>
-    (ConstructorInfo ctor)
+    (ConstructorInfo ctor)
 {
     Type type = ctor.DeclaringType;
     ParameterInfo[] paramsInfo = ctor.GetParameters();                  
@@ -75,7 +75,7 @@ It’s a bit bloated but keep in mind that this version is completely dynamic an
 
 Once we have the generator and the delegate in place, we can start creating instances with it:
 
-```
+```csharp
 ConstructorInfo ctor = typeof(Created).GetConstructors().First();
 ObjectActivator<Created> createdActivator = GetActivator<Created>(ctor);
 ...
@@ -86,9 +86,9 @@ Created instance = createdActivator (123, "Roger");
  And that’s it.  
 I haven’t done any benchmarking to compare it to Oren’s IL emit version, but I would guess that it is almost but not quite as fast.
 
-Benchmark – Creating 1000 000 instances:
+Benchmark – Creating 1,000,000 instances:
 
-```
+```text
 Activator.CreateInstance: 8.74 sec
 Linq Expressions:         0.104 sec
 ```
