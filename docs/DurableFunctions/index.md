@@ -25,15 +25,15 @@ Use the rest of the Durable Functions documentation set to learn how to build, h
 The Durable Functions runtime is a set of cooperating services that make deterministic orchestrations possible. The diagram below highlights the major moving parts you will interact with when building an application.
 
 ```mermaid
-flowchart LR
+graph TB
     caller[Client or Scheduler]
     subgraph Host Process
-        runtime[(Durable Runtime)]
-        orchestrator[[Orchestrator Workers]]
-        activities[[Activity Workers]]
+        runtime[Durable Runtime]
+        orchestrator[Orchestrator Workers]
+        activities[Activity Workers]
     end
     storage[(Storage Provider)]
-    management[/Management API/]
+    management[Management API]
     telemetry[(Telemetry & Observability)]
     external[(External Systems)]
 
@@ -48,6 +48,10 @@ flowchart LR
     runtime -->|Append events| storage
     storage -->|Rehydrate state| orchestrator
     runtime --> telemetry
+
+    class external yellow
+    class telemetry yellow
+    class storage yellow
 ```
 
 Orchestrator workers never touch external systems directly; they emit decisions into the event history stored in the backing provider. Activity workers then execute the side effects and report results that resume the orchestrator. Management calls and telemetry operate alongside the runtime, ensuring you can observe and control every instance.
