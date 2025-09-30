@@ -15,20 +15,58 @@ tags: [protoactor, docs]
 - Example repositories: [Proto.Actor .NET examples](https://github.com/asynkron/protoactor-dotnet/tree/dev/examples), [Proto.Actor Go examples](https://github.com/asynkron/protoactor-go/tree/dev/examples)
 :::
 
-- [Hello World](hello-world)
-- [Getting Started](getting-started)
-- [Getting Started With Grains / Virtual Actors (.NET)](cluster/getting-started-net.md)
-- [Getting Started With Grains / Virtual Actors (Go)](cluster/getting-started-go.md)
-- [Deploy to Kubernetes](cluster/getting-started-kubernetes.md)
+## Recommended learning path
 
-## Introduction
+1. **Start here → Hello World & Getting Started** – Run your first actor and learn the essentials of the API surface.
+   - [Hello World](hello-world)
+   - [Getting Started](getting-started)
+2. **Explore core concepts** – Understand why Proto.Actor exists and the vocabulary used throughout the docs.
+   - [What is Proto.Actor?](what-is-protoactor)
+   - [Why Proto.Actor](why-protoactor)
+   - [Design Principles](design-principles)
+   - [Features](features)
+3. **Build actors locally** – Learn how actors are configured, spawned, and communicate inside a single node.
+   - [Actor](actors.md)
+   - [Props](props.md)
+   - [Spawning Actors](spawn.md)
+   - [Message Patterns](message-patterns.md)
+4. **Connect processes with Remote** – Send messages across processes or machines with confidence.
+   - [Remote](remote.md)
+   - [Message Serialization](serialization.md)
+   - [Remote Spawning](remote-spawn.md)
+   - [gRPC Compression](grpc-compression.md)
+5. **Scale out with Cluster** – Introduce virtual actors, identity lookup, and production-grade hosting.
+   - [Cluster of virtual actors / grains](cluster.md)
+   - [Getting Started With Grains / Virtual Actors (.NET)](cluster/getting-started-net.md)
+   - [Getting Started With Grains / Virtual Actors (Go)](cluster/getting-started-go.md)
+   - [Deploy to Kubernetes](cluster/getting-started-kubernetes.md)
+6. **Level up operations & patterns** – Instrument, benchmark, and apply proven messaging patterns.
+   - [Observability Cookbook](observability-cookbook.md)
+   - [Benchmarks](performance/benchmarks.md)
+   - [Useful Patterns](#useful-patterns)
+
+## Language coverage quick reference
+
+| Topic | .NET resources | Go resources |
+| --- | --- | --- |
+| Getting started with grains / virtual actors | [Getting Started (.NET)](cluster/getting-started-net.md) | [Getting Started (Go)](cluster/getting-started-go.md) |
+| Cluster code generation | [Generating grains (.NET)](cluster/codegen-net.md) | — |
+| Cluster providers | [Cluster providers (.NET)](cluster/cluster-providers-net.md) | — |
+| Virtual actors deep dive | [Working with a cluster (.NET)](cluster/using-cluster-net.md) | [Virtual Actors](cluster/virtual-actors-go.md) |
+| Integration testing guidance | [Integration Testing (.NET)](integration-tests.md) | — |
+| Dependency injection | [Dependency Injection (.NET)](di.md) | — |
+| Futures and async responses | — | [Futures (Go)](futures.md) |
+
+## Foundations
+
+### Introduction
 
 - [What is Proto.Actor?](what-is-protoactor)
 - [Why Proto.Actor](why-protoactor)
 - [Design Principles](design-principles)
 - [Features](features)
 
-## Concepts
+### Core concepts
 
 - [What is an Actor?](actors.md)
 - [What is a Message?](messages.md)
@@ -48,9 +86,9 @@ tags: [protoactor, docs]
 - [Service Discovery](service-discovery.md)
 - [Sharding and Data Partitioning](sharding-and-partitioning.md)
 
-## Building Blocks
+## Build actor systems
 
-### Core Features
+### Actor runtime building blocks
 
 - [Actor](actors.md) - What are actors?
   - [Props](props.md) - How do I configure actors?
@@ -65,12 +103,15 @@ tags: [protoactor, docs]
   - [Behaviors](behaviors.md) - How do I build state machines with actors?
   - [Middleware](middleware.md) - How do I intercept or observe messages between actors?
   - [Receive Timeout](receive-timeout.md) - How do I trigger code when actors go idle?
-  - [Futures (Go)](futures.md) - How do I react to task completions?
   - [Dispatchers](dispatchers.md) - How do I tweak how and where actors execute?
-  - [Dependency Injection (.NET)](di.md) - How do I configure actors using Dependency Injection?
   - [Dealing with deadlocks](deadlocks.md)
 - [Persistence of actor's state](persistence.md) - How do I persist state for actors?
   - [Using 3rd party libraries](persistence-proto-persistence.md) - How do I persist state using external libraries?
+- [SimpleScheduler](scheduling.md) - How do I send messages on a timer?
+- [Built in messages](messages)
+
+### Distributed communication
+
 - [Remote](remote.md) - How do I communicate with actors on other nodes?
   - [Message Serialization](serialization.md)
   - [Remote Spawning](remote-spawn.md) - How do I spawn actors on other nodes?
@@ -90,36 +131,42 @@ tags: [protoactor, docs]
   - [Cluster Pub-Sub - Experimental](cluster/pub-sub.md) - How to broadcast messages in the cluster?
   - [Virtual Actors](cluster/virtual-actors-go.md) - How do I create virtual actors and spawn them in the cluster?
   - [Integration Testing](integration-tests.md) -  How do I integration-test virtual actors?
-- [SimpleScheduler](scheduling.md) - How do I send messages on a timer?
-- [Built in messages](messages)
 
-
-### Utility features
+## Utility features
 
 - [AsyncSemaphore](asyncsemaphore.md) - How do I limit concurrency to a given resource?
 - [Batching Mailbox](mailboxes.md#batching-mailbox) - How do I collect many events and process as single one unit?
 - [Throttle](throttle.md) - How do I throttle method calls?
+- [Futures (Go)](futures.md) - How do I react to task completions?
+- [Dependency Injection (.NET)](di.md) - How do I configure actors using Dependency Injection?
+- [Extensions and Context Decorator](context-decorator.md) - How do I extend Proto.Actor with custom behaviors?
 
-## Performance
+## Advanced topics by persona
 
-- [Benchmarks](performance/benchmarks.md)
-- [Dotnetos performance review](performance/dotnetos.md)
+### Operators and SREs
 
-## Observability
-
+- [Deploy to Kubernetes](cluster/getting-started-kubernetes.md) - Step-by-step deployment walkthrough.
+- [Observability Cookbook](observability-cookbook.md) - Dashboards, tracing, and alerting recipes.
 - [Tracing](tracing.md)
 - [Metrics](metrics.md)
 - [Logging](logging.md)
 - [Health Checks](health-checks.md)
-- [Observability Cookbook](observability-cookbook.md)
+- [Benchmarks](performance/benchmarks.md)
+- [Dotnetos performance review](performance/dotnetos.md)
 
-## Extension models
+### Language-specific developers
 
-- [Extensions and Context Decorator](context-decorator.md)
-
-## Articles
-
-
+- **.NET**
+  - [Getting Started With Grains / Virtual Actors (.NET)](cluster/getting-started-net.md)
+  - [Working with a cluster (.NET)](cluster/using-cluster-net.md)
+  - [Generating grains (.NET)](cluster/codegen-net.md)
+  - [Cluster providers (.NET)](cluster/cluster-providers-net.md)
+  - [Dependency Injection (.NET)](di.md)
+  - [Integration Testing (.NET)](integration-tests.md)
+- **Go**
+  - [Getting Started With Grains / Virtual Actors (Go)](cluster/getting-started-go.md)
+  - [Virtual Actors](cluster/virtual-actors-go.md)
+  - [Futures (Go)](futures.md)
 
 ## Useful Patterns
 
