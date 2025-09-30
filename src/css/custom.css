@@ -14,7 +14,7 @@
   --asynkron-color-quote: #fff2cc;
   --asynkron-color-surface: #323f49;
   --asynkron-color-border: #323f49;
-  --asynkron-code-surface: #2c3944;
+  --asynkron-code-surface: #2a3843;
   --asynkron-code-foreground: #f8f8f2;
   --asynkron-code-keyword: #4fc3ff;
   /* cyan-blue, ~200° */
@@ -33,7 +33,8 @@
   --ifm-color-primary-light: #1fc0ff;
   --ifm-color-primary-lighter: #4fd0ff;
   --ifm-color-primary-lightest: #7edcff;
-  --ifm-background-color: #242526;
+  --ifm-background-color: #212830;
+  --ifm-background-surface-color: #151b23;
   --ifm-table-border-color: #2f3336;
   --ifm-table-stripe-background: rgb(255 255 255 / 1%);
   --ifm-code-font-size: 95%;
@@ -49,7 +50,8 @@
   --ifm-color-primary-light: #7edcff;
   --ifm-color-primary-lighter: #a5e7ff;
   --ifm-color-primary-lightest: #d2f3ff;
-  --ifm-background-color: #242526;
+  --ifm-background-color: #212830;
+  --ifm-background-surface-color: #151b23;
   --ifm-table-border-color: #33373b;
   --asynkron-color-info: #9aa6bd;
   --asynkron-code-comment: #bca0ff;
