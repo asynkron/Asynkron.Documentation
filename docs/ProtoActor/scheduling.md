@@ -27,12 +27,36 @@ scheduler
     .ScheduleTellRepeatedly(TimeSpan.FromSeconds(3), TimeSpan.FromMilliseconds(500), context.Self, new HickUp(), out timer);
 ```
 
+```go
+timerScheduler := scheduler.NewTimerScheduler(context)
+pid := context.Spawn(actor.PropsFromProducer(func() actor.Actor { return &ScheduleGreetActor{} }))
+
+timerScheduler.SendOnce(100*time.Millisecond, context.Self(), &SimpleMessage{Text: "test 1"})
+timerScheduler.SendOnce(200*time.Millisecond, context.Self(), &SimpleMessage{Text: "test 2"})
+timerScheduler.SendOnce(300*time.Millisecond, context.Self(), &SimpleMessage{Text: "test 3"})
+timerScheduler.SendOnce(400*time.Millisecond, context.Self(), &SimpleMessage{Text: "test 4"})
+timerScheduler.SendOnce(500*time.Millisecond, context.Self(), &SimpleMessage{Text: "test 5"})
+timerScheduler.RequestOnce(time.Second, pid, &Greet{Name: "Daniel"})
+timerScheduler.SendRepeatedly(3*time.Second, 500*time.Millisecond, context.Self(), &HickUp{})
+```
+
 Another option if you want to perform some form of action after a given period of time is:
 
 ```csharp
 context.ReenterAfter(Task.Delay(1000), t => {
      //do stuff after 1000ms w/o blocking the actor while waiting
 });
+```
+
+```go
+future := context.RequestFuture(pid, &Work{}, time.Second)
+context.ReenterAfter(future, func(res interface{}, err error) {
+        if err != nil {
+                context.Logger().Error("work request failed", "err", err)
+                return
+        }
+        context.Send(context.Self(), res)
+})
 ```
 
 This will asynchronously wait for the task to complete, then send a message back to the actor itself, containing the

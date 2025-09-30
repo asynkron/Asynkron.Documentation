@@ -19,16 +19,22 @@ private readonly ShouldThrottle _shouldThrottle;
 
 /* ... */
 
-_shouldThrottle = Throttle.Create( 
+_shouldThrottle = Throttle.Create(
     // max number of events/calls
     10,
-    
+
     // in this duration
     TimeSpan.FromSeconds(5),
-    
+
     // callback for when valve opens back up again
     count => _logger.LogInformation("Throttled {LogCount} logs for component xyz", count)
 );
+```
+
+```go
+shouldThrottle := actor.NewThrottle(10, 5*time.Second, func(throttled int32) {
+        logger.Info("Throttled logs", slog.Int("count", int(throttled)))
+})
 ```
 
 Usage:
@@ -38,6 +44,16 @@ catch(Exception e)
 {
     if (_shouldThrottle().IsOpen()) //if the valve of the throttle is open, log the event
         _logger.LogError(e, "Some operation failed");
+}
+```
+
+```go
+shouldThrottle := actor.NewThrottle(10, 5*time.Second, func(throttled int32) {
+        logger.Info("Throttled logs", slog.Int("count", int(throttled)))
+})
+
+if shouldThrottle() == actor.Open {
+        logger.Error("Some operation failed")
 }
 ```
 

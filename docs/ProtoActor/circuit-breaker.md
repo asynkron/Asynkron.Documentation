@@ -189,6 +189,10 @@ var breakerPid = system.Root.Spawn(Props.FromProducer(() =>
 var reply = await system.Root.RequestAsync<MyReply>(breakerPid, new MyRequest(), TimeSpan.FromSeconds(5));
 ```
 
+```go
+//TODO: missing
+```
+
 This sample returns `ServiceUnavailable` when the circuit is open or a call fails. For
 production scenarios consider adding metrics, logging, or retry policies to improve resilience.
 
@@ -338,6 +342,10 @@ var targetProps = Props
 var targetPid = system.Root.Spawn(targetProps);
 
 var reply = await system.Root.RequestAsync<MyReply>(targetPid, new MyRequest(), TimeSpan.FromSeconds(5));
+```
+
+```go
+//TODO: missing
 ```
 
 ## Tips

@@ -24,6 +24,16 @@ In Proto.Actor you can use `Context.Request` when the sender expects the recipie
 var response = await pid.RequestAsync<MyReply>(new MyRequest());
 ```
 
+```go
+future := system.Root.RequestFuture(pid, &MyRequest{}, time.Second)
+response, err := future.Result()
+if err != nil {
+        logger.Error("request failed", "err", err)
+        return
+}
+reply := response.(*MyReply)
+```
+
 ## When to Use
 - Querying another actor for state or service results.
 - Bridging between actor code and external await-based APIs.
@@ -64,6 +74,20 @@ public class Counter : IActor
         }
         return Task.CompletedTask;
     }
+}
+```
+
+```go
+type Counter struct {
+        value int
+}
+
+func (c *Counter) Receive(context actor.Context) {
+        switch context.Message().(type) {
+        case *Increment:
+                c.value++
+                context.ActorSystem().EventStream.Publish(&CountChanged{Value: c.value})
+        }
 }
 ```
 
