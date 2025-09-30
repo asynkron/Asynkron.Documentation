@@ -1,8 +1,12 @@
 ---
 slug: cil-compiler-construction
-title: "CIL – Compiler construction"
-authors: [rogerjohansson]
-tags: ["cil", "compiler-construction", "compilers", "emit", "gold-parser", "msil", "reflection"]
+title: "CIL \u2013 Compiler construction"
+authors:
+- rogerjohansson
+tags:
+- compilers
+- gold-parser
+- reflection
 ---
 I’ve created a little sample on how to make your own .NET compiler.  
 The compiler uses Gold parser for parsing and Reflection.Emit to generate the compiled .exe file.

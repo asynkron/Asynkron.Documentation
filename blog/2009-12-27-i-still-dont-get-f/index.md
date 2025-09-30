@@ -1,8 +1,9 @@
 ---
 slug: i-still-dont-get-f
-title: "I still don’t get F#"
-authors: [rogerjohansson]
-tags: ["f"]
+title: "I still don\u2019t get F#"
+authors:
+- rogerjohansson
+tags: []
 ---
 I think that Microsoft are trying to sell F# to us as something new and awesome, but I’m having serious problems seeing the benefits over C#.
 

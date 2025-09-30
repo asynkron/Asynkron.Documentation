@@ -1,8 +1,12 @@
 ---
 slug: configuring-pigeon-akka-actors-for-net
-title: "Configuring Pigeon – Akka Actors for .NET"
-authors: [rogerjohansson]
-tags: ["actor-model", "akka", "hocon", "pigeon", "typesafe"]
+title: "Configuring Pigeon \u2013 Akka Actors for .NET"
+authors:
+- rogerjohansson
+tags:
+- actor-model
+- hocon
+- typesafe
 ---
 When I began to write the configuration support for my Akka Actors port “Pigeon”, I used JSON for the config files.  
 I’ve now managed to get some nice progress porting Typesafe’s Configuration library too.  

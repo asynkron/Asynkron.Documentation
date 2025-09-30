@@ -1,8 +1,11 @@
 ---
 slug: book-compiler-principles-the-red-dragon-book
-title: "Book – Compiler principles… (The red dragon book)"
-authors: [rogerjohansson]
-tags: ["ast", "book", "compilers", "language"]
+title: "Book \u2013 Compiler principles\u2026 (The red dragon book)"
+authors:
+- rogerjohansson
+tags:
+- compilers
+- language
 ---
 Parsing and languages have always been one of my main interests when it comes to programming.  
 So a few weeks ago I decided to buy the “red dragon book” from Amazon.com.  

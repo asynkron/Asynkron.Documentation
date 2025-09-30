@@ -1,8 +1,10 @@
 ---
 slug: evolutionary-algorithms-problems-with-directed-evolution
-title: "Evolutionary Algorithms – Problems with Directed Evolution"
-authors: [rogerjohansson]
-tags: ["darwin", "dawkins", "ea", "ga"]
+title: "Evolutionary Algorithms \u2013 Problems with Directed Evolution"
+authors:
+- rogerjohansson
+tags:
+- ga
 ---
 Creationists often use “irreducible complexity” as an argument against evolution.  
 e.g. you need all parts in place and functioning before the “whole” can do its work and thus reproduce and spread its features.

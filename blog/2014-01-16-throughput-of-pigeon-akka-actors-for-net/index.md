@@ -1,8 +1,11 @@
 ---
 slug: throughput-of-pigeon-akka-actors-for-net
-title: "Throughput of Pigeon – Akka Actors for .NET"
-authors: [rogerjohansson]
-tags: ["actor-model", "akka", "pigeon", "throughput"]
+title: "Throughput of Pigeon \u2013 Akka Actors for .NET"
+authors:
+- rogerjohansson
+tags:
+- actor-model
+- throughput
 ---
 As some of you might know, I’m making an unofficial port of Akka for .NET.  
 [https://github.com/rogeralsing/Pigeon](https://github.com/rogeralsing/Pigeon).  

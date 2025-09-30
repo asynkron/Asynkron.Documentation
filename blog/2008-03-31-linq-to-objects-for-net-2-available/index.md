@@ -1,8 +1,11 @@
 ---
 slug: linq-to-objects-for-net-2-available
-title: "Linq to objects for .NET 2 available"
-authors: [rogerjohansson]
-tags: ["delegate", "lambda", "linq", "net2", "object-queries"]
+title: Linq to objects for .NET 2 available
+authors:
+- rogerjohansson
+tags:
+- lambda
+- linq
 ---
 Patrik Löwendahl blogged about using C#3 features in .NET 2 via VS.NET 2008 a few days ago:  
 [http://www.lowendahl.net/showShout.aspx?id=191](http://www.lowendahl.net/showShout.aspx?id=191)

@@ -1,8 +1,13 @@
 ---
 slug: adding-linq-support-to-npersist
-title: "Adding Linq support to NPersist"
-authors: [rogerjohansson]
-tags: ["c", "framework", "linq", "net", "o-r-mapping", "puzzle"]
+title: Adding Linq support to NPersist
+authors:
+- rogerjohansson
+tags:
+- framework
+- linq
+- net
+- puzzle
 ---
 I’m currently adding some real Linq support to NPersist.  
 I did start on it when the first public previews of Linq was released, but then I was kind of stuck in World of Warcraft for a while (OK, slightly more than a while).  

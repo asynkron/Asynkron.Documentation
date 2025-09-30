@@ -1,8 +1,10 @@
 ---
 slug: ddd-prentity
-title: "DDD – Prentity?"
-authors: [rogerjohansson]
-tags: ["cqrs", "entity"]
+title: "DDD \u2013 Prentity?"
+authors:
+- rogerjohansson
+tags:
+- cqrs
 ---
 This post is actually a question:
 

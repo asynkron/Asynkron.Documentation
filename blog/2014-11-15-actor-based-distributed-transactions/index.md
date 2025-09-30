@@ -1,8 +1,11 @@
 ---
 slug: actor-based-distributed-transactions
-title: "Actor based distributed transactions"
-authors: [rogerjohansson]
-tags: ["akka", "akka-net", "distributed-transactions", "msdtc", "transactions"]
+title: Actor based distributed transactions
+authors:
+- rogerjohansson
+tags:
+- distributed-transactions
+- transactions
 ---
 One question that often shows up when talking about the Actor Model, is how to deal with distributed transactions.
 

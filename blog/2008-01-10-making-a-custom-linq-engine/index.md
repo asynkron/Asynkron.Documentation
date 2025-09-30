@@ -1,8 +1,10 @@
 ---
 slug: making-a-custom-linq-engine
-title: "Making a custom Linq engine"
-authors: [rogerjohansson]
-tags: ["c", "linq", "o-r-mapping"]
+title: Making a custom Linq engine
+authors:
+- rogerjohansson
+tags:
+- linq
 ---
 <!-- truncate -->
 

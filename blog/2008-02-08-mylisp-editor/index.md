@@ -1,8 +1,10 @@
 ---
 slug: mylisp-editor
-title: "MyLisp Editor"
-authors: [rogerjohansson]
-tags: ["c", "lisp", "mylisp", "syntaxbox", "windows-forms"]
+title: MyLisp Editor
+authors:
+- rogerjohansson
+tags:
+- lisp
 ---
 I’ve started to make a very simple editor for MyLisp, just so I can get some highlighting and testrun my snippets.
 

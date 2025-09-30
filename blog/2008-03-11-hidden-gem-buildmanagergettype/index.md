@@ -1,8 +1,10 @@
 ---
 slug: hidden-gem-buildmanagergettype
-title: "Hidden gem: BuildManager.GetType"
-authors: [rogerjohansson]
-tags: ["asp-net", "c", "objectdatasource", "type-gettype", "type-names"]
+title: 'Hidden gem: BuildManager.GetType'
+authors:
+- rogerjohansson
+tags:
+- asp-net
 ---
 I’ve been digging through the ObjectDataSource today and I was trying to figure out how they created the datasource instance from the type name.
 

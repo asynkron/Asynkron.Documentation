@@ -1,8 +1,11 @@
 ---
 slug: m-grammar-vs-gold-parser
-title: "M Grammar Vs. Gold Parser"
-authors: [rogerjohansson]
-tags: ["gold-parser", "m-grammar", "oslo", "parsers"]
+title: M Grammar Vs. Gold Parser
+authors:
+- rogerjohansson
+tags:
+- gold-parser
+- oslo
 ---
 Even though I bashed M Grammar in my [last post](http://rogeralsing.com/2008/11/04/i-call-bs-on-the-oslo-m-language/), I’m sort of starting to get what the fuzz is all about now.
 

@@ -1,8 +1,10 @@
 ---
 slug: massive-parallelism-f-in-the-cloud
-title: "Massive parallelism – F# in the cloud?"
-authors: [rogerjohansson]
-tags: ["cloud", "f", "parallelism"]
+title: "Massive parallelism \u2013 F# in the cloud?"
+authors:
+- rogerjohansson
+tags:
+- parallelism
 ---
 I’m still trying to learn a bit of F# and I thought of a quite nice experiment.  
 Since F# supports quotations (for you C# devs, think Linq Expressions on roids) wouldn’t it be possible to serialize such quotation and pass it to a webservice and execute that code there?

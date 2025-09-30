@@ -1,8 +1,11 @@
 ---
 slug: akka-net-concurrency-control
-title: "Akka.NET – Concurrency control"
-authors: [rogerjohansson]
-tags: ["actor-model", "akka", "akka-net", "concurrency", "nethouse-se"]
+title: "Akka.NET \u2013 Concurrency control"
+authors:
+- rogerjohansson
+tags:
+- actor-model
+- concurrency
 ---
 Time to break the silence!
 

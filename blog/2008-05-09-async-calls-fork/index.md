@@ -1,8 +1,11 @@
 ---
 slug: async-calls-fork
-title: "Optimizing SOA Applications – C# Async Fork"
-authors: [rogerjohansson]
-tags: ["async", "fluent-interface", "fork", "threading", "threads"]
+title: "Optimizing SOA Applications \u2013 C# Async Fork"
+authors:
+- rogerjohansson
+tags:
+- async
+- threading
 ---
 \[Edit 2012-12-04\]  
 Nowdays, there is better paralell support built into .NET itself.  

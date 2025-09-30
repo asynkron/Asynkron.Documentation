@@ -1,8 +1,9 @@
 ---
 slug: objectmapper-2008
-title: "ObjectMapper 2008"
-authors: [rogerjohansson]
-tags: ["class-designer", "objectmapper", "puzzle-framework", "uml-editor", "whitehorse"]
+title: ObjectMapper 2008
+authors:
+- rogerjohansson
+tags: []
 ---
 [](http://rogeralsing.wordpress.com/wp-content/uploads/2008/02/classdesigner1.png "classdesigner1.png")The old ObjectMapper 2000 was and still is a great tool and I have used it in lots of projects to generate and map my entities.  
 But one thing that is clear, is that it was way way too complex for most users, it had more settings than the space shuttle and could be a real PITA in some cases.

@@ -1,8 +1,11 @@
 ---
 slug: dslisp
-title: "DSLisp"
-authors: [rogerjohansson]
-tags: ["c", "domain-specific-languages", "dslisp", "net"]
+title: DSLisp
+authors:
+- rogerjohansson
+tags:
+- domain-specific-languages
+- net
 ---
 MyLisp is now named DSLisp – Domain Specific (Language) Lisp.
 

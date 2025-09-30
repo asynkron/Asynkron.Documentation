@@ -1,8 +1,12 @@
 ---
 slug: net-disassembled-part-2-for-loops
-title: ".NET disassembled Part 2: for loops"
-authors: [rogerjohansson]
-tags: ["forloop", "jit", "native", "x86"]
+title: '.NET disassembled Part 2: for loops'
+authors:
+- rogerjohansson
+tags:
+- jit
+- native
+- x86
 ---
 **.NET Disassembled**  
 Part 1: [integers in .NET](http://rogeralsing.com/2011/02/05/integers-in-net/)  

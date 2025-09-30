@@ -1,8 +1,11 @@
 ---
 slug: orm-and-c3-anonymous-types
-title: "ORM and C#3 anonymous types"
-authors: [rogerjohansson]
-tags: ["anonymous-types", "c", "linq", "o-r-mapping"]
+title: ORM and C#3 anonymous types
+authors:
+- rogerjohansson
+tags:
+- anonymous-types
+- linq
 ---
 <!-- truncate -->
 

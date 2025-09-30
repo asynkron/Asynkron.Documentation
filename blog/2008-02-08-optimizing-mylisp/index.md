@@ -1,8 +1,11 @@
 ---
 slug: optimizing-mylisp
-title: "Optimizing MyLisp"
-authors: [rogerjohansson]
-tags: ["c", "l", "lisp", "mylisp", "optimizing"]
+title: Optimizing MyLisp
+authors:
+- rogerjohansson
+tags:
+- lisp
+- optimizing
 ---
 Today I stumbled across the weirdest thing.
 

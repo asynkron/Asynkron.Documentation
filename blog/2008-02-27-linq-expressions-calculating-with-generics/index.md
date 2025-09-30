@@ -1,8 +1,12 @@
 ---
 slug: linq-expressions-calculating-with-generics
-title: "Linq Expressions – Calculating with generics"
-authors: [rogerjohansson]
-tags: ["delegates", "generic-algorithms", "generic-math", "lambda", "linq", "linq-expressions"]
+title: "Linq Expressions \u2013 Calculating with generics"
+authors:
+- rogerjohansson
+tags:
+- delegates
+- lambda
+- linq
 ---
 **You can find the full code for this post here:  **
 [**http://www.puzzleframework.com/Roger/GenericMath.cs.txt**](http://www.puzzleframework.com/Roger/GenericMath.cs.txt) 

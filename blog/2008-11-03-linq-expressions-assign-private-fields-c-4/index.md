@@ -1,8 +1,10 @@
 ---
 slug: linq-expressions-assign-private-fields-c-4
-title: "Linq Expressions: Assign private fields (.NET 4)"
-authors: [rogerjohansson]
-tags: ["dlr", "private-fields", "reflection"]
+title: 'Linq Expressions: Assign private fields (.NET 4)'
+authors:
+- rogerjohansson
+tags:
+- reflection
 ---
 **Hold your horses, you might not see this untill 2010**
 

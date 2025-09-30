@@ -1,8 +1,14 @@
 ---
 slug: why-mapping-dtos-to-entities-using-automapper-and-entityframework-is-horrible
-title: "Why mapping DTOs to Entities using AutoMapper and EntityFramework is horrible"
-authors: [rogerjohansson]
-tags: ["automapper", "cqrs", "datatransferobject", "ddd", "dto", "entities", "entityframework", "linq", "mapping"]
+title: Why mapping DTOs to Entities using AutoMapper and EntityFramework is horrible
+authors:
+- rogerjohansson
+tags:
+- cqrs
+- ddd
+- entityframework
+- linq
+- mapping
 ---
 One of the most common architectures for web apps right now is based on passing DataTransferObjects(DTOs) to and from CRUD services that updates your business/domain entities using tools like AutoMapper and EntityFramework.
 

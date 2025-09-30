@@ -1,8 +1,10 @@
 ---
 slug: scaling-clustere-evolution-1-1-4
-title: "Scaling Clustered Evolution: 1 + 1 = 4"
-authors: [rogerjohansson]
-tags: ["cluster", "ga", "gp", "mpi"]
+title: 'Scaling Clustered Evolution: 1 + 1 = 4'
+authors:
+- rogerjohansson
+tags:
+- ga
 ---
 **This is a follow up on:** [**http://rogeralsing.com/2009/01/01/clustering-evolution-we-have-lift-off/**](http://rogeralsing.com/2009/01/01/clustering-evolution-we-have-lift-off/)
 

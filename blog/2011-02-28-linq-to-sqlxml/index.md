@@ -1,8 +1,11 @@
 ---
 slug: linq-to-sqlxml
-title: "Linq to SqlXML"
-authors: [rogerjohansson]
-tags: ["documentdb", "sql-server", "xml", "xpath", "xquery"]
+title: Linq to SqlXML
+authors:
+- rogerjohansson
+tags:
+- sql-server
+- xml
 ---
 I’m hacking along on my Document DB emulator ontop of Sql Server XML columns.
 

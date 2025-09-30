@@ -1,8 +1,11 @@
 ---
 slug: caramel-code-generator
-title: "Caramel – Code Generator"
-authors: [rogerjohansson]
-tags: ["caramel-code-generator", "code-generator", "codesmith", "mygeneration", "objectmapper", "scripts", "templates"]
+title: "Caramel \u2013 Code Generator"
+authors:
+- rogerjohansson
+tags:
+- scripts
+- templates
 ---
 As some of you might know, I’ve been working on a class designer ([Albino horse](http://rogeralsing.com/2008/02/14/albinohorse/)) off and on for a while now.
 

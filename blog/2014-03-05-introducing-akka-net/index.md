@@ -1,8 +1,11 @@
 ---
 slug: introducing-akka-net
-title: "Introducing Akka.NET"
-authors: [rogerjohansson]
-tags: ["actor-model", "akka", "akka-net", "async"]
+title: Introducing Akka.NET
+authors:
+- rogerjohansson
+tags:
+- actor-model
+- async
 ---
 ![](./akkanet.png)
 

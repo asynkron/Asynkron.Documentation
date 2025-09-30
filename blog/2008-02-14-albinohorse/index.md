@@ -1,8 +1,11 @@
 ---
 slug: albinohorse
-title: "AlbinoHorse – Class Designer"
-authors: [rogerjohansson]
-tags: ["c", "class-chart", "class-designer", "class-diagram", "diagramming", "net", "windows-forms"]
+title: "AlbinoHorse \u2013 Class Designer"
+authors:
+- rogerjohansson
+tags:
+- diagramming
+- net
 ---
 [](http://rogeralsing.wordpress.com/wp-content/uploads/2008/02/albinohorse.png "albinohorse.png")I have published my class designer component at CodePlex.
 

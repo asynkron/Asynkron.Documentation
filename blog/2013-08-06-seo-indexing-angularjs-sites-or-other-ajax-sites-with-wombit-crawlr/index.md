@@ -1,8 +1,11 @@
 ---
 slug: seo-indexing-angularjs-sites-or-other-ajax-sites-with-wombit-crawlr
-title: "SEO – Indexing AngularJS sites (or other ajax sites) with Wombit Crawlr"
-authors: [rogerjohansson]
-tags: ["ajax", "angularjs", "htmlsnapshot", "seo"]
+title: "SEO \u2013 Indexing AngularJS sites (or other ajax sites) with Wombit Crawlr"
+authors:
+- rogerjohansson
+tags:
+- ajax
+- seo
 ---
 Lately I have been diving deep into single page app development.  
 One specific problem that I never knew about before was that it is a true pain to make ajax sites crawlable.

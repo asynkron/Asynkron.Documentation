@@ -1,8 +1,11 @@
 ---
 slug: hotswap-and-supervision-pigeon-akka-actors-for-net
-title: "Hotswap and Supervision – Pigeon – Akka Actors for .NET"
-authors: [rogerjohansson]
-tags: ["actor-model", "akka", "async", "pigeon"]
+title: "Hotswap and Supervision \u2013 Pigeon \u2013 Akka Actors for .NET"
+authors:
+- rogerjohansson
+tags:
+- actor-model
+- async
 ---
 This is a follow up on my previous post; [http://rogeralsing.com/2014/01/01/pigeon-akka-actors-for-net/](http://rogeralsing.com/2014/01/01/pigeon-akka-actors-for-net/)
 

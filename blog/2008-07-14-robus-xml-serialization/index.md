@@ -1,8 +1,14 @@
 ---
 slug: robus-xml-serialization
-title: "Robust XML Serialization"
-authors: [rogerjohansson]
-tags: ["deserialization", "deserializer", "generics", "serialization", "serializer", "soap", "xml"]
+title: Robust XML Serialization
+authors:
+- rogerjohansson
+tags:
+- deserialization
+- generics
+- serialization
+- soap
+- xml
 ---
 OK, I’ve had it with the serializers in .NET.  
 All of them are lacking atleast some features that I need.

@@ -1,8 +1,12 @@
 ---
 slug: actor-lifecycle-management-and-routers-akka-actors-for-net
-title: "Actor lifecycle management and routers – Akka Actors for .NET"
-authors: [rogerjohansson]
-tags: ["actor-model", "akka", "routing", "supervision"]
+title: "Actor lifecycle management and routers \u2013 Akka Actors for .NET"
+authors:
+- rogerjohansson
+tags:
+- actor-model
+- routing
+- supervision
 ---
 ## Porting Akka to .NET
 

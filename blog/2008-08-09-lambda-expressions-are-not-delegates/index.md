@@ -1,8 +1,11 @@
 ---
 slug: lambda-expressions-are-not-delegates
-title: "Lambda expressions are not delegates"
-authors: [rogerjohansson]
-tags: ["delegates", "linq", "linq-expressions"]
+title: Lambda expressions are not delegates
+authors:
+- rogerjohansson
+tags:
+- delegates
+- linq
 ---
 There is allot of confusion gotesing on in the .NET community when it comes to Lambda expressions.  
 Allot of blog posts out there claiming that Lambdas are simply another way to write delegates, or rather anonymous delegates.

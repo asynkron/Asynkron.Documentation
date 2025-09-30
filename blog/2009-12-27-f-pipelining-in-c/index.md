@@ -1,8 +1,9 @@
 ---
 slug: f-pipelining-in-c
-title: "F# Pipelining in C#"
-authors: [rogerjohansson]
-tags: ["f"]
+title: F# Pipelining in C#
+authors:
+- rogerjohansson
+tags: []
 ---
 Here is one such example where F# developers try to make it look like F# can do things that C# can not.
 
