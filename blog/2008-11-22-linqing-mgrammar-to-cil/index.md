@@ -56,7 +56,7 @@ Linq.Expressions is not really new in .NET 4, but they have been greatly extende
 
 **Variables:**
 
-```
+```text
 string myString = "hello world"
 int myInteger = 123
 decimal myDecimal = 123.456
@@ -65,7 +65,7 @@ bool myBool = true
 
 **Expressions:**
 
-```
+```text
 int myInteger = 1+2*3-x*(y+3)
 string myString = "hello " + name + "!"
 bool myBool = x < y
@@ -74,14 +74,14 @@ string conversion = '1 + 2 = ' + (string) (1 + 2)
 
 **User interaction:**
 
-```
+```text
 string name = input
 print name
 ```
 
 **Loops and conditions:**
 
-```
+```text
 for int i = 1 to 10
 print i
 next

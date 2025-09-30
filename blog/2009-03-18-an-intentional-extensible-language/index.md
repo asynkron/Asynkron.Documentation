@@ -13,7 +13,7 @@ I have never seen any other language that can do this.
 For those of you who don’t know what I’m talking about;  
 Pseudo lisp:
 
-```
+```text
  (foreach
       (item list
             (print item)))
@@ -36,7 +36,7 @@ A chain expression consists of;
 
 This allows you to write expressions like this:
 
-```
+```csharp
 //single symbol expression
 break; 
 
@@ -56,7 +56,7 @@ But what about that semi colon at the end of the “if” block?
 The semi colon represents the end of a chain of chain expressions.  
 My grammar allows me to link multiple chain expressions together, like this;
 
-```
+```csharp
 if(foo)
 {
  print ("foo is true");
@@ -79,7 +79,7 @@ and a reference to the “next” expression, that is, the “else if” express
 
 If we try to express the Lisp example at the top of the post using this grammar it would look something like this:
 
-```
+```csharp
 foreach item in list
 {
        print (item);

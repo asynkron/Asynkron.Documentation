@@ -15,7 +15,7 @@ However, if you intend to expose an entity that only support a copy constructor.
 
 Let’s say for the sake of the argument that we have an immutable “Order” class, that can only be created by passing an “OrderRequest”:
 
-```
+```csharp
 public class Order
 {
    public Order( OrderRequest request )
@@ -46,7 +46,7 @@ You can provide a default constructor and mark it with the “Obsolete” attrib
 This can prevent your code from calling the constructor while allowing the mapper framework to create the entities through reflection (which most POCO mappers already do).  
 You can even separate out this hack code from the actual entity using partial classes:
 
-```
+```csharp
 public partial class Order
 {
    public Order( OrderRequest request )

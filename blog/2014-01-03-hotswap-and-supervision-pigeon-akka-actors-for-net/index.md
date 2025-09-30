@@ -23,7 +23,7 @@ I’ve also added some more nifty features from Akka – Hotswap and Supervisio
 
 Like this:
 
-```
+```csharp
 public class GreetingActor : UntypedActor
 {
     protected override void OnReceive(IMessage message)
@@ -60,7 +60,7 @@ e.g. you can configure it to restart, restart or escalate if an exception of a g
 
 Like this:
 
-```
+```csharp
 public class MyActor : UntypedActor
 {
     private ActorRef logger = Context.ActorOf<LogActor>();

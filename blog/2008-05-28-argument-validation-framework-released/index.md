@@ -37,7 +37,7 @@ A generic numeric type that supports math operations.
 
 **Validation pre conditions:**
 
-```
+```csharp
 static string ValidationFunc(int a,string b,DateTime c)
 {
   //pre conditions:
@@ -57,7 +57,7 @@ static string ValidationFunc(int a,string b,DateTime c)
 
 **Validation post conditions:**
 
-```
+```csharp
 string res = "Foo";
 //post condition:
 return res.Require("res")
@@ -68,7 +68,7 @@ return res.Require("res")
 
 **Async fork:**
 
-```
+```csharp
 static int ForkIt()
 {
    int a = 0;
@@ -86,7 +86,7 @@ static int ForkIt()
 
 **Flextensions:**
 
-```
+```csharp
 //fluent casts, no need to wrap in ((int)var).
 someVar.Cast<Foo>().Bar();
 someVar.As<Boo>().Yoo();

@@ -28,7 +28,7 @@ The downside of XML based DSLs is that they are extremely hard to read and edit
 Let’s say for the sake of the argument that we want to define some custom business pricing rules.  
 Using XML that could look something like:
 
-```
+```xml
 <rules>
    <rule product="50050" >
       <condition>
@@ -54,7 +54,7 @@ Such XML rule definition can easily bloat from something fairly simple to someth
 
 Using the generic DSL grammar that I have created, the above rules would look something like this:
 
-```
+```csharp
 product 50050
 {
     when (quantity > 200) then (20 - quantity / bonus);
@@ -65,7 +65,7 @@ product 50050
 
 Or you could use it to define Google protobuffer messages:
 
-```
+```csharp
 message OrderPlaced
 {
  1 Guid MessageId;
@@ -77,7 +77,7 @@ message OrderPlaced
 
 Or what about defining some CQRS entity definitions?
 
-```
+```csharp
 public entity Customer
 {
     private string Name;

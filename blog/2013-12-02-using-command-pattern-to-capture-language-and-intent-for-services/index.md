@@ -17,7 +17,7 @@ I want to capture language and intent when modelling services, that is, I want t
 
 Let’s re-use the same scenario as we used in my previous post:
 
-```
+```csharp
 //entities
 class Order
     int Id //auto inc id
@@ -58,7 +58,7 @@ Your code might be small’ish, except for the weird change tracking replication
 Wouldn’t it be nice if we instead could capture valid state transitions and the domain experts language at the same time?  
 What if we do something like this:
 
-```
+```csharp
 public int PlaceNewOrder(){
     using (UoW.Begin())
     {
@@ -102,7 +102,7 @@ This is where command pattern comes in.
 
 Lets redesign our code to something along the lines of:
 
-```
+```csharp
 public static class OrderService
 {
     public static void Process(IEnumerable<command></command> commands)

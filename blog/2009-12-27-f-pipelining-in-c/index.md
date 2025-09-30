@@ -13,7 +13,7 @@ Here is one such example where F# developers try to make it look like F# can do 
 **F# code  **
 F# code that apparently is much easier to read than C# code:
 
-```
+```fsharp
 HttpGet "http://www-static.cc.gatech.edu/classes/cs2360_98_summer/hw1"
 |> fun s -> Regex.Replace(s, "[^A-Za-z']", " ")
 |> fun s -> Regex.Split(s, " +")
@@ -25,7 +25,7 @@ HttpGet "http://www-static.cc.gatech.edu/classes/cs2360_98_summer/hw1"
 **C# code  **
 My attempt to accomplish the same in C#.
 
-```
+```csharp
 HttpGet("http://www-static.cc.gatech.edu/classes/cs2360_98_summer/hw1")
     .Transform(s => Regex.Replace(s, "[^A-Za-z']", " "))
     .Transform(s => Regex.Split(s, " +"))
@@ -42,7 +42,7 @@ OK, I cheated, “Transform”,”Process” and “Execute” does not exist ou
 You would have to write those extension methods yourself.  
 However, they are reusable and fits nicely into a util lib.
 
-```
+```csharp
 public static class Extensions
 {
     public static TOut Transform<TIn, TOut>(this TIn self, Func<TIn, TOut> selector)

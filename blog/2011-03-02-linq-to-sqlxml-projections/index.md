@@ -10,7 +10,7 @@ I’ve managed to add projection support to my Linq to Sql Server Xml column imp
 
 Executing this Linq query:
 
-```
+```csharp
 var query = (from order in ctx.GetCollection().AsQueryable()
                 where order.OrderTotal > 100000000
                 where order.ShippingDate == null
@@ -26,7 +26,7 @@ var query = (from order in ctx.GetCollection().AsQueryable()
 
 Will yeild this Sql + XQuery:
 
-```
+```sql
 select top 5 Id,DocumentData.query(
 '<object type="dynamic">
  <state>

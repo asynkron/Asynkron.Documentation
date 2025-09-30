@@ -14,7 +14,7 @@ Git hub repository goes here: [https://github.com/rogeralsing/Pigeon](https://g
 
 **Write your first actor:**
 
-```
+```csharp
 public class Greet : IMessage
 {
     public string Who { get; set; }
@@ -32,7 +32,7 @@ public class GreetingActor : UntypedActor
 
 **Usage:**
 
-```
+```csharp
 var system = new ActorSystem();
 var greeter = system.ActorOf("greeter");
 greeter.Tell(new Greet { Who = "Roger" }, ActorRef.NoSender);
@@ -40,7 +40,7 @@ greeter.Tell(new Greet { Who = "Roger" }, ActorRef.NoSender);
 
 **Remoting support:**
 
-```
+```csharp
 //Server Program.CS
 var system = ActorSystemSignalR.Create("myserver", "http://localhost:8080);
 var greeter = system.ActorOf("greeter");
@@ -69,7 +69,7 @@ In Pigeon however, we have Async/Await support.
 
 You can async await responses from other actors like this:
 
-```
+```csharp
 
 //inside an actor
 var result = await Ask(someActor, messageToAsk);

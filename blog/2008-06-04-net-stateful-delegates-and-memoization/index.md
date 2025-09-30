@@ -15,7 +15,7 @@ If you create an anonymous delegate inside a factory method, you can infact give
 
 **Example:**
 
-```
+```csharp
 static Func<int> CreateCounter() 
 {
      int i = 0; //bind delegate to a local mutable variable 
@@ -28,7 +28,7 @@ static Func<int> CreateCounter()
 
 By using this method we can now create a stateful delegate:
 
-```
+```csharp
 var myCounter = CreateCounter(); 
 Console.WriteLine( myCounter() ); //prints : 0 
 Console.WriteLine( myCounter() ); //prints : 1 
@@ -52,7 +52,7 @@ We can create memoizations in C# by exploiting the fact that anonymous delegates
 
 **Example:**
 
-```
+```csharp
 static Func<T1, T2, TResult> CreateMemo
     <T1, T2, TResult>(Func<T1, T2, TResult> source)
 {

@@ -27,7 +27,7 @@ With these 250 lines of code, I get features like:
 
 **Macro like functions:**
 
-```
+```csharp
 func for(ref init,ref cond,ref step,ref body)
 {
     init();
@@ -53,7 +53,7 @@ The macro like support allows me to add new constructs to the language, unlike o
 like Boo or Ruby where you can pass closures as the last argument to a function, I can pass an entire chain of functions or expressions as the tail argument.  
 thus allowing constructs like:
 
-```
+```csharp
 if(x)
 {
 }
@@ -70,7 +70,7 @@ This is the reason I picked the somewhat corny name “Plastic” for the langua
 
 **Passing functions:**
 
-```
+```csharp
 //passing functions
 func f(x)
 {
@@ -87,7 +87,7 @@ print (g(f,7));
 
 **Returning functions(closures):**
 
-```
+```csharp
 func makefun()
 {
     let x = 10;

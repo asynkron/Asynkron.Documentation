@@ -17,7 +17,7 @@ The scenario here is an Order service with an Order entity and an OrderDTO.
 
 Example code (pseudo code):
 
-```
+```csharp
  //entities
  class Order
      int Id //auto inc id
@@ -43,7 +43,7 @@ I’m pretty sure you have seen something similar to this before.
 
 Lets also assume there is some sort of service that updates orders:
 
-```
+```csharp
     public void CreateOrUpdateOrder(OrderDTO orderDTO)
     {
        ...
@@ -53,7 +53,7 @@ Lets also assume there is some sort of service that updates orders:
 So what do we need to do in order to make this work?  
 Maybe you do something like this:
 
-```
+```csharp
     public void CreateOrUpdateOrder(OrderDTO orderDTO)
     {
         //this code would probably reside somewhere else, 
@@ -80,7 +80,7 @@ So what can we do about this?
 
 Maybe we can do it like this?
 
-```
+```csharp
 public void CreateOrUpdateOrder(OrderDTO orderDTO)
 {
    //this code would probably reside somewhere else, 
@@ -116,7 +116,7 @@ So even if we can create and update the order entity, we are still messed up whe
 
 Lets try again:
 
-```
+```csharp
 public void CreateOrUpdateOrder(OrderDTO orderDTO)
 {
    var context = ... //get some DbContext
@@ -168,7 +168,7 @@ We have to delete those otherwise we will have a foreign key exception when call
 
 OK, so lets see what we can do about this:
 
-```
+```csharp
 public void CreateOrUpdateOrder(OrderDTO orderDTO)
 {
    var context = ... //get some DbContext
@@ -228,7 +228,7 @@ This code is not thread safe, if two requests arrive at the server at the same t
 
 AutoMapper’s static Mapper class is not threadsafe, we have to modify our code even further.
 
-```
+```csharp
 public void CreateOrUpdateOrder(OrderDTO orderDTO)
 {
    var config = new ...
@@ -302,7 +302,7 @@ e.g. in a Rest API using MongoDB or such, but that has little to do with the key
 One of the biggest pain points in this specific case is actually AutoMapper, I think AutoMapper is a great tool, just not for this specific usecase.  
 If we remove automapper from the equation here. we could end up with some code that looks like this:
 
-```
+```csharp
 public void CreateOrUpdateOrder(OrderDTO orderDTO)
 {
     var ctx = ... //get some DbContext

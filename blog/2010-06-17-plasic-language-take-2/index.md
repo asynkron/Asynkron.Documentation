@@ -18,7 +18,7 @@ Instead of chaining calls syntactically, I could instead chain them by passing t
 
 In my first attempt in plastic, the syntax would be:
 
-```
+```text
 if (condition)
 {
    ...body...
@@ -37,7 +37,7 @@ The “else” function would be a special function that requires a “last valu
 
 Like this:
 
-```
+```text
 if (condition) //if condition fails, return "fail"
 {
    ...body...
@@ -52,7 +52,7 @@ This way, the else function would have two arguments, the last result and a clos
 
 The else function would be implemented like this:
 
-```
+```csharp
 func else (lastresult,body)
 {
   let result = lastresult;

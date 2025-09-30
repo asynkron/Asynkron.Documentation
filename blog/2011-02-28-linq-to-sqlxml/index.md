@@ -11,7 +11,7 @@ I’m hacking along on my Document DB emulator ontop of Sql Server XML columns.
 I have some decent Linq support in place now.  
 The following query:
 
-```
+```csharp
 var query = from order in orders
             //must have status shipped
             where order.Status >= OrderStatus.Shipped      
@@ -24,7 +24,7 @@ var query = from order in orders
 
 will yield the following Sql + XQuery to the Sql Server:
 
-```
+```sql
 select *
 from documents
 where CollectionName = 'Order'  and 

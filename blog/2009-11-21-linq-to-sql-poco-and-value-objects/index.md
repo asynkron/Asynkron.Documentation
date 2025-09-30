@@ -15,7 +15,7 @@ By treating it as a DAL we can manually handle the data to object transformation
 If we for example want to fetch a list of POCO Customers that also have an immutable Address value object associated to them,  
 we could use the following code to accomplish this:
 
-```
+```csharp
 //Poco prefix only used to distinguish between l2s and poco entities here
 IList<Customer> FindCustomers(string name)
 {

@@ -30,7 +30,7 @@ We can design our entities like this:
 
 **OrderDetail:**
 
-```
+```csharp
 public class OrderDetail
 {
     ...properties...
@@ -48,7 +48,7 @@ public class OrderDetail
 
 **Order:**
 
-```
+```csharp
 public class Order
 {
     ...properties...

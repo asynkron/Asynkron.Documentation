@@ -11,7 +11,7 @@ But I also use template or factory methods alot in my apps, and that doesnt wor
 
 Imagine something like this:
 
-```
+```csharp
 public abstract class MyRendererBase
 {
       public void Render(Graphics g)
@@ -32,7 +32,7 @@ public abstract class MyRendererBase
 What could go wrong here?  
 Well, lets say that you implement the class like this:
 
-```
+```csharp
 public class SomeRenderer : MyRendererBase
 {
       public override Brush GetBackgroundBrush()
@@ -55,7 +55,7 @@ But if we do so, we would lose the benefits of template/factory methods, that is
 
 So my solution to this problem is to make  wrapper class that will hold a ref to the disposable object, and you can tell the wrapper if it should dispose the resource or not:
 
-```
+```csharp
 public class Disposer<T> : IDisposable where T : IDisposable
 {
     public T Value { get; set; }
@@ -92,7 +92,7 @@ public class Disposer<T> : IDisposable where T : IDisposable
 
 Once we have this class, we can alter our sample code to:
 
-```
+```csharp
 public abstract class MyRendererBase
 {
       public void Render(Graphics g)
@@ -114,7 +114,7 @@ public abstract class MyRendererBase
 
 And the implementation to:
 
-```
+```csharp
 public class SomeRenderer : MyRendererBase
 {
       public override Disposer<Brush> GetBackgroundBrush()

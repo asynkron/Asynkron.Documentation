@@ -29,7 +29,7 @@ I always use eager loading on my aggregates, so I want a simple way to tell my E
 
 Here is how I create my exstension methods for loading complete aggregates:
 
-```
+```csharp
 public static class ContextExtensions
 {
   public static ObjectQuery<Order> 
@@ -47,7 +47,7 @@ This makes it possible to use the load spans directly on my context without addi
 
 This way, you can now issue a query using load spans like this:
 
-```
+```csharp
 var orders = from order in context.OrderSet.AsOrderAggregate()
              select order;
 ```

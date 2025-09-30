@@ -14,7 +14,7 @@ I started out by using the directive that is described in his blogpost but later
 Bruno’s example relies on JQuery and DOM-event in order to do it’s magic, which does work fine, but for someone learning AngularJS it might not be the best example out there.  
 So here is my take on the very same directive:
 
-```
+```javascript
 app.directive('passwordMatch', [function () {
     return {
         restrict: 'A',
@@ -45,7 +45,7 @@ This works by comparing variables on the current scope instead of reading values
 
 Usage:
 
-```
+```html
 <input type="password"  
      ng-model="password2" 
      password-match="password1" />

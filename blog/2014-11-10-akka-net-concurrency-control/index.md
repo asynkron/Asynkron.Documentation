@@ -24,7 +24,7 @@ Let’s say we need to model a bank account.
 That is a classic concurrency problem.  
 If we would use OOP, we might start with something like this:
 
-```
+```csharp
 public class BankAccount
 {
     private decimal _balance;
@@ -46,7 +46,7 @@ That seems fair, right?
 This will work fine in a single threaded environment where only one thread is accessing the above code.  
 But what happens when two or more competing threads are calling the same code?
 
-```
+```csharp
     public void Withdraw(decimal amount)
     {
         if (_balance < amount) //<-
@@ -57,7 +57,7 @@ That if-statement might be running in parallel on two or more theads, and at tha
 So in order to deal with this we need to introduce locks.  
 Maybe something like this:
 
-```
+```csharp
     private readonly object _lock = new object();
     private decimal _balance;
     public void Withdraw(decimal amount)
@@ -88,7 +88,7 @@ This still applies if there are multiple producers passing messages to the actor
 
 So let’s model the same problem using an Akka.NET actor:
 
-```
+```csharp
 
 //immutable message for withdraw:
 public class Withdraw
@@ -131,7 +131,7 @@ In the example code, I use strings as the response on the status of the operatio
 
 How do we use this code then?
 
-```
+```csharp
 
 ActorSystem system = ActorSystem.Create("mysystem");
 ...

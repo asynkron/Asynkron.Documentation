@@ -16,7 +16,7 @@ We support the same features as real Akka, so logging can be done using the Acto
 We are also leveraging the real Akka config, so we can enable logging based on the same configuration options that Akka has.  
 Here is a snapshot of the output from the StandardOutLogger when booting the ChatServer example:
 
-```
+```text
 2014-02-21 22:40:44 DebugLevel EventStream - subscribing [akka://all-systems/StandardOutLogger] to channel Pigeon.Event.Info [Thread 9]
 2014-02-21 22:40:44 DebugLevel EventStream - subscribing [akka://all-systems/StandardOutLogger] to channel Pigeon.Event.Warning [Thread 9]
 2014-02-21 22:40:44 DebugLevel EventStream - subscribing [akka://all-systems/StandardOutLogger] to channel Pigeon.Event.Error [Thread 9]

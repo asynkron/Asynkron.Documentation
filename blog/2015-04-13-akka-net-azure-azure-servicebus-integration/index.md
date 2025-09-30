@@ -26,7 +26,7 @@ As we haven’t acked the message to the service bus, the service bus will try t
 
 A simple implementation of this approach using Azure Service bus could look something like this:
 
-```
+```csharp
 namespace ConsoleApplication13
 {
     //define your worker actor

@@ -12,7 +12,7 @@ Trying to stay close to how Akka works, I decided to go for a Json based configu
 
 A config could look something like this:
 
-```
+```json
 Pigeon : {
     Actor : {
         Serializers : {
@@ -35,7 +35,7 @@ Pigeon : {
 
 Remoting is also treated as an extension to the ActorSystem, so there is no longer any awkward subclass, like this:
 
-```
+```csharp
 using (var system = ActorSystem.Create("MyClient",config,new RemoteExtension()))
 {
 ```

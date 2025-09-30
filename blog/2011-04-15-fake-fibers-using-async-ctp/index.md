@@ -11,7 +11,7 @@ This is another PoC, building recursive code with continuations using the Async�
 The code creates a fake fiber, which can be suspended and resumed, thus allowing us to “step” through its actions.  
 This technique could be useful when building an interpreting language where you might want to step through the expressions.
 
-```
+```csharp
     using System;
 using System.Collections.Generic;
 using System.Linq;

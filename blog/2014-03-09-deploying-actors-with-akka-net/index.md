@@ -16,7 +16,7 @@ It might have one actor that deals with user input and another actor that does s
 
 It could look something like this:
 
-```
+```csharp
 var system = ActorSystem.Create("mysystem");
 var worker = system.ActorOf<WorkerActor>("worker");
 var userInput = system.ActorOf<UserInput>("userInput");
@@ -35,7 +35,7 @@ Instead of letting the user input actor know how many workers we have, we can in
 
 Router actors act as a facade on top of other actors, this means that the router can delegate incoming messages to a pool or group of underlying actors.
 
-```
+```csharp
 var system = ActorSystem.Create("mysystem");
 var worker1 = system.ActorOf<Worker>("worker1");
 var worker2 = system.ActorOf<Worker>("worker2");
@@ -58,7 +58,7 @@ We do not need to change any of the other code, as long as the user input actor 
 
 If we want to accomplish the same thing, but using a config instead, we can something like this:
 
-```
+```csharp
  var config = ConfigurationFactory.ParseString(@"
     akka.actor.deployment {
             /worker {
@@ -84,7 +84,7 @@ But what if this is still not enough?
 We might need to scale out also, and introduce more machines.  
 This can be done using “remote deployment”, like this:
 
-```
+```csharp
  var config = ConfigurationFactory.ParseString(@"
     akka.actor.deployment {
             /worker {

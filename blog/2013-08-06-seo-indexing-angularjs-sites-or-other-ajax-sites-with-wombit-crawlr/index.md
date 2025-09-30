@@ -29,7 +29,7 @@ This service will let you pass an url to it and get the dynamic content back as 
 
 In my site I do it like this, using MVC4:
 
-```
+```csharp
         public ActionResult Index()
         {
             string fragment = Request.QueryString["_escaped_fragment_"];

@@ -12,11 +12,11 @@ But apparently there are features that I haven’t known about.
 
 The first one is covariance on arrays in C#
 
-```
+```csharp
 string[] strings = new[]{"Hello","Covariance"};
 
 //assign the string array to an object array
-object[] objects = strings; 
+object[] objects = strings;
 
 objects[0] = "Hi"; //OK
 objects[1] = 123; //runtime exception
@@ -30,7 +30,7 @@ Also note the last line, we got dynamic type checks in C# , ewwww 😉
 
 Another feature I didn’t know about is this:
 
-```
+```csharp
 this = new Foo();
 ```
 

@@ -16,7 +16,7 @@ Akka made some noise when they managed to process 50 million messages per second
 I’ve now ported this benchmark to Pigeon so that one can get a hint of how the two compares.  
 This is the results from an 8 core laptop:
 
-```
+```text
  Worker threads: 1023
  OSVersion: Microsoft Windows NT 6.2.9200.0
  ProcessorCount: 8
@@ -39,7 +39,7 @@ This is the results from an 8 core laptop:
 I’m pretty pleased with the performance so far.  
 The code for the benchmark actors looks like this:
 
-```
+```csharp
 private static object Msg = new object();
 private static object Run = new object();
 

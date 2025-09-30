@@ -28,7 +28,7 @@ Even if the population is small, there is still competition between the parent a
 
 Sample:
 
-```
+```text
 Drawing
 
     DrawPolygon (
@@ -56,7 +56,7 @@ A\) The fitness function is a pixel by pixel compare where the fitness for each 
 
 Pseudo Sample:
 
-```
+```text
 double fitness = 0
 for y = 0 to width
     for x = 0 to height

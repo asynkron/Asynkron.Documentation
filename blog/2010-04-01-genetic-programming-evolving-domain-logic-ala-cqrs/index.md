@@ -31,14 +31,14 @@ Example.
 
 Given that:
 
-```
+```csharp
 Customer.Rename("Foo");
 UoW.Commit();
 ```
 
 Expect:
 
-```
+```text
 CustomerRenamedEvent
   CustomerId = 123
   NewName = "Foo"
@@ -46,14 +46,14 @@ CustomerRenamedEvent
 
 Given that:
 
-```
+```csharp
 Customer.Rename("Bar");
 UoW.Commit();
 ```
 
 Expect:
 
-```
+```text
 CustomerRenamedEvent
   CustomerId = 345
   NewName = "Bar"
@@ -63,7 +63,7 @@ Or preferably a more complex scenario
 
 Given that:
 
-```
+```csharp
 Customer
  .NewOrder()
  .AddProduct(50050,10)
@@ -74,7 +74,7 @@ UoW.Commit();
 
 Expect:
 
-```
+```text
 OrderPlacedEvent
   OrderId = 1
   CustomerId = 2
@@ -106,7 +106,7 @@ A very nice benefit of evolution is that if you later get some changed requireme
 Since the fitness factor currently doesn’t include how complex the generated code is, the output can be somewhat verbose.  
 Actual sample:
 
-```
+```csharp
 public void Rename(string newName)
 {
      this.Name = (newName + "a¤").Substring(0, newName.Length - 9 + 5 + 4);
