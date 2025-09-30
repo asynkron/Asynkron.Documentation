@@ -47,7 +47,7 @@ public class GreetingActor : UntypedActor
 }
 ```
 
-In the example above, the actor will first output “Hello {who}” if a Greet message is passed to it.  
+In the example above, the actor will first output `"Hello {who}"` if a Greet message is passed to it.  
 But if we pass another greet message to it, it will output “You already said hello”.  
 This is ofcourse a contrived example, but it is very useful for larger state machines.  
 e.g. Lets say we write a game and each player/bot has its own actor.  

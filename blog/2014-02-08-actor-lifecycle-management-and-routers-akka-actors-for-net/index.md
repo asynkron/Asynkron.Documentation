@@ -8,7 +8,7 @@ tags: ["actor-model", "akka", "routing", "supervision"]
 
 <!-- truncate -->
 
-<span style="font-style:inherit;line-height:1.625;">I finally got around to implement full lifecycle management in Pigeon.  
+<span>I finally got around to implement full lifecycle management in Pigeon.  
 </span>The Pigeon actor behavior is now consistent with real Akka.
 
 The following Scala test: [https://github.com/akka/akka/blob/master/akka-actor-tests/src/test/scala/akka/actor/ActorLifeCycleSpec.scala  

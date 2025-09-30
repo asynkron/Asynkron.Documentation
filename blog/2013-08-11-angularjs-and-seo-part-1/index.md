@@ -13,8 +13,8 @@ First, there are a few misconceptions floating around on how this works, lets cl
 
 > Google bot can run javascript and you don’t have to do anything in order to make your site crawlable!
 
-<span style="font-style:inherit;line-height:1.625;">Yes, No or Maybe.  
-</span><span style="font-style:inherit;line-height:1.625;">See: </span><a href="http://en.wikipedia.org/wiki/Googlebot" style="font-style:inherit;line-height:1.625;">http://en.wikipedia.org/wiki/Googlebot<br />
+<span>Yes, No or Maybe.  
+</span><span>See: </span><a href="http://en.wikipedia.org/wiki/Googlebot">http://en.wikipedia.org/wiki/Googlebot<br />
 </a>See: [http://searchengineland.com/google-can-now-execute-ajax-javascript-for-indexing-99518  
 S](http://searchengineland.com/google-can-now-execute-ajax-javascript-for-indexing-99518)ee: [http://www.quora.com/Search-Engine-Optimization-SEO/How-do-search-engines-treat-websites-built-with-Angular-js](http://www.quora.com/Search-Engine-Optimization-SEO/How-do-search-engines-treat-websites-built-with-Angular-js)
 
@@ -24,7 +24,7 @@ For this series we can safely say that googlebot and bingbot does NOT execute An
 
 > HTML5 and Push state will make your site crawlable by google.
 
-<span style="font-style:inherit;line-height:1.625;">NO, \_server side delivered content\_ will make your site crawlable, some push state based sites do generate their main content server side using PHP, ASP.NET or NodeJS and deliver the initial content that way.</span>
+<span>NO, \_server side delivered content\_ will make your site crawlable, some push state based sites do generate their main content server side using PHP, ASP.NET or NodeJS and deliver the initial content that way.</span>
 
 Thus, the content is available for googlebot to crawl.
 

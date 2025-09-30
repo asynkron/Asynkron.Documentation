@@ -20,7 +20,7 @@ The goal was to be able to:
 1.  Select all data needed for a given resource in one go, a single database call.
 2.  Transform my Entity Model to resources any way I want, not expose my entities directly to the world
 3.  Include a resource path (href) for each resource.
-4.  <span style="font-style:inherit;line-height:1.625;">Support ?fields=…  to select a subset of fields il the resource</span>
+4.  <span>Support ?fields=…  to select a subset of fields il the resource</span>
 5.  Support ?expand=… to expand navigational properties in the resource
 6.  Re-use select projections for multiple resources
 
@@ -74,7 +74,7 @@ I rolled my own ExpressionTreeVisitor and simply patched the above code into the
 Some clients may want to exclude certain fields in order to lower request times and memory consumption for e.g. mobile devices.  
 This is somewhat tricky using Entity Framework since we are in a strongly typed environment here.  
 How do you make a Linq request against an anonymous type return only a subset of what is specified in the query?  
-<span style="font-style:inherit;line-height:1.625;">-More Linq expression magic and some Reflection.Emit, I rewrite the above query according to the ?fields/expand arguments passed into the service, selecting a new type which contains only those fields.</span>
+<span>-More Linq expression magic and some Reflection.Emit, I rewrite the above query according to the ?fields/expand arguments passed into the service, selecting a new type which contains only those fields.</span>
 
 6\) Re-use of projections in Entity Framework is a no-go, you simply can not do it more than at the base level.  
 e.g.  
@@ -97,7 +97,7 @@ Expression<Func<User,object>> userProjection = u => new {
 This will give a compile error if User.Items is of type ICollection of T since we are trying to pass an Expression.  
 This was also solved using the ExpressionVisitor, I simply expand the Linq Expression in the Select call.
 
-<span style="font-style:inherit;line-height:1.625;">Well..  that’s pretty much it, I have implemented the above features in a small framework called EfRest, which can be found here: </span><a href="https://github.com/rogeralsing/EfRest" style="font-style:inherit;line-height:1.625;">https://github.com/rogeralsing/EfRest</a>
+<span>Well..  that’s pretty much it, I have implemented the above features in a small framework called EfRest, which can be found here: </span><a href="https://github.com/rogeralsing/EfRest">https://github.com/rogeralsing/EfRest</a>
 
 Here is a real world example using the framework in WebApi:
 

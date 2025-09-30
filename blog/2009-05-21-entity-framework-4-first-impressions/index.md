@@ -43,6 +43,6 @@ And thus apply more behaviors to the objects, e.g. via NAspect and proxify the e
 ### Design by Contract .
 
 This is not really a feature of EF4 but rather of .NET framework 4.  
-But as far as I can tell, contracts <span style="text-decoration:underline;">seems</span> to work fine within your entities.  
+But as far as I can tell, contracts <span>seems</span> to work fine within your entities.  
 I still need to do a few more tests and see how well the contracts play with the run-time proxies though.  
 More to come in later posts…

@@ -4,7 +4,7 @@ title: "Query Objects vs. DSL"
 authors: [rogerjohansson]
 tags: ["domain-specific-languages", "npath", "npersist", "query-objects"]
 ---
-<span style="font-size:10pt;font-family:Arial;"> **THIS IS AN OLD POST FROM MY OLD BLOG**</span> (2006)
+<span> **THIS IS AN OLD POST FROM MY OLD BLOG**</span> (2006)
 
 <!-- truncate -->
 

@@ -10,7 +10,7 @@ Use if you like..
 
 <!-- truncate -->
 
-<figure id="attachment_1388" class="wp-caption alignnone" data-shortcode="caption" aria-describedby="caption-attachment-1388" style="width: 584px">
+<figure id="attachment_1388" class="wp-caption alignnone" data-shortcode="caption" aria-describedby="caption-attachment-1388">
 <a href="http://rogeralsing.wordpress.com/wp-content/uploads/2013/10/all.png">![](./all.png)</a>
 <figcaption>icons</figcaption>
 </figure>

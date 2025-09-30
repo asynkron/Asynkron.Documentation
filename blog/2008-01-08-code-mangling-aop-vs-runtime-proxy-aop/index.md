@@ -4,7 +4,7 @@ title: "Code mangling AOP vs. Runtime Proxy AOP"
 authors: [rogerjohansson]
 tags: ["aspect-oriented-programming", "c", "naspect"]
 ---
-<span style="font-size:10pt;font-family:Arial;"> **THIS IS AN OLD POST FROM MY OLD BLOG (2006)**</span> 
+<span> **THIS IS AN OLD POST FROM MY OLD BLOG (2006)**</span> 
 
 <!-- truncate -->
 
