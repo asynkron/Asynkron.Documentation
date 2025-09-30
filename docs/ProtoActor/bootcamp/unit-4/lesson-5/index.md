@@ -95,25 +95,4 @@ As you can see, the logic of this actor is straightforward. After receiving the 
 
 Let's run our application and look at the result.
 
-:::tip Code samples
-The following files accompany this section:
-- [`ChildActor.cs`](dotnet/MovieStreaming/Actors/ChildActor.cs)
-- [`MoviePlayCounterActor.cs`](dotnet/MovieStreaming/Actors/MoviePlayCounterActor.cs)
-- [`PlaybackActor.cs`](dotnet/MovieStreaming/Actors/PlaybackActor.cs)
-- [`UserActor.cs`](dotnet/MovieStreaming/Actors/UserActor.cs)
-- [`UserCoordinatorActor.cs`](dotnet/MovieStreaming/Actors/UserCoordinatorActor.cs)
-- [`ColorConsole.cs`](dotnet/MovieStreaming/ColorConsole.cs)
-- [`IncrementPlayCountMessage.cs`](dotnet/MovieStreaming/Messages/IncrementPlayCountMessage.cs)
-- [`PlayMovieMessage.cs`](dotnet/MovieStreaming/Messages/PlayMovieMessage.cs)
-- [`Recoverable.cs`](dotnet/MovieStreaming/Messages/Recoverable.cs)
-- [`RequestActorPidMessage.cs`](dotnet/MovieStreaming/Messages/RequestActorPidMessage.cs)
-- [`ResponseActorPidMessage.cs`](dotnet/MovieStreaming/Messages/ResponseActorPidMessage.cs)
-- [`StopMovieMessage.cs`](dotnet/MovieStreaming/Messages/StopMovieMessage.cs)
-- [`MovieStreaming.csproj`](dotnet/MovieStreaming/MovieStreaming.csproj)
-- [`Program.cs`](dotnet/MovieStreaming/Program.cs)
-- [`MovieStreaming.sln`](dotnet/MovieStreaming.sln)
-
-You can also explore more samples in the [Proto.Actor .NET examples](https://github.com/asynkron/protoactor-dotnet/tree/dev/examples).
-:::
-
 [Go ahead!](../lesson-6)

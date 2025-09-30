@@ -39,17 +39,5 @@ The DeadLetter queue can also be used to store messages that have not been proce
 System.DeadLetter.SendUserMessage(Self, msg);
 ```
 
-:::tip Code samples
-The following files accompany this section:
-- [`.dtbcache.v2`](dotnet/.vs/DeadLetterExample/DesignTimeBuild/.dtbcache.v2)
-- [`Echo.cs`](dotnet/DeadLetterExample/Actors/Echo.cs)
-- [`DeadLetterExample.csproj`](dotnet/DeadLetterExample/DeadLetterExample.csproj)
-- [`TestMessage.cs`](dotnet/DeadLetterExample/Messages/TestMessage.cs)
-- [`Program.cs`](dotnet/DeadLetterExample/Program.cs)
-- [`DeadLetterExample.sln`](dotnet/DeadLetterExample.sln)
-
-You can also explore more samples in the [Proto.Actor .NET examples](https://github.com/asynkron/protoactor-dotnet/tree/dev/examples).
-:::
-
 [Go ahead!](../lesson-6)
 

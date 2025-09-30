@@ -57,13 +57,4 @@ If we launch our app now, we will see that the movie name and user id are displa
 
 What if we want to combine the movie title and user ID? There are custom messages for this purpose, and we will look at them in more detail in the next lesson.
 
-:::tip Code samples
-The following files accompany this section:
-- [`MovieStreaming.csproj`](dotnet/MovieStreaming/MovieStreaming.csproj)
-- [`Program.cs`](dotnet/MovieStreaming/Program.cs)
-- [`MovieStreaming.sln`](dotnet/MovieStreaming.sln)
-
-You can also explore more samples in the [Proto.Actor .NET examples](https://github.com/asynkron/protoactor-dotnet/tree/dev/examples).
-:::
-
 [Go ahead!](../lesson-7)

@@ -338,19 +338,6 @@ Now that we launch our application and press any key, we will see that our actor
 
 ![](images/3_2_4.png)
 
-:::tip Code samples
-The following files accompany this section:
-- [`ChildActor.cs`](dotnet/MovieStreaming/Actors/ChildActor.cs)
-- [`PlaybackActor.cs`](dotnet/MovieStreaming/Actors/PlaybackActor.cs)
-- [`ColorConsole.cs`](dotnet/MovieStreaming/ColorConsole.cs)
-- [`PlayMovieMessage.cs`](dotnet/MovieStreaming/Messages/PlayMovieMessage.cs)
-- [`Recoverable.cs`](dotnet/MovieStreaming/Messages/Recoverable.cs)
-- [`MovieStreaming.csproj`](dotnet/MovieStreaming/MovieStreaming.csproj)
-- [`Program.cs`](dotnet/MovieStreaming/Program.cs)
-- [`MovieStreaming.sln`](dotnet/MovieStreaming.sln)
-
-You can also explore more samples in the [Proto.Actor .NET examples](https://github.com/asynkron/protoactor-dotnet/tree/dev/examples).
-:::
 
 [Go ahead!](../lesson-3)
 
