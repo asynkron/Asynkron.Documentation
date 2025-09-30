@@ -1,8 +1,12 @@
 ---
 slug: disposer-idisposable-and-template-pattern
-title: "Disposer – IDisposable and Template pattern"
-authors: [rogerjohansson]
-tags: ["gdi", "idisposable", "template-method-pattern", "wrapper"]
+title: "Disposer \u2013 IDisposable and Template pattern"
+authors:
+- rogerjohansson
+tags:
+- gdi
+- idisposable
+- template-method-pattern
 ---
 I do a fair amount of GDI+ programming, and thus using a lot of IDisposable objects.  
 But I also use template or factory methods alot in my apps, and that doesnt work well with disposable objects

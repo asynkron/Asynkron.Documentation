@@ -1,8 +1,12 @@
 ---
 slug: linq-expressions-access-private-fields
-title: "Linq Expressions – Access private fields"
-authors: [rogerjohansson]
-tags: ["delegates", "lambda", "linq", "linq-expressions"]
+title: "Linq Expressions \u2013 Access private fields"
+authors:
+- rogerjohansson
+tags:
+- delegates
+- lambda
+- linq
 ---
 In this post I will show how you can use Linq Expressions to access private (or public) class fields instead of using Reflection.FieldInfo.
 

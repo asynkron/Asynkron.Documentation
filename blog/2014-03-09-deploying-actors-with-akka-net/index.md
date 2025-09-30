@@ -1,8 +1,10 @@
 ---
 slug: deploying-actors-with-akka-net
-title: "Deploying actors with Akka.NET"
-authors: [rogerjohansson]
-tags: ["actors", "akka", "deployment", "remoting"]
+title: Deploying actors with Akka.NET
+authors:
+- rogerjohansson
+tags:
+- remoting
 ---
 We have now ported both the code and configuration based deployment features of Akka.  
 This means that you can now use Akka.NET to deploy actors and routers on remote nodes either via code or configuration.

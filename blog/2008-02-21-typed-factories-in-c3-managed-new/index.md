@@ -1,8 +1,10 @@
 ---
 slug: typed-factories-in-c3-managed-new
-title: "Typed factories in C#3 – Managed “new”"
-authors: [rogerjohansson]
-tags: ["c", "design-patterns", "factory-methods", "managed-new"]
+title: "Typed factories in C#3 \u2013 Managed \u201Cnew\u201D"
+authors:
+- rogerjohansson
+tags:
+- design-patterns
 ---
 <!-- truncate -->
 

@@ -1,8 +1,11 @@
 ---
 slug: linq-to-npersist-to-ms-access
-title: "Linq to NPersist to MS Access"
-authors: [rogerjohansson]
-tags: ["linq", "ms-access", "npersist", "sub-queries"]
+title: Linq to NPersist to MS Access
+authors:
+- rogerjohansson
+tags:
+- linq
+- sub-queries
 ---
 I’ve finally seen my own Linq support live 😛
 Until now I’ve only been emitting NPath queries and verified that NPath is correct.

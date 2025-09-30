@@ -1,8 +1,10 @@
 ---
 slug: pigeon-akka-actors-for-net
-title: "Pigeon – Akka Actors for .NET"
-authors: [rogerjohansson]
-tags: ["actor-model", "akka", "pigeon"]
+title: "Pigeon \u2013 Akka Actors for .NET"
+authors:
+- rogerjohansson
+tags:
+- actor-model
 ---
 I’m working on a port of the Java/Scala framework **Akka**, or rather the Actor Model part of it.  
 As of now, this is only a bit more than a weekend hack, so don’t expect too much.  

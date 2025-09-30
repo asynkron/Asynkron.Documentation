@@ -1,8 +1,11 @@
 ---
 slug: f-gold-parser-true
-title: "F# + Gold Parser = true"
-authors: [rogerjohansson]
-tags: ["ast", "dsl", "f", "gold-parser", "parsing"]
+title: F# + Gold Parser = true
+authors:
+- rogerjohansson
+tags:
+- gold-parser
+- parsing
 ---
 First of all, I have to confess that I’ve started to see the light of F# and AST manipulation.
 

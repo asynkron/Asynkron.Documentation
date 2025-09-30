@@ -1,8 +1,10 @@
 ---
 slug: evolutionary-algorithms-directing-the-undirected
-title: "Evolutionary Algorithms – Directing the undirected"
-authors: [rogerjohansson]
-tags: ["darwin", "dawkins", "ea", "ga", "gp"]
+title: "Evolutionary Algorithms \u2013 Directing the undirected"
+authors:
+- rogerjohansson
+tags:
+- ga
 ---
 This is a followup to my previous post on the same topic : [http://rogeralsing.com/2010/07/29/evolutionary-algorithms-problems-with-directed-evolution/](http://rogeralsing.com/2010/07/29/evolutionary-algorithms-problems-with-directed-evolution/)
 

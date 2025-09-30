@@ -1,8 +1,11 @@
 ---
 slug: linq-to-sqlxml-github
-title: "Linq to SqlXml – GitHub"
-authors: [rogerjohansson]
-tags: ["documentdb", "mongodb", "nosql", "ravendb", "xml", "xquery"]
+title: "Linq to SqlXml \u2013 GitHub"
+authors:
+- rogerjohansson
+tags:
+- nosql
+- xml
 ---
 An early alpha of Linq to SqlXml is now available on github: [https://github.com/calyptus/linq-to-sqlxml](https://github.com/calyptus/linq-to-sqlxml)
 

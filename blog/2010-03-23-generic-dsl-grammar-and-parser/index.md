@@ -1,8 +1,11 @@
 ---
 slug: generic-dsl-grammar-and-parser
-title: "Generic DSL Grammar and Parser"
-authors: [rogerjohansson]
-tags: ["ast", "dsl", "gold-parser", "intentional"]
+title: Generic DSL Grammar and Parser
+authors:
+- rogerjohansson
+tags:
+- gold-parser
+- intentional
 ---
 About a year ago I blogged about an idea of an extensible language; [http://rogeralsing.com/2009/03/18/an-intentional-extensible-language/](http://rogeralsing.com/2009/03/18/an-intentional-extensible-language/)   
 Since then, I have been experimenting with this concept quite a bit.

@@ -1,8 +1,12 @@
 ---
 slug: building-a-framework-the-early-akka-net-history
-title: "Building a framework – The early Akka.NET history"
-authors: [rogerjohansson]
-tags: ["actor-model", "akka", "message-passing", "open-source"]
+title: "Building a framework \u2013 The early Akka.NET history"
+authors:
+- rogerjohansson
+tags:
+- actor-model
+- message-passing
+- open-source
 ---
 In this post, I will try to cover some of the early history of Akka.NET and how and why things turned out the way they did.  
 **Akka.NET of course have some parallel histories going as there are many contributors on the project.  

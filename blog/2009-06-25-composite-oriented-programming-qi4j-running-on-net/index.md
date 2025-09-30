@@ -1,8 +1,11 @@
 ---
 slug: composite-oriented-programming-qi4j-running-on-net
-title: "Composite Oriented Programming: QI4J running on .NET"
-authors: [rogerjohansson]
-tags: ["composite-oriented-programming", "cop", "qi4j"]
+title: 'Composite Oriented Programming: QI4J running on .NET'
+authors:
+- rogerjohansson
+tags:
+- composite-oriented-programming
+- cop
 ---
 For the last month I have been spending my spare time porting the awesome Java framework QI4J to .NET.  
 QI4J is the brain child of Rickard Öberg and Niclas Hedhman and it attempts to enable Composite Oriented Programming for the Java platform.  

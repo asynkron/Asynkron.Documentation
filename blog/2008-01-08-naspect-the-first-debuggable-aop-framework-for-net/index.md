@@ -1,8 +1,10 @@
 ---
 slug: naspect-the-first-debuggable-aop-framework-for-net
-title: "NAspect – the first debuggable AOP framework for .NET"
-authors: [rogerjohansson]
-tags: ["aspect-oriented-programming", "debug-visualizer", "naspect"]
+title: "NAspect \u2013 the first debuggable AOP framework for .NET"
+authors:
+- rogerjohansson
+tags:
+- aspect-oriented-programming
 ---
 **THIS IS AN OLD POST FROM MY OLD BLOG (2006)**
 

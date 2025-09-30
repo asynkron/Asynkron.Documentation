@@ -1,8 +1,12 @@
 ---
 slug: lisp-debugger
-title: "Lisp Debugger"
-authors: [rogerjohansson]
-tags: ["c", "debugger", "domain-specific-languages", "lisp", "net"]
+title: Lisp Debugger
+authors:
+- rogerjohansson
+tags:
+- domain-specific-languages
+- lisp
+- net
 ---
 I’m still working on my Lisp language clone.  
 Today I started to add debugging support to it.  

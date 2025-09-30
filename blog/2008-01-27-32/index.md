@@ -1,8 +1,12 @@
 ---
 slug: 32
-title: "Lisp weekend"
-authors: [rogerjohansson]
-tags: ["c-lambda", "domain-specific-languages", "lisp", "net"]
+title: Lisp weekend
+authors:
+- rogerjohansson
+tags:
+- domain-specific-languages
+- lisp
+- net
 ---
 I’ve been reading up a bit on functional programming the last few week, the reason is just to comprehend the new features and possibilities in .NET 3.5 as much as possible.
 

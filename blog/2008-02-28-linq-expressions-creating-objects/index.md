@@ -1,8 +1,12 @@
 ---
 slug: linq-expressions-creating-objects
-title: "Linq Expressions – Creating objects"
-authors: [rogerjohansson]
-tags: ["delegates", "lambda", "linq", "linq-expressions"]
+title: "Linq Expressions \u2013 Creating objects"
+authors:
+- rogerjohansson
+tags:
+- delegates
+- lambda
+- linq
 ---
 This post shows how you can use Linq expression trees to replace Activator.CreateInstance.
 

@@ -1,8 +1,11 @@
 ---
 slug: massive-improvements-to-pigeon-akka-actors-for-net
-title: "Massive improvements to Pigeon – Akka Actors for .NET"
-authors: [rogerjohansson]
-tags: ["actor-model", "akka", "net", "pigeon"]
+title: "Massive improvements to Pigeon \u2013 Akka Actors for .NET"
+authors:
+- rogerjohansson
+tags:
+- actor-model
+- net
 ---
 The last few weeks have been busy busy.  
 Me and [Aaron](http://www.aaronstannard.com/) have been making some massive improvements to Pigeon.  

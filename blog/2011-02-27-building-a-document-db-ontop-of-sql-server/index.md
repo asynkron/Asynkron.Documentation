@@ -1,8 +1,9 @@
 ---
 slug: building-a-document-db-ontop-of-sql-server
-title: "Building a Document DB on Top of SQL Server"
-authors: [rogerjohansson]
-tags: ["documentdb", "mongodb", "ravendb", "xml-columns"]
+title: Building a Document DB on Top of SQL Server
+authors:
+- rogerjohansson
+tags: []
 ---
 I’ve started to build a Document DB emulator on top of SQL Server XML columns.
 SQL Server XML columns can store schema-free XML documents, pretty much like RavenDB or MongoDB stores schema-free JSON/BSON documents.

@@ -1,8 +1,10 @@
 ---
 slug: more-linq-support-for-npersist
-title: "More Linq support for NPersist"
-authors: [rogerjohansson]
-tags: ["linq", "npath"]
+title: More Linq support for NPersist
+authors:
+- rogerjohansson
+tags:
+- linq
 ---
 I’ve added a bit more Linq support for NPersist today.
 

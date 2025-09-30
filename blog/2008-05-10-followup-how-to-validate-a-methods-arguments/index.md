@@ -1,8 +1,12 @@
 ---
 slug: followup-how-to-validate-a-methods-arguments
-title: "Followup: How to validate a method’s arguments?"
-authors: [rogerjohansson]
-tags: ["arguments", "extension-methods", "fluent-interface", "validation"]
+title: "Followup: How to validate a method\u2019s arguments?"
+authors:
+- rogerjohansson
+tags:
+- arguments
+- extension-methods
+- validation
 ---
 A few days ago I and Fredrik Normén had a discussion about argument validation here: [http://weblogs.asp.net/fredriknormen/archive/2008/05/08/how-to-validate-a-method-s-arguments.aspx](http://weblogs.asp.net/fredriknormen/archive/2008/05/08/how-to-validate-a-method-s-arguments.aspx)
 

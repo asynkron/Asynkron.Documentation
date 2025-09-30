@@ -1,8 +1,10 @@
 ---
 slug: the-importance-of-domain-modelling
-title: "The importance of domain modelling"
-authors: [rogerjohansson]
-tags: ["identity", "life", "pdc"]
+title: The importance of domain modelling
+authors:
+- rogerjohansson
+tags:
+- identity
 ---
 I’m going to dedicate this post for my somewhat unpleasant experience with the US security controls when going to the PDC 🙂
 

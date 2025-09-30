@@ -1,8 +1,10 @@
 ---
 slug: query-objects-vs-dsl
-title: "Query Objects vs. DSL"
-authors: [rogerjohansson]
-tags: ["domain-specific-languages", "npath", "npersist", "query-objects"]
+title: Query Objects vs. DSL
+authors:
+- rogerjohansson
+tags:
+- domain-specific-languages
 ---
 <span> **THIS IS AN OLD POST FROM MY OLD BLOG**</span> (2006)
 

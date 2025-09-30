@@ -1,8 +1,9 @@
 ---
 slug: genetic-programming-math
-title: "Genetic programming / Math"
-authors: [rogerjohansson]
-tags: ["c", "darwin", "evolution", "genetic-algorithms", "genetic-programming"]
+title: Genetic programming / Math
+authors:
+- rogerjohansson
+tags: []
 ---
 For those of you who are interested in evolution / GP.  
 Here is a small app that I made to reverse engineer blackboxed formulas.

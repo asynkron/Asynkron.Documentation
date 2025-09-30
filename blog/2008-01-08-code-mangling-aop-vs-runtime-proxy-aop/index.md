@@ -1,8 +1,10 @@
 ---
 slug: code-mangling-aop-vs-runtime-proxy-aop
-title: "Code mangling AOP vs. Runtime Proxy AOP"
-authors: [rogerjohansson]
-tags: ["aspect-oriented-programming", "c", "naspect"]
+title: Code mangling AOP vs. Runtime Proxy AOP
+authors:
+- rogerjohansson
+tags:
+- aspect-oriented-programming
 ---
 <span> **THIS IS AN OLD POST FROM MY OLD BLOG (2006)**</span> 
 

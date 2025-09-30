@@ -1,8 +1,12 @@
 ---
 slug: caramel-alpha-source-code-is-public
-title: "Caramel – Alpha source code is public"
-authors: [rogerjohansson]
-tags: ["c", "caramel", "code-generation", "domain-specific-languages", "o-r-mapping", "orm"]
+title: "Caramel \u2013 Alpha source code is public"
+authors:
+- rogerjohansson
+tags:
+- code-generation
+- domain-specific-languages
+- orm
 ---
 I have added the Caramel code generator to my public repository at google code.  
 [http://code.google.com/p/alsing/](http://code.google.com/p/alsing/)

@@ -1,8 +1,10 @@
 ---
 slug: or-mapping-and-domain-query-optimizations
-title: "O/R Mapping and domain query optimizations"
-authors: [rogerjohansson]
-tags: ["ddd", "ef4"]
+title: O/R Mapping and domain query optimizations
+authors:
+- rogerjohansson
+tags:
+- ddd
 ---
 One of the cons of O/R mapping is that the abstraction is a bit too high.  
 You write object-oriented code and often forget about eventual performance problems.

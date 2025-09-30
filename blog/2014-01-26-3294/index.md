@@ -1,8 +1,10 @@
 ---
 slug: 3294
-title: "Configuration and Remote support for Pigeon – Akka Actors for .NET"
-authors: [rogerjohansson]
-tags: ["actor-model", "akka", "pigeon"]
+title: "Configuration and Remote support for Pigeon \u2013 Akka Actors for .NET"
+authors:
+- rogerjohansson
+tags:
+- actor-model
 ---
 I’ve been working quite a bit on my Akka port this weekend.  
 Finally got a a configuration system in place.  

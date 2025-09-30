@@ -1,8 +1,11 @@
 ---
 slug: nworkspace-linq-workspace-followup
-title: "NWorkspace / Linq Workspace Followup"
-authors: [rogerjohansson]
-tags: ["ddd", "linq", "nworkspace"]
+title: NWorkspace / Linq Workspace Followup
+authors:
+- rogerjohansson
+tags:
+- ddd
+- linq
 ---
 I’m still playing around with the outcome my [Linq Workspace Experiment](http://rogeralsing.com/2008/07/03/ddd-nworkspace-experiment/).
 

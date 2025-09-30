@@ -1,8 +1,11 @@
 ---
 slug: do-not-do-in-code-what-can-be-done-in-infrastructure
-title: "Do not do in code what can be done in infrastructure"
-authors: [rogerjohansson]
-tags: ["akka", "akka-net", "distributed-programming", "infrastructure", "microsoft-orleans"]
+title: Do not do in code what can be done in infrastructure
+authors:
+- rogerjohansson
+tags:
+- distributed-programming
+- infrastructure
 ---
 Or subtitle: *Maybe distributed programming is no longer a programming problem?* (For the obvious impaired: This is meant to be more thought provoking than an actual truth)
 
