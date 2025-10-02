@@ -396,3 +396,22 @@ pre code {
   --ifm-alert-foreground-color: #e6f7ff;
   --ifm-code-background: rgba(79, 208, 255, 0.26);
 }
+
+
+:root {
+  --asynkron-code-comment: #bca0ff;
+  --asynkron-code-datatype: #ff6fa8;
+  --asynkron-code-foreground: #f8f8f2;
+  --asynkron-code-function: #33e0c9;
+  --asynkron-code-keyword: #4fc3ff;
+  --asynkron-code-string: #ffc94d;
+  --asynkron-code-surface: #2a3843;
+  --asynkron-color-border: #323f49;
+  --asynkron-color-danger: #e0523d;
+  --asynkron-color-info: #8896b5;
+  --asynkron-color-primary: #00adf8;
+  --asynkron-color-quote: #e6f5ff;
+  --asynkron-color-success: #00c875;
+  --asynkron-color-surface: #2a3843;
+  --asynkron-color-warning: #ffc94d;
+}
