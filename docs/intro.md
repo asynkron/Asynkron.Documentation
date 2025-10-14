@@ -50,6 +50,19 @@ Asynkron is a team of distributed-systems veterans who have spent the last decad
   </tr>
 </table>
 
+## OpenAgent - JSON-native CLI agent
+
+<table>
+  <tr>
+    <td width="140" valign="top">
+      <img src="/img/fake-logo2.png" alt="OpenAgent placeholder logo" width="120" />
+    </td>
+    <td valign="top">
+      <p><a href="/docs/OpenAgent/">OpenAgent</a> pairs an OpenAI-powered assistant with a deterministic JSON protocol so every proposed command and observation is structured and auditable. Use the CLI to review plans as checklists, approve shell commands interactively, and run automation safely with configurable timeouts, output filters, and reusable templates.</p>
+    </td>
+  </tr>
+</table>
+
 ## TraceLens - OTEL UI and Collector
 
 <table>
