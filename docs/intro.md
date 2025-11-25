@@ -50,19 +50,6 @@ Asynkron is a team of distributed-systems veterans who have spent the last decad
   </tr>
 </table>
 
-## OpenAgent - JSON-native CLI agent
-
-<table>
-  <tr>
-    <td width="140" valign="top">
-      <img src="/img/fake-logo2.png" alt="OpenAgent placeholder logo" width="120" />
-    </td>
-    <td valign="top">
-      <p><a href="/docs/OpenAgent/">OpenAgent</a> pairs an OpenAI-powered assistant with a deterministic JSON protocol so every proposed command and observation is structured and auditable. Use the CLI to review plans as checklists, approve shell commands interactively, and run automation safely with configurable timeouts, output filters, and reusable templates.</p>
-    </td>
-  </tr>
-</table>
-
 ## TraceLens - OTEL UI and Collector
 
 <table>
@@ -76,15 +63,14 @@ Asynkron is a team of distributed-systems veterans who have spent the last decad
   </tr>
 </table>
 
-## OtelMcp - AI-aware telemetry platform
+## OcppNet - Next-generation OCPP stack
 
 <table>
   <tr>
     <td width="140" valign="top">
-      <img src="/img/fake-logo1.png" alt="OtelMcp placeholder logo" width="120" />
     </td>
     <td valign="top">
-      <p><a href="/docs/OtelMcp/">Asynkron.OtelMcp</a> fuses an OpenTelemetry collector, search engine, and MCP interface so AI systems can interpret signals in real time. Spin it up to let copilots query telemetry, trigger automations, and surface insights across your distributed services.</p>
+      <p><a href="/docs/OcppNet/">Asynkron.OcppNet</a> is our forthcoming OCPP platform. The product is still under active development, and we'll publish configuration guidance and integration samples as soon as preview builds are available.</p>
     </td>
   </tr>
 </table>
