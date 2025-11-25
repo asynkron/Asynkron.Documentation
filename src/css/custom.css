@@ -4,45 +4,71 @@
  * work well for content-centric websites.
  */
 
-/* You can override the default Infima variables here. */
+/*
+ * Theme tokens: keep brand colors together and define per-theme surface/text
+ * values so light/dark tweaks are easy to manage from one place.
+ */
 :root {
+  color-scheme: light;
+
+  /* Brand palette */
   --asynkron-color-primary: #00adf8;
-  --asynkron-color-danger: #c34423;
-  --asynkron-color-warning: #ffbf34;
-  --asynkron-color-info: #727f99;
-  --asynkron-color-success: #00cc66;
-  --asynkron-color-quote: #fff2cc;
-  --asynkron-color-surface: #323f49;
-  --asynkron-color-border: #323f49;
-  --asynkron-code-surface: #2a3843;
-  --asynkron-code-foreground: #f8f8f2;
+  --asynkron-color-danger: #e0523d;
+  --asynkron-color-warning: #ffc94d;
+  --asynkron-color-info: #8896b5;
+  --asynkron-color-success: #00c875;
+  --asynkron-color-quote: #e6f5ff;
+
+  /* Light surfaces & text */
+  --asynkron-surface-body: #f5f8fc;
+  --asynkron-surface-card: #ffffff;
+  --asynkron-surface-muted: #e7edf5;
+  --asynkron-color-border: #d7dee7;
+  --asynkron-text: #0f172a;
+  --asynkron-text-subtle: #3b4758;
+
+  /* Code palette (shared unless overridden) */
+  --asynkron-code-surface: #0f172a;
+  --asynkron-code-foreground: #e5edf5;
   --asynkron-code-keyword: #4fc3ff;
-  /* cyan-blue, ~200° */
-  --asynkron-code-string: #ffd166;
-  /* warm golden orange, ~40° */
-  --asynkron-code-comment: #c6a6ff;
-  /* violet-lavender, ~280° softer for secondary tone */
-  --asynkron-code-function: #57ff8c;
-  /* fresh green, ~120° */
+  --asynkron-code-string: #ffc94d;
+  --asynkron-code-comment: #bca0ff;
+  --asynkron-code-function: #33e0c9;
   --asynkron-code-datatype: #ff6fa8;
-  /* pink-magenta, ~330° */
-  --ifm-color-primary: #00adf8;
+
+  /* Infima overrides */
+  --ifm-color-primary: var(--asynkron-color-primary);
   --ifm-color-primary-dark: #009bdc;
   --ifm-color-primary-darker: #008cc7;
   --ifm-color-primary-darkest: #006a94;
   --ifm-color-primary-light: #1fc0ff;
   --ifm-color-primary-lighter: #4fd0ff;
   --ifm-color-primary-lightest: #7edcff;
-  --ifm-background-color: #212830;
-  --ifm-background-surface-color: #151b23;
-  --ifm-table-border-color: #2f3336;
-  --ifm-table-stripe-background: rgb(255 255 255 / 1%);
-  --ifm-code-font-size: 95%;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+  --ifm-background-color: var(--asynkron-surface-body);
+  --ifm-background-surface-color: var(--asynkron-surface-card);
+  --ifm-table-border-color: var(--asynkron-color-border);
+  --ifm-table-stripe-background: rgba(0, 0, 0, 0.02);
+  --ifm-font-color-base: var(--asynkron-text);
+  --ifm-heading-color: var(--asynkron-text);
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.05);
 }
 
-/* For readability concerns, you should choose a lighter palette in dark mode. */
 [data-theme='dark'] {
+  color-scheme: dark;
+
+  --asynkron-surface-body: #212830;
+  --asynkron-surface-card: #151b23;
+  --asynkron-surface-muted: #1c232d;
+  --asynkron-color-border: #323f49;
+  --asynkron-text: #e5edf5;
+  --asynkron-text-subtle: #b9c4d4;
+  --asynkron-color-info: #9aa6bd;
+
+  --asynkron-code-foreground: #f8f8f2;
+  --asynkron-code-comment: #bca0ff;
+  --asynkron-code-string: #ffd166;
+  --asynkron-code-surface: #2a3843;
+
   --ifm-color-primary: #4fd0ff;
   --ifm-color-primary-dark: #2fc4ff;
   --ifm-color-primary-darker: #1cb8ff;
@@ -50,11 +76,9 @@
   --ifm-color-primary-light: #7edcff;
   --ifm-color-primary-lighter: #a5e7ff;
   --ifm-color-primary-lightest: #d2f3ff;
-  --ifm-background-color: #212830;
-  --ifm-background-surface-color: #151b23;
+  --ifm-background-color: var(--asynkron-surface-body);
+  --ifm-background-surface-color: var(--asynkron-surface-card);
   --ifm-table-border-color: #33373b;
-  --asynkron-color-info: #9aa6bd;
-  --asynkron-code-comment: #bca0ff;
   --docusaurus-highlighted-code-line-bg: rgba(255, 255, 255, 0.08);
 }
 
@@ -96,8 +120,8 @@ div .mermaid {
   text-align: center;
 }
 
-.docusaurus-mermaid-container .node.default .outer-path>path:first-of-type,
-.docusaurus-mermaid-container .node.default .label-container>path:first-of-type,
+.docusaurus-mermaid-container .node.default .outer-path > path:first-of-type,
+.docusaurus-mermaid-container .node.default .label-container > path:first-of-type,
 .docusaurus-mermaid-container .node.default rect,
 .docusaurus-mermaid-container .node.default circle.label-container {
   fill: var(--asynkron-color-primary) !important;
@@ -116,8 +140,8 @@ div .mermaid {
   color: #ffffff !important;
 }
 
-.docusaurus-mermaid-container .node.default.message .outer-path>path:first-of-type,
-.docusaurus-mermaid-container .node.default.message .label-container>path:first-of-type,
+.docusaurus-mermaid-container .node.default.message .outer-path > path:first-of-type,
+.docusaurus-mermaid-container .node.default.message .label-container > path:first-of-type,
 .docusaurus-mermaid-container .node.default.message rect,
 .docusaurus-mermaid-container .node.default.message circle.label-container {
   fill: #ffffff !important;
@@ -128,8 +152,8 @@ div .mermaid {
   color: #000000 !important;
 }
 
-.docusaurus-mermaid-container .node.default.green .outer-path>path:first-of-type,
-.docusaurus-mermaid-container .node.default.green .label-container>path:first-of-type,
+.docusaurus-mermaid-container .node.default.green .outer-path > path:first-of-type,
+.docusaurus-mermaid-container .node.default.green .label-container > path:first-of-type,
 .docusaurus-mermaid-container .node.default.green rect,
 .docusaurus-mermaid-container .node.default.green circle.label-container {
   fill: var(--asynkron-color-success) !important;
@@ -140,15 +164,15 @@ div .mermaid {
   color: #ffffff !important;
 }
 
-.docusaurus-mermaid-container .node.default.blue .outer-path>path:first-of-type,
-.docusaurus-mermaid-container .node.default.blue .label-container>path:first-of-type,
+.docusaurus-mermaid-container .node.default.blue .outer-path > path:first-of-type,
+.docusaurus-mermaid-container .node.default.blue .label-container > path:first-of-type,
 .docusaurus-mermaid-container .node.default.blue rect,
 .docusaurus-mermaid-container .node.default.blue circle.label-container {
   fill: var(--ifm-color-primary-darkest) !important;
 }
 
-.docusaurus-mermaid-container .node.default.yellow .outer-path>path:first-of-type,
-.docusaurus-mermaid-container .node.default.yellow .label-container>path:first-of-type,
+.docusaurus-mermaid-container .node.default.yellow .outer-path > path:first-of-type,
+.docusaurus-mermaid-container .node.default.yellow .label-container > path:first-of-type,
 .docusaurus-mermaid-container .node.default.yellow rect,
 .docusaurus-mermaid-container .node.default.yellow circle.label-container {
   fill: var(--asynkron-color-warning) !important;
@@ -165,7 +189,7 @@ div .mermaid svg {
   height: 100% !important;
 }
 
-:not(pre)>code {
+:not(pre) > code {
   padding: 2px 6px;
   background-color: var(--asynkron-code-surface);
   color: var(--asynkron-code-foreground);
@@ -180,203 +204,133 @@ pre code {
   border-radius: 0 !important;
 }
 
+.theme-admonition {
+  --admonition-text-color: var(--asynkron-text);
+  --admonition-link-color: var(--asynkron-color-primary);
+
+  border-left-width: 4px;
+  border-radius: 0;
+  color: var(--admonition-text-color);
+}
+
+.theme-admonition .admonition-heading,
+.theme-admonition .admonition-icon svg {
+  color: currentColor;
+  fill: currentColor;
+}
+
+.theme-admonition a,
+.theme-admonition .admonition-content a {
+  color: var(--admonition-link-color) !important;
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+[data-theme='dark'] .theme-admonition {
+  --admonition-text-color: #ffffff;
+  --admonition-link-color: #ffffff;
+}
+
 .theme-admonition.theme-admonition-tip {
-  background: linear-gradient(135deg, rgba(0, 204, 102, 0.4), rgba(0, 173, 248, 0.3));
+  background: linear-gradient(
+    135deg,
+    rgba(0, 200, 117, 0.16),
+    rgba(0, 173, 248, 0.14)
+  );
   border: 1px solid var(--asynkron-color-success);
-  border-left-width: 4px;
-  border-radius: 0;
-  color: #ffffff;
-}
-
-.theme-admonition.theme-admonition-tip .admonition-heading,
-.theme-admonition.theme-admonition-tip .admonition-icon svg {
-  color: #ffffff;
-  fill: currentColor;
-}
-
-.theme-admonition.theme-admonition-tip a,
-.theme-admonition.theme-admonition-tip .admonition-content a {
-  color: #ffffff !important;
-  font-weight: 600;
-  text-decoration: underline;
-}
-
-.theme-admonition.theme-admonition-info {
-  background: linear-gradient(135deg, rgba(0, 173, 248, 0.18), rgba(79, 208, 255, 0.24));
-  border: 1px solid var(--asynkron-color-primary);
-  border-left-width: 4px;
-  border-radius: 0;
-  color: #ffffff;
-}
-
-.theme-admonition.theme-admonition-info .admonition-heading,
-.theme-admonition.theme-admonition-info .admonition-icon svg {
-  color: #ffffff;
-  fill: currentColor;
-}
-
-.theme-admonition.theme-admonition-info a {
-  color: #ffffff !important;
-  font-weight: 600;
-  text-decoration: underline;
-}
-
-[data-theme='dark'] .theme-admonition.theme-admonition-info {
-  background: linear-gradient(135deg, rgba(79, 208, 255, 0.3), rgba(0, 173, 248, 0.26));
-  color: #ffffff;
-}
-
-[data-theme='dark'] .theme-admonition.theme-admonition-info .admonition-heading,
-[data-theme='dark'] .theme-admonition.theme-admonition-info .admonition-icon svg,
-[data-theme='dark'] .theme-admonition.theme-admonition-info a {
-  color: #ffffff !important;
-  fill: currentColor;
 }
 
 [data-theme='dark'] .theme-admonition.theme-admonition-tip {
-  background: linear-gradient(135deg, rgba(0, 204, 102, 0.5), rgba(0, 173, 248, 0.35));
-  color: #ffffff;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 204, 102, 0.5),
+    rgba(0, 173, 248, 0.35)
+  );
 }
 
-[data-theme='dark'] .theme-admonition.theme-admonition-tip .admonition-heading,
-[data-theme='dark'] .theme-admonition.theme-admonition-tip .admonition-icon svg {
-  color: #ffffff;
-  fill: currentColor;
+.theme-admonition.theme-admonition-info {
+  background: linear-gradient(
+    135deg,
+    rgba(136, 150, 181, 0.2),
+    rgba(0, 173, 248, 0.12)
+  );
+  border: 1px solid var(--asynkron-color-primary);
 }
 
-[data-theme='dark'] .theme-admonition.theme-admonition-tip a,
-[data-theme='dark'] .theme-admonition.theme-admonition-tip .admonition-content a {
-  color: #ffffff !important;
-  font-weight: 600;
-  text-decoration: underline;
+[data-theme='dark'] .theme-admonition.theme-admonition-info {
+  background: linear-gradient(
+    135deg,
+    rgba(79, 208, 255, 0.3),
+    rgba(0, 173, 248, 0.26)
+  );
 }
 
 .theme-admonition.theme-admonition-note {
-  background: linear-gradient(135deg, rgba(114, 127, 153, 0.22), rgba(0, 173, 248, 0.18));
+  background: linear-gradient(
+    135deg,
+    rgba(136, 150, 181, 0.2),
+    rgba(0, 173, 248, 0.16)
+  );
   border: 1px solid var(--asynkron-color-info);
-  border-left-width: 4px;
-  border-radius: 0;
-  color: #ffffff;
-}
-
-.theme-admonition.theme-admonition-note .admonition-heading,
-.theme-admonition.theme-admonition-note .admonition-icon svg {
-  color: #ffffff;
-  fill: currentColor;
-}
-
-.theme-admonition.theme-admonition-note a {
-  color: #ffffff !important;
-  font-weight: 600;
-  text-decoration: underline;
 }
 
 [data-theme='dark'] .theme-admonition.theme-admonition-note {
-  background: linear-gradient(135deg, rgba(114, 127, 153, 0.32), rgba(0, 173, 248, 0.24));
-  color: #ffffff;
-}
-
-[data-theme='dark'] .theme-admonition.theme-admonition-note .admonition-heading,
-[data-theme='dark'] .theme-admonition.theme-admonition-note .admonition-icon svg,
-[data-theme='dark'] .theme-admonition.theme-admonition-note a {
-  color: #ffffff !important;
-  fill: currentColor;
+  background: linear-gradient(
+    135deg,
+    rgba(114, 127, 153, 0.32),
+    rgba(0, 173, 248, 0.24)
+  );
 }
 
 .theme-admonition.theme-admonition-caution {
-  background: linear-gradient(135deg, rgba(255, 191, 52, 0.3), rgba(255, 232, 128, 0.2));
+  background: linear-gradient(
+    135deg,
+    rgba(255, 191, 52, 0.22),
+    rgba(255, 232, 128, 0.16)
+  );
   border: 1px solid var(--asynkron-color-warning);
-  border-left-width: 4px;
-  border-radius: 0;
-  color: #ffffff;
-}
-
-.theme-admonition.theme-admonition-caution .admonition-heading,
-.theme-admonition.theme-admonition-caution .admonition-icon svg {
-  color: #ffffff;
-  fill: currentColor;
-}
-
-.theme-admonition.theme-admonition-caution a {
-  color: #ffffff !important;
-  font-weight: 600;
-  text-decoration: underline;
 }
 
 [data-theme='dark'] .theme-admonition.theme-admonition-caution {
-  background: linear-gradient(135deg, rgba(255, 191, 52, 0.42), rgba(255, 232, 128, 0.28));
-  color: #ffffff;
-}
-
-[data-theme='dark'] .theme-admonition.theme-admonition-caution .admonition-heading,
-[data-theme='dark'] .theme-admonition.theme-admonition-caution .admonition-icon svg,
-[data-theme='dark'] .theme-admonition.theme-admonition-caution a {
-  color: #ffffff !important;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 191, 52, 0.42),
+    rgba(255, 232, 128, 0.28)
+  );
 }
 
 .theme-admonition.theme-admonition-danger {
-  background: linear-gradient(135deg, rgba(195, 68, 35, 0.32), rgba(255, 99, 71, 0.24));
+  background: linear-gradient(
+    135deg,
+    rgba(224, 82, 61, 0.24),
+    rgba(255, 99, 71, 0.18)
+  );
   border: 1px solid var(--asynkron-color-danger);
-  border-left-width: 4px;
-  border-radius: 0;
-  color: #ffffff;
-}
-
-.theme-admonition.theme-admonition-danger .admonition-heading,
-.theme-admonition.theme-admonition-danger .admonition-icon svg {
-  color: #ffffff;
-  fill: currentColor;
-}
-
-.theme-admonition.theme-admonition-danger a {
-  color: #ffffff !important;
-  font-weight: 600;
-  text-decoration: underline;
 }
 
 [data-theme='dark'] .theme-admonition.theme-admonition-danger {
-  background: linear-gradient(135deg, rgba(195, 68, 35, 0.42), rgba(255, 99, 71, 0.3));
-  color: #ffffff;
-}
-
-[data-theme='dark'] .theme-admonition.theme-admonition-danger .admonition-heading,
-[data-theme='dark'] .theme-admonition.theme-admonition-danger .admonition-icon svg,
-[data-theme='dark'] .theme-admonition.theme-admonition-danger a {
-  color: #ffffff !important;
-  fill: currentColor;
+  background: linear-gradient(
+    135deg,
+    rgba(195, 68, 35, 0.42),
+    rgba(255, 99, 71, 0.3)
+  );
 }
 
 .theme-admonition.theme-admonition-warning {
-  background-color: rgba(255, 191, 52, 0.16);
+  background: rgba(255, 191, 52, 0.16);
   border: 1px solid var(--asynkron-color-warning);
-  border-left-width: 4px;
-  border-radius: 0;
-  color: #ffffff;
-}
-
-.theme-admonition.theme-admonition-warning .admonition-heading,
-.theme-admonition.theme-admonition-warning .admonition-icon svg {
-  color: #ffffff;
-  fill: currentColor;
 }
 
 [data-theme='dark'] .theme-admonition.theme-admonition-warning {
-  background-color: rgba(255, 191, 52, 0.24);
-  color: #ffffff;
-}
-
-[data-theme='dark'] .theme-admonition.theme-admonition-warning .admonition-heading,
-[data-theme='dark'] .theme-admonition.theme-admonition-warning .admonition-icon svg {
-  color: #ffffff;
-  fill: currentColor;
+  background: rgba(255, 191, 52, 0.24);
 }
 
 .alert {
-  --ifm-alert-background-color: rgba(0, 173, 248, 0.12);
-  --ifm-alert-background-color-highlight: rgba(0, 173, 248, 0.18);
+  --ifm-alert-background-color: rgba(0, 173, 248, 0.08);
+  --ifm-alert-background-color-highlight: rgba(0, 173, 248, 0.14);
   --ifm-alert-border-color: var(--asynkron-color-primary);
-  --ifm-alert-foreground-color: #063b52;
-  --ifm-code-background: rgba(0, 173, 248, 0.18);
+  --ifm-alert-foreground-color: var(--asynkron-text);
+  --ifm-code-background: rgba(0, 173, 248, 0.12);
   --ifm-link-color: var(--asynkron-color-primary);
   --ifm-link-hover-color: var(--asynkron-color-primary);
   --ifm-link-decoration: underline;
@@ -395,24 +349,4 @@ pre code {
   --ifm-alert-background-color-highlight: rgba(79, 208, 255, 0.26);
   --ifm-alert-foreground-color: #e6f7ff;
   --ifm-code-background: rgba(79, 208, 255, 0.26);
-}
-
-
-
-:root {
-  --asynkron-code-comment: #bca0ff;
-  --asynkron-code-datatype: #ff6fa8;
-  --asynkron-code-foreground: #f8f8f2;
-  --asynkron-code-function: #33e0c9;
-  --asynkron-code-keyword: #4fc3ff;
-  --asynkron-code-string: #ffc94d;
-  --asynkron-code-surface: #2a3843;
-  --asynkron-color-border: #323f49;
-  --asynkron-color-danger: #e0523d;
-  --asynkron-color-info: #8896b5;
-  --asynkron-color-primary: #00adf8;
-  --asynkron-color-quote: #e6f5ff;
-  --asynkron-color-success: #00c875;
-  --asynkron-color-surface: #2a3843;
-  --asynkron-color-warning: #ffc94d;
 }
