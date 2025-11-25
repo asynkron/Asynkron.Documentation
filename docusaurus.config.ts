@@ -1,6 +1,5 @@
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
-import { themes as prismThemes } from 'prism-react-renderer';
 import type { Config } from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 import protoPrismTheme from './prismProtoTheme';
@@ -214,7 +213,8 @@ const config: Config = {
       copyright: `Copyright © ${new Date().getFullYear()} Asynkron. Built with Docusaurus.`,
     },
     prism: {
-      theme: prismThemes.github,
+      // Keep syntax highlighting consistent between light and dark modes
+      theme: protoPrismTheme,
       darkTheme: protoPrismTheme,
       additionalLanguages: ['csharp', 'bash', 'shell-session', 'markup-templating', 'handlebars', 'protobuf'],
     },
