@@ -247,6 +247,3 @@ I will post a more “correct” implementation in my next post
 
 That’s all for now
 
-:::warning Pre-release feature
-OtelMcp is still evolving. Follow the roadmap issue to see what’s coming next.
-:::

@@ -50,19 +50,6 @@ Asynkron is a team of distributed-systems veterans who have spent the last decad
   </tr>
 </table>
 
-## OpenAgent - JSON-native CLI agent
-
-<table>
-  <tr>
-    <td width="140" valign="top">
-      <img src="/img/fake-logo2.png" alt="OpenAgent placeholder logo" width="120" />
-    </td>
-    <td valign="top">
-      <p><a href="/docs/OpenAgent/">OpenAgent</a> pairs an OpenAI-powered assistant with a deterministic JSON protocol so every proposed command and observation is structured and auditable. Use the CLI to review plans as checklists, approve shell commands interactively, and run automation safely with configurable timeouts, output filters, and reusable templates.</p>
-    </td>
-  </tr>
-</table>
-
 ## TraceLens - OTEL UI and Collector
 
 <table>
@@ -76,19 +63,6 @@ Asynkron is a team of distributed-systems veterans who have spent the last decad
   </tr>
 </table>
 
-## OtelMcp - AI-aware telemetry platform
-
-<table>
-  <tr>
-    <td width="140" valign="top">
-      <img src="/img/fake-logo1.png" alt="OtelMcp placeholder logo" width="120" />
-    </td>
-    <td valign="top">
-      <p><a href="/docs/OtelMcp/">Asynkron.OtelMcp</a> fuses an OpenTelemetry collector, search engine, and MCP interface so AI systems can interpret signals in real time. Spin it up to let copilots query telemetry, trigger automations, and surface insights across your distributed services.</p>
-    </td>
-  </tr>
-</table>
-
 ## OcppServer - Massive scale EV charging
 
 <table>
@@ -97,7 +71,7 @@ Asynkron is a team of distributed-systems veterans who have spent the last decad
       <img src="/img/ocpp-server.png" alt="OcppServer logo" width="120" />
     </td>
     <td valign="top">
-      <p><a href="/docs/OcppServer/">Asynkron.OcppServer</a> delivers an OCPP 1.6 Central System tuned for fleets with hundreds of thousands of concurrent chargers. Learn how to onboard devices, keep firmware current, and integrate billing and energy-market workflows.</p>
+      <p><a href="/docs/OcppServer/">Asynkron.OcppServer</a> is currently under active development as our next-generation OCPP platform. Check back soon for setup guidance, integration examples, and operational playbooks once preview builds are ready.</p>
     </td>
   </tr>
 </table>
