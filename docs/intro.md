@@ -63,18 +63,6 @@ Asynkron is a team of distributed-systems veterans who have spent the last decad
   </tr>
 </table>
 
-## OcppNet - Next-generation OCPP stack
-
-<table>
-  <tr>
-    <td width="140" valign="top">
-    </td>
-    <td valign="top">
-      <p><a href="/docs/OcppNet/">Asynkron.OcppNet</a> is our forthcoming OCPP platform. The product is still under active development, and we'll publish configuration guidance and integration samples as soon as preview builds are available.</p>
-    </td>
-  </tr>
-</table>
-
 ## OcppServer - Massive scale EV charging
 
 <table>
@@ -83,7 +71,7 @@ Asynkron is a team of distributed-systems veterans who have spent the last decad
       <img src="/img/ocpp-server.png" alt="OcppServer logo" width="120" />
     </td>
     <td valign="top">
-      <p><a href="/docs/OcppServer/">Asynkron.OcppServer</a> delivers an OCPP 1.6 Central System tuned for fleets with hundreds of thousands of concurrent chargers. Learn how to onboard devices, keep firmware current, and integrate billing and energy-market workflows.</p>
+      <p><a href="/docs/OcppServer/">Asynkron.OcppServer</a> is currently under active development as our next-generation OCPP platform. Check back soon for setup guidance, integration examples, and operational playbooks once preview builds are ready.</p>
     </td>
   </tr>
 </table>
