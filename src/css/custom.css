@@ -75,7 +75,7 @@
   --asynkron-text-subtle: #b9c4d4;
   --asynkron-color-info: #9aa6bd;
 
-  /* Keep code + diagram theming consistent between modes */
+/* Keep code + diagram theming consistent between modes */
   --asynkron-code-surface: #2a3843;
   --asynkron-code-foreground: #e5edf5;
   --asynkron-code-keyword: #4fc3ff;
@@ -193,6 +193,11 @@ div .mermaid {
 .docusaurus-mermaid-container .node.default.message rect,
 .docusaurus-mermaid-container .node.default.message circle.label-container {
   fill: #ffffff !important;
+}
+
+/* Keep the main docs content area white in light mode without affecting the sidebar */
+html[data-theme='light'] main[class*='docMainContainer'] {
+  background-color: #ffffff;
 }
 
 .docusaurus-mermaid-container .node.default.message .nodeLabel,
