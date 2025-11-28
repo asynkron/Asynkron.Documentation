@@ -61,6 +61,7 @@
   --ifm-table-stripe-background: rgba(0, 0, 0, 0.02);
   --ifm-font-color-base: var(--asynkron-text);
   --ifm-heading-color: var(--asynkron-text);
+  --ifm-spacing-horizontal: 2rem;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.05);
 }
 
