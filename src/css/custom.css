@@ -46,6 +46,7 @@
   --ifm-navbar-link-color: var(--asynkron-navbar-text);
   --ifm-navbar-link-hover-color: var(--asynkron-navbar-text-strong);
   --ifm-navbar-link-active-color: var(--asynkron-navbar-text-strong);
+  --ifm-navbar-height: 5rem;
 
   /* Infima overrides */
   --ifm-color-primary: var(--asynkron-color-primary);
