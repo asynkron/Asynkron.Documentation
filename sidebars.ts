@@ -23,10 +23,12 @@ const sidebars: SidebarsConfig = {
         {
           type: 'category',
           label: 'Actors',
+          link: {type: 'doc', id: 'ProtoActor/getting-started'},
           items: [
             {
               type: 'category',
               label: 'Overview',
+              link: {type: 'doc', id: 'ProtoActor/what-is-protoactor'},
               items: [
                 'ProtoActor/what-is-protoactor',
                 'ProtoActor/why-protoactor',
@@ -109,6 +111,7 @@ const sidebars: SidebarsConfig = {
         {
           type: 'category',
           label: 'Remote',
+          link: {type: 'doc', id: 'ProtoActor/remote'},
           items: [
             'ProtoActor/remote',
             'ProtoActor/remote-spawn',
@@ -123,6 +126,7 @@ const sidebars: SidebarsConfig = {
         {
           type: 'category',
           label: 'Cluster',
+          link: {type: 'doc', id: 'ProtoActor/cluster'},
           items: [
             'ProtoActor/cluster',
             'ProtoActor/clusterintro/index',
@@ -150,6 +154,7 @@ const sidebars: SidebarsConfig = {
         {
           type: 'category',
           label: 'Persistence',
+          link: {type: 'doc', id: 'ProtoActor/persistence'},
           items: [
             'ProtoActor/persistence',
             'ProtoActor/persistence-proto-persistence',
