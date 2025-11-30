@@ -7,7 +7,11 @@ tags: [protoactor, docs]
 
 # Proto.Cluster
 
+<div className="invert-wrapper">
+
 ![proto.cluster](images/Cluster-2-blue.png)
+
+</div>
 
 <small>[Homage to Proto.Actors Swedish roots, Swedish midsummer ring dance - Connected Cluster Actors]</small>
 

@@ -8,7 +8,11 @@ title: Props
 The Props are used to configure and construct the Actor and its Context.
 A form of blueprint on how to assemble an actor.
 
+<div className="invert-wrapper">
+
 ![props header](images/Props-all-blue.png)
+
+</div>
 
 ## Creating Props
 

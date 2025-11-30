@@ -5,7 +5,11 @@ title: Spawning Actors
 
 # Spawning Actors
 
+<div className="invert-wrapper">
+
 ![spawning](images/Spawning-blue.png)
+
+</div>
 
 Spawning an actor consists of two steps:
 
