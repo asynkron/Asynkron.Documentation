@@ -5,7 +5,11 @@ title: Actor Lifecycle
 
 # Actor Lifecycle
 
+<div className="invert-wrapper">
+
 ![actor lifecycle](images/LifeCycle-blue.png)
+
+</div>
 
 <!-- Todo: Document which system messages can be handled by an actor. Started/Stopping/Restarting... -->
 

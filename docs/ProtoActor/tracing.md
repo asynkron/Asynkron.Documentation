@@ -4,7 +4,11 @@ title: Distributed Tracing
 
 # Distributed tracing with Proto.Actor
 
+<div className="invert-wrapper">
+
 ![tracing](images/Tracing-blue.png)
+
+</div>
 
 ## Introduction
 

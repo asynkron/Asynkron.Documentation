@@ -7,7 +7,11 @@ tags: [protoactor, docs]
 
 # Scheduling Messages
 
+<div className="invert-wrapper">
+
 ![scheduling](images/Scheduling-blue.png)
+
+</div>
 
 In C#, we provide the `SimpleScheduler` implementation of the `ISimpleScheduler`interface.
 This allows you to do operations such as `ScheduleTellOnce`, `ScheduleRequestOnce` and `ScheduleTellRepeatedly`

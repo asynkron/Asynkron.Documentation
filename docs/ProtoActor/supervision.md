@@ -9,7 +9,11 @@ tags: [protoactor, docs]
 
 This document outlines the concept behind supervision and what that means for your Proto.Actor actors at run-time.
 
+<div className="invert-wrapper">
+
 ![supervision](images/Supervision-all-blue.png)
+
+</div>
 
 ## Example Source Code
 

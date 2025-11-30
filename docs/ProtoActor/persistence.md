@@ -4,7 +4,11 @@ title: Persistence of actor's state
 
 # Persistence of actor's state
 
+<div className="invert-wrapper">
+
 ![Persistence Blue](images/Persistence-blue.png)
+
+</div>
 
 In some scenarios, it is necessary to persist an actor's state and restore it when the actor starts.
 

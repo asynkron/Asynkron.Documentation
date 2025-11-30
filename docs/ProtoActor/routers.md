@@ -6,7 +6,11 @@ title: Routers
 
 A _router_ is a special type of actor whose job is to route messages to other actors called _routees_. Different routers use different _strategies_ to route messages efficiently.
 
+<div className="invert-wrapper">
+
 ![routers](images/Router-blue.png)
+
+</div>
 
 Routers can be used inside or outside an actor, and you can manage the routees yourself or use a self-contained router actor with configuration capabilities.
 
