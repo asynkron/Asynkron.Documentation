@@ -58,7 +58,9 @@
   --ifm-color-primary-lightest: #7edcff;
   --ifm-background-color: var(--asynkron-surface-body);
   --ifm-background-surface-color: var(--asynkron-surface-card);
-  --ifm-table-border-color: var(--asynkron-color-border);
+  /* Remove borders on tables and TOC in light mode */
+  --ifm-table-border-color: transparent;
+  --ifm-toc-border-color: transparent;
   --ifm-table-stripe-background: rgba(0, 0, 0, 0.02);
   --ifm-font-color-base: var(--asynkron-text);
   --ifm-heading-color: var(--asynkron-text);
@@ -100,7 +102,9 @@
   --ifm-color-primary-lightest: #d2f3ff;
   --ifm-background-color: var(--asynkron-surface-body);
   --ifm-background-surface-color: var(--asynkron-surface-card);
-  --ifm-table-border-color: #33373b;
+  /* Remove borders on tables and TOC in dark mode */
+  --ifm-table-border-color: transparent;
+  --ifm-toc-border-color: transparent;
   --docusaurus-highlighted-code-line-bg: rgba(255, 255, 255, 0.08);
 }
 
