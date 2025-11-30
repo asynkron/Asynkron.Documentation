@@ -52,7 +52,50 @@ In this case the actor will first be sent a `Restarting` message notifying it th
 
 ## Flow diagram
 
-![flow diagram](images/actorlifecycle.png)
+```mermaid
+flowchart TD
+
+    %% Legend not included since it's visual only
+
+    %% Nodes
+    start([ ])
+    incarnateActor1([Incarnate Actor])
+    started([Started])
+    receiveMsg([Receive])
+    decisionReceive{{Receive}}
+    escalateFailure([Escalate Failure])
+    suspendMailbox([Suspend Mailbox])
+    invokeSupervisor([Invoke Supervisor])
+    handleFailure{{Handle Failure}}
+    stopAction([Stop])
+    stopping([Stopping])
+    stopped([Stopped])
+    endCircle([ ])
+
+    notifyWatchers([Notify Watchers])
+    restarting([Restarting])
+    incarnateActor2([Incarnate Actor])
+    resumeMailbox1([Resume Mailbox])
+    resumeMailbox2([Resume Mailbox])
+
+    %% Flow
+    start --> incarnateActor1 --> started --> receiveMsg --> decisionReceive
+
+    decisionReceive -->|OK| receiveMsg
+    decisionReceive -->|Error| escalateFailure --> suspendMailbox --> invokeSupervisor --> handleFailure
+
+    handleFailure -->|Resume| resumeMailbox1 --> receiveMsg
+    handleFailure -->|Restart| restarting --> incarnateActor2 --> resumeMailbox2 --> receiveMsg
+    handleFailure -->|Stop| stopAction
+
+    stopAction --> stopping --> stopped --> endCircle
+
+    stopAction -.->|Terminated| notifyWatchers
+
+    %% Stop path from initial receive
+    decisionReceive -->|Stop| stopAction
+
+```
 
 ## Example
 
