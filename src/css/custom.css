@@ -411,7 +411,9 @@ pre code {
 }
 
 /* Dark-mode only inversion for blue-styled illustrations */
-[data-theme='dark'] .theme-doc-markdown img.invert {
+[data-theme='dark'] .theme-doc-markdown .invert-wrapper img,
+[data-theme='dark'] .theme-doc-markdown img.invert,
+[data-theme='dark'] .theme-doc-markdown img[src*='blue'] {
   filter: grayscale(1) invert(1);
   mix-blend-mode: screen;
 }
