@@ -30,7 +30,6 @@ const sidebars: SidebarsConfig = {
               label: 'Overview',
               link: {type: 'doc', id: 'ProtoActor/what-is-protoactor'},
               items: [
-                'ProtoActor/what-is-protoactor',
                 'ProtoActor/why-protoactor',
                 'ProtoActor/features',
                 'ProtoActor/design-principles',
@@ -38,7 +37,6 @@ const sidebars: SidebarsConfig = {
                 'ProtoActor/protoactor-vs-erlang-akka',
                 'ProtoActor/actors-vs-queues',
                 'ProtoActor/terminology',
-                'ProtoActor/getting-started',
                 'ProtoActor/hello-world',
                 'ProtoActor/training',
                 'ProtoActor/books',
@@ -113,7 +111,6 @@ const sidebars: SidebarsConfig = {
           label: 'Remote',
           link: {type: 'doc', id: 'ProtoActor/remote'},
           items: [
-            'ProtoActor/remote',
             'ProtoActor/remote-spawn',
             'ProtoActor/location-transparency',
             'ProtoActor/service-discovery',
@@ -128,7 +125,6 @@ const sidebars: SidebarsConfig = {
           label: 'Cluster',
           link: {type: 'doc', id: 'ProtoActor/cluster'},
           items: [
-            'ProtoActor/cluster',
             'ProtoActor/clusterintro/index',
             'ProtoActor/cluster-partitions',
             'ProtoActor/sharding-and-partitioning',
@@ -156,7 +152,6 @@ const sidebars: SidebarsConfig = {
           label: 'Persistence',
           link: {type: 'doc', id: 'ProtoActor/persistence'},
           items: [
-            'ProtoActor/persistence',
             'ProtoActor/persistence-proto-persistence',
             'ProtoActor/coordinated-persistence',
             'ProtoActor/durability',
