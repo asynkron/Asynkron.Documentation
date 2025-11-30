@@ -16,15 +16,20 @@ Actors can change their behavior at any time. This is achieved through the Behav
 We're going to use the example of modelling a light bulb to demonstrate this:
 
 ```mermaid
-stateDiagram-v2
-    [*] --> Off
-    Off --> On: PressSwitch
-    On --> Off: PressSwitch
-    Off --> Off: Touch / "Cold"
-    On --> On: Touch / "Hot!"
-    Off --> Smashed: HitWithHammer
-    On --> Smashed: HitWithHammer
-    Smashed --> Off: ReplaceBulb
+flowchart TB
+    start([Start]) --> Off
+
+    Off -->|PressSwitch| On
+    On -->|PressSwitch| Off
+
+    Off -->|"Touch / Cold"| Off
+    On -->|"Touch / Hot!"| On
+
+    Off -->|HitWithHammer| Smashed
+    On -->|HitWithHammer| Smashed
+
+    Smashed -->|ReplaceBulb| Off
+
 ```
 
 The state diagram mirrors the sample code so readers can match the textual handlers with concrete transitions.
