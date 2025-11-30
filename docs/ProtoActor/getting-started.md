@@ -7,7 +7,7 @@ title: Getting started
 
 Proto.Actor is a cross-platform actor framework that helps you build concurrent and distributed systems. In this guide you will build a minimal greeter in both .NET and Go to learn the basic building blocks: messages, actors, and the actor system.
 
-![getting started](images/Getting-Started-3-blue.png)
+<img className="invert" alt="getting started" src="images/Getting-Started-3-blue.png" />
 
 ## Set up your project
 

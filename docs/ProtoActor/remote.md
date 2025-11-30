@@ -10,7 +10,7 @@ In this article, we will explore what Proto.Remote is and how it helps us to cre
 
 Proto.Remote abstracts many of the issues, such as serialization and communication over the network away from us, and lets us concentrate on the important thing, which is our application and our problem domain.
 
-![remote title](images/Remote-2-blue.png)
+<img className="invert" alt="remote title" src="images/Remote-2-blue.png" />
 
 ## Location Transparency
 
