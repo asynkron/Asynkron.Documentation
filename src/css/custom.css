@@ -38,7 +38,7 @@
 
   /* Keep the navbar dark regardless of color mode */
   --asynkron-navbar-bg: #151b23;
-  --asynkron-navbar-border: #323f49;
+  --asynkron-navbar-border: transparent;
   --asynkron-navbar-text: #e5edf5;
   --asynkron-navbar-text-strong: #ffffff;
 
@@ -47,6 +47,9 @@
   --ifm-navbar-link-hover-color: var(--asynkron-navbar-text-strong);
   --ifm-navbar-link-active-color: var(--asynkron-navbar-text-strong);
   --ifm-navbar-height: 5rem;
+
+  /* Keep footer background aligned with the navbar */
+  --ifm-footer-background-color: var(--asynkron-navbar-bg);
 
   /* Infima overrides */
   --ifm-color-primary: var(--asynkron-color-primary);
@@ -92,6 +95,9 @@
   --ifm-navbar-link-color: var(--asynkron-navbar-text);
   --ifm-navbar-link-hover-color: var(--asynkron-navbar-text-strong);
   --ifm-navbar-link-active-color: var(--asynkron-navbar-text-strong);
+
+  /* Keep footer background aligned with the navbar */
+  --ifm-footer-background-color: var(--asynkron-navbar-bg);
 
   --ifm-color-primary: #4fd0ff;
   --ifm-color-primary-dark: #2fc4ff;
