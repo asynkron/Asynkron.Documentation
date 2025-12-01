@@ -2,76 +2,140 @@
 title: Cluster Partitions
 ---
 
+# Cluster Partitions
+
 ## Consul Cluster
 
-This means that Consul manages the cluster formation:
+Consul provides service discovery and health checking for the cluster.  
+It monitors membership, handles node join and leave events, and maintains a consistent view of the cluster topology.
+
+In this setup, Consul acts as the foundation on which the logical Proto.Cluster is built:
 
 ![Consul Cluster](images/consulcluster.png)
 
+Key points:
+
+* Consul maintains the authoritative list of live nodes.  
+* Membership changes propagate quickly to Proto.Cluster.  
+* Failure detection is delegated to Consul, simplifying the actor system layer.
+
 ## Proto Cluster
 
-On top of this, we attach the Proto.Actor members:
+Proto.Actor builds a distributed virtual actor environment on top of the Consul controlled membership:
 
 ![Proto Cluster](images/protocluster.png)
 
-## Name to Member affinity
+Each Proto.Cluster member registers itself using its host, port and unique id.  
+These values feed into a hashing algorithm that determines how identities are distributed across the cluster.
 
-Each member gets a hash-code, this hash-code is based on host + port + unique id of the member.
+Good to know:
 
-This means that we now have what is called a "hash ring".
-A hash ring can be to locate what member in a cluster should own certain resources.
+* Proto.Cluster is transport agnostic, so the consistent hashing works regardless of underlying networking.  
+* Cluster members do not need to know about each other's actors, only about cluster membership itself.  
+* Actor activations are lazy, they happen only when a name is first invoked.
 
-In this specific case, we want to talk to the actor named "Roger", which gives the hash-code 989123 (an example only)
+## Name to Member Affinity
+
+Each member receives a hash produced from host, port and a unique identifier.  
+These hashes form a **consistent hash ring**, described here:  
+https://en.wikipedia.org/wiki/Consistent_hashing
+
+Consistent hashing ensures that only a small portion of keys (actor names in this case) move when topology changes.
+
+When invoking an actor named "Roger", the name hash might be 989123:
 
 ![Name Hash](images/namehash.png)
 
-By matching the hash-code against the hash ring, we can see that the member closest to the given actor name is the member "E".
+We locate this hash on the ring and pick the member immediately clockwise, which in this example is E:
 
 ![Name Owner](images/nameowner.png)
 
+Why this matters:
+
+* Name ownership is stable when topology is stable.  
+* Only a minimal set of names migrate when a node joins or leaves.  
+* Actors are addressed through their names, not by direct node references.
+
 ## Actor Activations
 
-What is important to understand here is that the member "E" in this case, do not own the **actor**, just the **name** "Roger".
+Owning a name is not the same as hosting the actor.  
+The name owner is responsible for routing and lookup, while the actor instance is activated via the placement strategy.
 
-The Actor itself is then spawned or "activated" somewhere in the cluster.
-This might seem strange at first, why do we need this two-step structure for locating actors?
+This results in the two step lookup:
+
+1. Hash actor name to find the node that owns the identity.  
+2. Let the owner activate or route to the node that will host the actor instance.
 
 ![Actor Placement](images/actorplacement.png)
 
-## Dealing with Topology Changes
+Why this separation exists:
 
-The reason for this is to deal with topology changes.
-In the case members join or leave the cluster, the topology change, and the shape of the hash ring is altered slightly.
+* Actor lifetimes and state do not need to be moved when ownership changes.  
+* Locality can be optimized by the placement strategy, independent of hash partitioning.  
+* Workload distribution remains flexible while identity mapping remains stable.
 
-This in turn means that the name of the actor, might now be owned by another node.
-And by having this two-step structure, we only need to transfer the ownership of the name itself and not the actor and all of its state.
+Good to know:
+
+* Placement strategies can consider load, affinity rules or custom logic.  
+* The identity owner acts as a stable rendezvous point for all clients trying to reach the actor.
+
+## Handling Topology Changes
+
+Clusters are dynamic, so the hash ring will shift when nodes join, leave or fail.
+
+When the ring shifts:
+
+* Some identities move to another owner.  
+* Actor instances usually remain where they are.  
+* Only identity metadata is reassigned.
 
 ![Topology Change](images/topologychange.png)
 
-This model makes the cluster extremely robust to failures, only parts of the cluster will fail when a member leaves, and nothing will fail when a member joins the cluster.
+Benefits:
 
-In this specific case, even if all members except B and F leaves, the specific actor here is still reachable.
+* Minimal disruption during scaling events.  
+* Failures affect only a small subset of identities.  
+* Running actors remain active and reachable through updated discovery.
+
+Even in extreme cases, such as only two nodes left, the actor remains resolvable and operational:
 
 ![Complete Failure](images/completefailure.png)
 
-## Multiple activations
+Good to know:
 
-One drawback of this approach is what is known as **Multiple Activations**
+* Consistent hashing guarantees O(log n) lookup and minimal churn.  
+* Only nodes near the affected region of the ring experience change.  
+* Actor callers never need to know where the actor physically lives.
 
-This can occur when the node that owns the name of an actor unexpectedly leaves the cluster.
-This leaves the actor activation orphaned somewhere in the cluster.
+## Multiple Activations
 
-Should someone now try to call this actor, a new node will be associated with the name, and the actor will be activated again somewhere in the cluster.
+A known risk in this architecture is **multiple activations**, which occur when:
 
-This means that we now have two active instances of the same actor, one orphaned and one with a proper name lookup association.
+1. The name owning node crashes suddenly.  
+2. Its existing activation becomes orphaned.  
+3. A new owner is assigned the identity.  
+4. A new activation starts elsewhere in the cluster.
 
-This *can* lead to issues if you rely on the actor concurrency constraint of one message at any given time.
+This may result in two live actor instances:
 
-In many cases, this is not an issue, as the orphaned actor is now unreachable, the name lookup now points to another instance.
-Thus, no new messages will be sent to it.
+* The orphan (unreachable by name).  
+* The valid instance (reachable through new identity owner).
 
-In case the orphaned actor have some behavior on its own, chances are that it might cause race conditions between its own state changes and the new activation.
+Consequences:
 
-This can be prevented by persisting state in a database with some form of CAS operations, e.g. Couchbase.
+* Internal background activity in the orphan may cause data races.  
+* External message routing is safe, since only one instance is addressable.  
+* Systems that rely on strict single writer semantics may experience issues.
 
-In case the two instances change any state, this can now be detected by CAS changes.
+Mitigation strategies:
+
+* Persist state in storage systems with CAS operations like Couchbase, DynamoDB or Etcd.  
+* CAS mismatches surface write races between orphan and new instances.  
+* Periodic tombstoning or activation heartbeats can also clean up orphans.
+
+Good to know:
+
+* Multiple activations are rare, usually tied to abrupt crashes rather than graceful leaves.  
+* State persistence dramatically reduces the risk surface.  
+* If determinism is critical, actors should be designed to assume they may be activated more than once.
+
