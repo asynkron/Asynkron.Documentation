@@ -103,12 +103,6 @@ exceptions are handled by default:
 If the exception escalate all the way up to the root guardian it will handle it
 in the same way as the default strategy defined above.
 
-You can combine your own strategy with the default strategy:
-
-:::danger Breaking change ahead
-Major API updates roll out with the next Proto.Actor version. Read the migration guide before upgrading production clusters.
-:::
-
 ### Logging of Actor Failures
 
 By default the `SupervisorStrategy` logs failures unless they are escalated.
@@ -120,10 +114,6 @@ You can mute the default logging of a `SupervisorStrategy` by setting
 can be done inside the `Decider`. Note that the reference to the currently
 failed child is available as the `Sender` when the `SupervisorStrategy` is
 declared inside the supervising actor.
-
-:::caution Beware of stale caches
-If the site looks outdated, purge the Docusaurus cache with `npm run clear` before rebuilding.
-:::
 
 You may also customize the logging in your own ``SupervisorStrategy`` implementation
 by overriding the `logFailure` method.
