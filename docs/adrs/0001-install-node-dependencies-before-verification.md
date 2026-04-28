@@ -12,6 +12,8 @@ Issue #43 reported that `npm run typecheck` failed because `tsc` was not found. 
 
 The failure reproduced only when the worktree had no installed dependencies: `node_modules/.bin` did not exist and `npm run typecheck` exited with `sh: tsc: command not found`. After `npm ci`, the same `npm run typecheck` command passed without source changes.
 
+Issue #48 repeated the same failure mode on latest `origin/main` at `00a13ed`: `npm run typecheck` initially failed with `tsc: command not found`, `npm ls typescript --depth=0` showed no installed package tree, and `npm run typecheck` passed after `npm ci`.
+
 ## Decision
 
 For this Docusaurus documentation repository, Node-based verification commands must run after installing the locked dependency set. With the current `package-lock.json`, the canonical clean install command is `npm ci`.
