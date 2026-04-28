@@ -186,6 +186,9 @@ const config: Config = {
             { label: 'Proto.Actor', to: '/docs/ProtoActor/' },
             { label: 'Durable Functions', to: '/docs/DurableFunctions/' },
             { label: 'OcppServer', to: '/docs/OcppServer/' },
+            { label: 'Faktorial', to: '/docs/Products/faktorial' },
+            { label: 'BokaBra', to: '/docs/Products/bokabra' },
+            { label: 'Inmem / Matcha', to: '/docs/Products/inmem' },
           ],
         },
         {

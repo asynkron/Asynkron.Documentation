@@ -11,6 +11,7 @@ type Product = {
   description: string;
   href: string;
   logo: string;
+  logoVariant?: 'screenshot';
   proof: string;
 };
 
@@ -47,12 +48,42 @@ const products: Product[] = [
     logo: '/img/ocppserver-logo.svg',
     proof: 'Preview track',
   },
+  {
+    name: 'Faktorial',
+    label: 'Autonomous delivery',
+    description:
+      'A GitHub-native delivery factory that moves scoped issues through investigation, build, verification, pull requests, and learning loops.',
+    href: '/docs/Products/faktorial',
+    logo: '/img/products/faktorial-home.png',
+    logoVariant: 'screenshot',
+    proof: 'Pilot + managed service',
+  },
+  {
+    name: 'BokaBra',
+    label: 'Booking product',
+    description:
+      'A commercial product with a public launching-soon page and contact path for early updates while the fuller product surface comes online.',
+    href: '/docs/Products/bokabra',
+    logo: '/img/products/bokabra-home.png',
+    logoVariant: 'screenshot',
+    proof: 'Launching soon',
+  },
+  {
+    name: 'Inmem / Matcha',
+    label: 'Reactive integration',
+    description:
+      'A self-hosted connector runtime for typed state, document triggers, durable propagation, and AI-assisted integration workflows.',
+    href: '/docs/Products/inmem',
+    logo: '/img/products/inmem-home.png',
+    logoVariant: 'screenshot',
+    proof: 'Reactive connectors',
+  },
 ];
 
 const signals: Signal[] = [
   {value: '10+ years', label: 'distributed-systems experience'},
   {value: '.NET + Go', label: 'runtime ecosystems covered'},
-  {value: '3 product lines', label: 'documented from one control plane'},
+  {value: '6 product lines', label: 'documented from one control plane'},
 ];
 
 const deliveryStages = [
@@ -66,7 +97,15 @@ function ProductCard({product, index}: {product: Product; index: number}) {
     <Link className={styles.productCard} to={product.href}>
       <span className={styles.productNumber}>0{index + 1}</span>
       <div className={styles.productLogoFrame}>
-        <img src={product.logo} alt="" className={styles.productLogo} />
+        <img
+          src={product.logo}
+          alt=""
+          className={
+            product.logoVariant === 'screenshot'
+              ? `${styles.productLogo} ${styles.productLogoScreenshot}`
+              : styles.productLogo
+          }
+        />
       </div>
       <div className={styles.productBody}>
         <span className={styles.productLabel}>{product.label}</span>
@@ -93,8 +132,9 @@ function Home(): ReactNode {
               <h1>Build distributed systems with a sharper operating model.</h1>
               <p className={styles.heroLead}>
                 Asynkron brings actor runtimes, durable workflows, and EV
-                charging infrastructure into one documentation surface for teams
-                shipping high-scale systems.
+                charging infrastructure together with autonomous delivery,
+                booking, and reactive integration products
+                into one documentation surface for teams shipping high-scale systems.
               </p>
               <div className={styles.heroActions}>
                 <Link className={styles.primaryAction} to="/docs/intro">
@@ -109,7 +149,7 @@ function Home(): ReactNode {
             <aside className={styles.controlPanel} aria-label="Asynkron product map">
               <div className={styles.panelHeader}>
                 <span>asynkron://docs/live</span>
-                <span>3 products</span>
+                <span>6 products</span>
               </div>
               <div className={styles.panelGrid}>
                 {products.map((product) => (
@@ -163,6 +203,11 @@ function Home(): ReactNode {
               <span>Layer 03 / Infrastructure</span>
               <strong>OcppServer</strong>
               <p>EV charging infrastructure, integration scenarios, and operational guidance.</p>
+            </div>
+            <div className={styles.layer}>
+              <span>Layer 04 / Commercial products</span>
+              <strong>Faktorial, BokaBra, Inmem / Matcha</strong>
+              <p>Autonomous delivery, booking, and reactive integration products with public documentation entry points.</p>
             </div>
           </div>
         </section>

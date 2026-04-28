@@ -50,4 +50,35 @@ Asynkron is a team of distributed-systems veterans who have spent the last decad
   </tr>
 </table>
 
+## Commercial products
+
+These products are public Asynkron product lines, but they do not currently publish source repositories from this documentation site.
+
+<table>
+  <tr>
+    <td width="180" valign="top">
+      <img src="/img/products/faktorial-home.png" alt="Faktorial home page screenshot" width="160" />
+    </td>
+    <td valign="top">
+      <p><a href="/docs/Products/faktorial">Faktorial</a> automates GitHub backlog delivery through traceable investigate, build, verify, deploy, and learn stages. The public site positions it for pilot programs and managed delivery with review and quality gates.</p>
+    </td>
+  </tr>
+  <tr>
+    <td width="180" valign="top">
+      <img src="/img/products/bokabra-home.png" alt="BokaBra launching soon page screenshot" width="160" />
+    </td>
+    <td valign="top">
+      <p><a href="/docs/Products/bokabra">BokaBra</a> currently has a launching-soon public page with a contact form and email-list signup. The docs keep this page intentionally brief until more product details are public.</p>
+    </td>
+  </tr>
+  <tr>
+    <td width="180" valign="top">
+      <img src="/img/products/inmem-home.png" alt="Inmem Matcha home page screenshot" width="160" />
+    </td>
+    <td valign="top">
+      <p><a href="/docs/Products/inmem">Inmem / Matcha</a> is presented publicly as a reactive integration platform for connectors, typed state, document triggers, and durable downstream processing.</p>
+    </td>
+  </tr>
+</table>
+
 More product families will be added over time. Check back regularly for new guides and updates.

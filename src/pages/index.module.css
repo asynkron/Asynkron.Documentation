@@ -382,6 +382,13 @@
   object-fit: contain;
 }
 
+.productLogoScreenshot {
+  width: 58px;
+  height: 42px;
+  border: 1px solid rgba(195, 245, 255, 0.2);
+  object-fit: cover;
+}
+
 .productBody {
   align-self: start;
 }
