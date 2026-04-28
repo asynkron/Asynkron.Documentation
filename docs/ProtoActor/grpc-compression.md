@@ -10,7 +10,7 @@ Configure gRPC compression for Proto.Remote.
 
 ```csharp
 var remoteConfig =
-    GrpcNetRemoteConfig
+    RemoteConfig
     .BindTo(advertisedHost)
     .WithChannelOptions(new GrpcChannelOptions
         {
