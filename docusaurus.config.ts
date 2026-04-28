@@ -181,36 +181,36 @@ const config: Config = {
       style: 'dark',
       links: [
         {
-          title: 'Docs',
+          title: 'Products',
           items: [
-            { label: 'Get Started', to: '/docs/intro' },
+            { label: 'Proto.Actor', to: '/docs/ProtoActor/' },
+            { label: 'Durable Functions', to: '/docs/DurableFunctions/' },
+            { label: 'LiveView', to: '/docs/LiveView/' },
+            { label: 'TraceLens', to: '/docs/TraceLens/' },
+            { label: 'OcppServer', to: '/docs/OcppServer/' },
+            { label: 'Jsome', to: '/docs/Jsome/' },
           ],
         },
         {
-          title: 'Community',
+          title: 'Company',
           items: [
+            { label: 'Asynkron AB', href: 'https://asynkron.se' },
+            { label: 'Blog', to: '/blog' },
+            { label: 'Product Overview', to: '/docs/intro' },
+            { label: 'Contact', href: 'mailto:info@asynkron.se' },
+          ],
+        },
+        {
+          title: 'Links',
+          items: [
+            { label: 'Asynkron Docs', to: '/docs/intro' },
             { label: 'GitHub Organization', href: 'https://github.com/Asynkron' },
-            {
-              label: 'Proto.Actor Project',
-              href: 'https://proto.actor',
-            },
-          ],
-        },
-        {
-          title: 'More',
-          items: [
-            {
-              label: 'Blog',
-              to: '/blog',
-            },
-            {
-              label: 'GitHub',
-              href: 'https://github.com/Asynkron/Asynkron.Documentation',
-            },
+            { label: 'Proto.Actor Project', href: 'https://proto.actor' },
+            { label: 'Documentation Repo', href: 'https://github.com/Asynkron/Asynkron.Documentation' },
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} Asynkron. Built with Docusaurus.`,
+      copyright: `Asynkron AB · Sankt Eriksvägen 9B, 141 32 Huddinge · info@asynkron.se · Copyright © ${new Date().getFullYear()} Asynkron.`,
     },
     prism: {
       // Keep syntax highlighting consistent between light and dark modes
