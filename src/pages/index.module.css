@@ -1,30 +1,538 @@
-/**
- * CSS files with the .module.css suffix will be treated as CSS modules
- * and scoped locally.
- */
+.page {
+  --landing-bg: #030506;
+  --landing-panel: #0a1114;
+  --landing-panel-strong: #0d171b;
+  --landing-border: rgba(195, 245, 255, 0.2);
+  --landing-border-strong: rgba(0, 229, 255, 0.62);
+  --landing-text: #f2fbff;
+  --landing-muted: #9eb5bd;
+  --landing-cyan: #00e5ff;
+  --landing-cyan-soft: #c3f5ff;
+  --landing-green: #72f2c5;
+  --landing-line: rgba(0, 218, 243, 0.16);
 
-.heroVideoSection {
-  margin: 0;
-  padding: 0;
-  height: 50vh;
-  min-height: 380px;
+  min-height: 100vh;
+  color: var(--landing-text);
+  background:
+    linear-gradient(90deg, rgba(0, 218, 243, 0.08) 1px, transparent 1px),
+    linear-gradient(180deg, rgba(0, 218, 243, 0.06) 1px, transparent 1px),
+    linear-gradient(135deg, rgba(0, 229, 255, 0.14), transparent 32rem),
+    var(--landing-bg);
+  background-size: 72px 72px, 72px 72px, auto, auto;
+  font-family: "Space Grotesk", "IBM Plex Sans", "Segoe UI", sans-serif;
   overflow: hidden;
-  border-top: 8px solid #22252b;
-  border-bottom: 8px solid #22252b;
-  position: relative;
 }
 
-.heroVideo {
+.page a {
+  text-decoration: none;
+}
+
+.hero,
+.systemSection,
+.productsSection,
+.ctaSection,
+.signalBand {
   width: 100%;
-  height: auto;
-  position: absolute;
-  top: 20px;
-  bottom: 0;
-  right: 0;
-  left: 0;
-  margin: auto;
-  min-height: 100%;
-  min-width: 100%;
-  object-fit: cover;
+}
+
+.hero {
+  padding: 7rem max(1.5rem, calc((100vw - 1180px) / 2)) 4rem;
+  border-bottom: 1px solid var(--landing-line);
+}
+
+.heroShell {
+  display: grid;
+  grid-template-columns: minmax(0, 1.02fr) minmax(360px, 0.78fr);
+  gap: 3rem;
+  align-items: stretch;
+}
+
+.heroCopy {
+  display: flex;
+  min-height: 560px;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.kicker {
+  display: inline-flex;
+  width: fit-content;
+  color: var(--landing-cyan);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.heroCopy h1,
+.sectionIntro h2,
+.ctaSection h2 {
+  margin: 0;
+  color: var(--landing-text);
+  font-weight: 700;
+  letter-spacing: 0;
+}
+
+.heroCopy h1 {
+  max-width: 760px;
+  margin-top: 1.35rem;
+  font-size: 6.35rem;
+  line-height: 0.92;
+}
+
+.heroLead {
+  max-width: 680px;
+  margin: 1.65rem 0 0;
+  color: var(--landing-muted);
+  font-size: 1.18rem;
+  line-height: 1.7;
+}
+
+.heroActions,
+.ctaActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+  margin-top: 2rem;
+}
+
+.primaryAction,
+.secondaryAction {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0.8rem 1.1rem;
+  border: 1px solid var(--landing-border-strong);
+  color: var(--landing-text);
+  font-size: 0.84rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  line-height: 1.1;
+  text-transform: uppercase;
+  transition:
+    background-color 180ms ease,
+    border-color 180ms ease,
+    color 180ms ease,
+    transform 180ms ease;
+}
+
+.primaryAction {
+  background: var(--landing-cyan);
+  color: #001316;
+}
+
+.secondaryAction {
+  background: rgba(4, 14, 18, 0.72);
+}
+
+.primaryAction:hover,
+.secondaryAction:hover {
+  color: #001316;
+  background: var(--landing-cyan-soft);
+  border-color: var(--landing-cyan-soft);
+  transform: translateY(-2px);
+}
+
+.primaryAction:focus-visible,
+.secondaryAction:focus-visible,
+.productCard:focus-visible,
+.panelTile:focus-visible {
+  outline: 2px solid var(--landing-green);
+  outline-offset: 4px;
+}
+
+.controlPanel {
+  display: flex;
+  min-height: 560px;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1rem;
+  border: 1px solid var(--landing-border);
+  background:
+    linear-gradient(135deg, rgba(0, 229, 255, 0.14), transparent 28%),
+    rgba(5, 13, 16, 0.86);
+  box-shadow: 0 28px 100px rgba(0, 0, 0, 0.42);
+}
+
+.panelHeader,
+.productProof {
+  display: flex;
+  justify-content: space-between;
+  color: var(--landing-cyan-soft);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.panelGrid {
+  display: grid;
+  gap: 0.75rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin: 1rem 0;
+}
+
+.panelTile,
+.pipelineStep,
+.layer,
+.productCard {
+  border: 1px solid var(--landing-border);
+  background: rgba(6, 15, 18, 0.8);
+}
+
+.panelTile {
+  display: grid;
+  min-height: 150px;
+  align-content: space-between;
+  padding: 0.95rem;
+  color: var(--landing-text);
+}
+
+.panelTile img {
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+}
+
+.panelTile span,
+.layer span,
+.productLabel {
+  color: var(--landing-muted);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.panelTile strong {
+  color: var(--landing-text);
+  font-size: 1rem;
+}
+
+.pipeline {
+  display: grid;
+  gap: 0.6rem;
+}
+
+.pipelineStep {
+  display: flex;
+  gap: 0.8rem;
+  align-items: center;
+  min-height: 48px;
+  padding: 0.75rem;
+}
+
+.pipelineStep span {
+  color: var(--landing-cyan);
+  font-size: 0.78rem;
+  font-weight: 900;
+}
+
+.pipelineStep strong {
+  color: var(--landing-text);
+  font-size: 0.9rem;
+}
+
+.signalBand {
+  padding: 0 max(1.5rem, calc((100vw - 1180px) / 2));
+  background: #05090b;
+  border-bottom: 1px solid var(--landing-line);
+}
+
+.signalGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border-left: 1px solid var(--landing-line);
+}
+
+.signal {
+  min-height: 132px;
+  padding: 1.5rem;
+  border-right: 1px solid var(--landing-line);
+}
+
+.signal strong {
   display: block;
+  color: var(--landing-cyan-soft);
+  font-size: 2.8rem;
+  line-height: 1;
+}
+
+.signal span {
+  display: block;
+  margin-top: 0.65rem;
+  color: var(--landing-muted);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.systemSection,
+.productsSection,
+.ctaSection {
+  padding: 5rem max(1.5rem, calc((100vw - 1180px) / 2));
+}
+
+.sectionIntro {
+  display: grid;
+  grid-template-columns: minmax(180px, 0.35fr) minmax(0, 0.65fr);
+  gap: 2rem;
+  align-items: start;
+  margin-bottom: 2rem;
+}
+
+.sectionIntro h2,
+.ctaSection h2 {
+  font-size: 4.45rem;
+  line-height: 0.98;
+}
+
+.layerStack {
+  display: grid;
+  gap: 1px;
+  background: var(--landing-line);
+  border: 1px solid var(--landing-line);
+}
+
+.layer {
+  display: grid;
+  grid-template-columns: minmax(150px, 0.28fr) minmax(180px, 0.28fr) minmax(0, 0.44fr);
+  gap: 1.4rem;
+  align-items: center;
+  padding: 1.25rem;
+  background:
+    linear-gradient(90deg, rgba(0, 229, 255, 0.08), transparent 38%),
+    var(--landing-panel);
+}
+
+.layer strong {
+  color: var(--landing-text);
+  font-size: 1.2rem;
+}
+
+.layer p,
+.productBody p,
+.ctaSection p {
+  margin: 0;
+  color: var(--landing-muted);
+  line-height: 1.6;
+}
+
+.productsSection {
+  background: rgba(3, 5, 6, 0.6);
+  border-top: 1px solid var(--landing-line);
+  border-bottom: 1px solid var(--landing-line);
+}
+
+.productGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1px;
+  background: var(--landing-line);
+  border: 1px solid var(--landing-line);
+}
+
+.productCard {
+  position: relative;
+  display: grid;
+  min-height: 360px;
+  grid-template-rows: auto auto 1fr auto;
+  gap: 1.2rem;
+  padding: 1.2rem;
+  color: var(--landing-text);
+  background:
+    linear-gradient(180deg, rgba(0, 229, 255, 0.08), transparent 44%),
+    var(--landing-panel);
+  transition:
+    background-color 180ms ease,
+    border-color 180ms ease,
+    transform 180ms ease;
+}
+
+.productCard:hover {
+  color: var(--landing-text);
+  border-color: var(--landing-border-strong);
+  background:
+    linear-gradient(180deg, rgba(0, 229, 255, 0.16), transparent 46%),
+    var(--landing-panel-strong);
+  transform: translateY(-3px);
+}
+
+.productNumber {
+  color: var(--landing-cyan);
+  font-size: 0.74rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+}
+
+.productLogoFrame {
+  display: flex;
+  width: 76px;
+  height: 76px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--landing-border);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.productLogo {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+}
+
+.productBody {
+  align-self: start;
+}
+
+.productBody h3 {
+  margin: 0.5rem 0 0.75rem;
+  color: var(--landing-text);
+  font-size: 1.55rem;
+  line-height: 1.1;
+}
+
+.productProof {
+  padding-top: 1rem;
+  border-top: 1px solid var(--landing-line);
+}
+
+.ctaSection {
+  display: grid;
+  grid-template-columns: minmax(0, 0.62fr) minmax(280px, 0.38fr);
+  gap: 2.2rem;
+  align-items: end;
+}
+
+.ctaSection p {
+  font-size: 1.05rem;
+}
+
+.ctaActions {
+  grid-column: 1 / -1;
+  margin-top: 0;
+}
+
+@media (max-width: 1180px) {
+  .heroCopy h1 {
+    font-size: 5.1rem;
+  }
+
+  .sectionIntro h2,
+  .ctaSection h2 {
+    font-size: 3.75rem;
+  }
+
+  .signal strong {
+    font-size: 2.45rem;
+  }
+}
+
+@media (max-width: 996px) {
+  .hero {
+    padding-top: 5rem;
+  }
+
+  .heroShell,
+  .sectionIntro,
+  .ctaSection {
+    grid-template-columns: 1fr;
+  }
+
+  .heroCopy,
+  .controlPanel {
+    min-height: auto;
+  }
+
+  .heroCopy h1 {
+    font-size: 4.35rem;
+  }
+
+  .sectionIntro h2,
+  .ctaSection h2 {
+    font-size: 3.25rem;
+  }
+
+  .signal strong {
+    font-size: 2.35rem;
+  }
+
+  .signalGrid,
+  .productGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .layer {
+    grid-template-columns: 1fr;
+    gap: 0.55rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .page {
+    background-size: 48px 48px, 48px 48px, auto, auto;
+  }
+
+  .hero,
+  .systemSection,
+  .productsSection,
+  .ctaSection {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .hero {
+    padding-top: 4rem;
+  }
+
+  .heroLead {
+    font-size: 1rem;
+  }
+
+  .heroCopy h1 {
+    font-size: 3.05rem;
+  }
+
+  .sectionIntro h2,
+  .ctaSection h2 {
+    font-size: 2.45rem;
+  }
+
+  .signal strong {
+    font-size: 2rem;
+  }
+
+  .heroActions,
+  .ctaActions {
+    flex-direction: column;
+  }
+
+  .primaryAction,
+  .secondaryAction {
+    width: 100%;
+  }
+
+  .panelGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .signalBand {
+    padding: 0 1rem;
+  }
+
+  .signalGrid {
+    border-left: 0;
+  }
+
+  .signal {
+    min-height: 112px;
+    padding: 1.25rem 0;
+    border-right: 0;
+    border-bottom: 1px solid var(--landing-line);
+  }
+
+  .productCard {
+    min-height: 320px;
+  }
 }
