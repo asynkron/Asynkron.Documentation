@@ -185,10 +185,7 @@ const config: Config = {
           items: [
             { label: 'Proto.Actor', to: '/docs/ProtoActor/' },
             { label: 'Durable Functions', to: '/docs/DurableFunctions/' },
-            { label: 'LiveView', to: '/docs/LiveView/' },
-            { label: 'TraceLens', to: '/docs/TraceLens/' },
             { label: 'OcppServer', to: '/docs/OcppServer/' },
-            { label: 'Jsome', to: '/docs/Jsome/' },
           ],
         },
         {

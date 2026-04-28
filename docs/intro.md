@@ -37,32 +37,6 @@ Asynkron is a team of distributed-systems veterans who have spent the last decad
   </tr>
 </table>
 
-## LiveView - AI Companion MCP
-
-<table>
-  <tr>
-    <td width="140" valign="top">
-      <img src="/img/fake-logo4.png" alt="LiveView placeholder logo" width="120" />
-    </td>
-    <td valign="top">
-      <p><a href="/docs/LiveView/">Asynkron LiveView</a> brings real-time, reactive UI updates to your applications with a lightweight server-driven model inspired by LiveView frameworks. Learn how to set up the runtime, compose interactive components, and deploy to production.</p>
-    </td>
-  </tr>
-</table>
-
-## TraceLens - OTEL UI and Collector
-
-<table>
-  <tr>
-    <td width="140" valign="top">
-      <img src="/img/tracelens-logo.png" alt="TraceLens logo" width="120" />
-    </td>
-    <td valign="top">
-      <p><a href="/docs/TraceLens/">TraceLens</a> provides observability tooling tailored for distributed actor systems. Use the guides to ingest telemetry, visualize actor flows, and troubleshoot live systems with minimal overhead.</p>
-    </td>
-  </tr>
-</table>
-
 ## OcppServer - Massive scale EV charging
 
 <table>
@@ -72,19 +46,6 @@ Asynkron is a team of distributed-systems veterans who have spent the last decad
     </td>
     <td valign="top">
       <p><a href="/docs/OcppServer/">Asynkron.OcppServer</a> is currently under active development as our next-generation OCPP platform. Check back soon for setup guidance, integration examples, and operational playbooks once preview builds are ready.</p>
-    </td>
-  </tr>
-</table>
-
-## Jsome - DTO generation and validation
-
-<table>
-  <tr>
-    <td width="140" valign="top">
-      <img src="/img/jsome-logo.png" alt="Jsome logo" width="120" />
-    </td>
-    <td valign="top">
-      <p><a href="/docs/Jsome/">Asynkron.Jsome</a> is a .NET global tool that generates strongly typed clients and schema artefacts from Swagger/OpenAPI or JSON Schema sources. Follow the docs to install the CLI, configure templates, and automate DTOs, validators, Protocol Buffers, and more as part of your build pipeline.</p>
     </td>
   </tr>
 </table>

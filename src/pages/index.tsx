@@ -39,24 +39,6 @@ const products: Product[] = [
     proof: 'Reliable automation',
   },
   {
-    name: 'LiveView',
-    label: 'Reactive UI',
-    description:
-      'Server-driven, real-time UI updates for interactive applications with a lightweight component model and production deployment path.',
-    href: '/docs/LiveView/',
-    logo: '/img/liveview-logo.svg',
-    proof: 'AI Companion MCP',
-  },
-  {
-    name: 'TraceLens',
-    label: 'Observability',
-    description:
-      'OpenTelemetry UI and collector tooling for ingesting traces, visualizing actor flows, and troubleshooting distributed systems.',
-    href: '/docs/TraceLens/',
-    logo: '/img/tracelens-logo.png',
-    proof: 'OTEL-native',
-  },
-  {
     name: 'OcppServer',
     label: 'EV charging',
     description:
@@ -65,28 +47,18 @@ const products: Product[] = [
     logo: '/img/ocppserver-logo.svg',
     proof: 'Preview track',
   },
-  {
-    name: 'Jsome',
-    label: 'Schema tooling',
-    description:
-      'A .NET global tool that generates strongly typed clients, DTOs, validators, Protocol Buffers, and build assets from schemas.',
-    href: '/docs/Jsome/',
-    logo: '/img/jsome-logo.svg',
-    proof: 'OpenAPI + JSON Schema',
-  },
 ];
 
 const signals: Signal[] = [
   {value: '10+ years', label: 'distributed-systems experience'},
   {value: '.NET + Go', label: 'runtime ecosystems covered'},
-  {value: '6 product lines', label: 'documented from one control plane'},
+  {value: '3 product lines', label: 'documented from one control plane'},
 ];
 
 const deliveryStages = [
   'Design resilient actors',
   'Orchestrate durable work',
-  'Observe live systems',
-  'Generate safe contracts',
+  'Operate charging networks',
 ];
 
 function ProductCard({product, index}: {product: Product; index: number}) {
@@ -120,10 +92,9 @@ function Home(): ReactNode {
               <span className={styles.kicker}>Asynkron Documentation</span>
               <h1>Build distributed systems with a sharper operating model.</h1>
               <p className={styles.heroLead}>
-                Asynkron brings actor runtimes, durable workflows, reactive UI,
-                observability, EV charging infrastructure, and schema tooling
-                into one documentation surface for teams shipping high-scale
-                systems.
+                Asynkron brings actor runtimes, durable workflows, and EV
+                charging infrastructure into one documentation surface for teams
+                shipping high-scale systems.
               </p>
               <div className={styles.heroActions}>
                 <Link className={styles.primaryAction} to="/docs/intro">
@@ -138,10 +109,10 @@ function Home(): ReactNode {
             <aside className={styles.controlPanel} aria-label="Asynkron product map">
               <div className={styles.panelHeader}>
                 <span>asynkron://docs/live</span>
-                <span>6 products</span>
+                <span>3 products</span>
               </div>
               <div className={styles.panelGrid}>
-                {products.slice(0, 4).map((product) => (
+                {products.map((product) => (
                   <Link key={product.name} className={styles.panelTile} to={product.href}>
                     <img src={product.logo} alt="" />
                     <span>{product.label}</span>
@@ -189,14 +160,9 @@ function Home(): ReactNode {
               <p>Reliable orchestration, hosting, operations, and long-running automation.</p>
             </div>
             <div className={styles.layer}>
-              <span>Layer 03 / Visibility</span>
-              <strong>TraceLens</strong>
-              <p>Trace search, timelines, logs, spans, and actor-flow troubleshooting.</p>
-            </div>
-            <div className={styles.layer}>
-              <span>Layer 04 / Interfaces</span>
-              <strong>LiveView, OcppServer, Jsome</strong>
-              <p>Reactive UI, EV charging infrastructure, and generated contracts.</p>
+              <span>Layer 03 / Infrastructure</span>
+              <strong>OcppServer</strong>
+              <p>EV charging infrastructure, integration scenarios, and operational guidance.</p>
             </div>
           </div>
         </section>
