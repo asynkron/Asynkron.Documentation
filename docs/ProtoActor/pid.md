@@ -36,7 +36,7 @@ There are two main methods of communicating with a PID.
 
 ### Send
 
-`Send` is a non-blocking, fire-and-forget method for sending a message to an actor. The message will be enqueued in the receiving actor's mailbox and will eventually be processed, assuming the actor isn't stopped. Tell is also the most performant way of communicating with actors, so it is the preferred default unless your use case requires a request/reply pattern of communication.
+`Send` is a non-blocking, fire-and-forget method for sending a message to an actor. The message will be enqueued in the receiving actor's mailbox and will eventually be processed, assuming the actor isn't stopped. `Send` is also the most performant way of communicating with actors, so it is the preferred default unless your use case requires a request/reply pattern of communication.
 
 ### Request
 
