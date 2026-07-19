@@ -17,14 +17,14 @@ or a report of current financial performance.
 
 ### Confirmed repository facts
 
-- [The public Faktorial product page](../Products/faktorial.md) describes a
+- [The public Faktorial product page](../products/Products/faktorial.md) describes a
   GitHub-native delivery loop covering investigation, build, verification,
   deployment, and learning. It also describes configurable quality gates and
   approval points.
 - The same page says Faktorial is publicly presented as a pilot or managed
   service and describes team-operated and Faktorial Managed modes with senior
   engineering supervision.
-- [The commercial products overview](../Products/index.md) lists Faktorial as
+- [The commercial products overview](../products/Products/index.md) lists Faktorial as
   an Asynkron commercial product focused on GitHub issue backlogs.
 - [ADR 0004](../adrs/0004-document-private-products-from-public-sources.md)
   requires conservative, public-source-backed product statements and forbids

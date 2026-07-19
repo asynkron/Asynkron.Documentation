@@ -2,6 +2,12 @@
 
 This repository hosts the [Docusaurus](https://docusaurus.io/) configuration and content used to publish the official Asynkron documentation site.
 
+## Documentation Layout
+
+`docs/products` is the only public documentation source ingested by Docusaurus. It contains the product overview and the complete Products, Proto.Actor, Durable Functions, and OcppServer documentation trees.
+
+The other content under `docs`—including `dreaming.md`, `product`, `adrs`, and `journal`—is internal Faktorial and documentation-platform working material and is not published on the documentation site.
+
 ## Prerequisites
 
 - Node.js 20 or newer (the project follows the Docusaurus v3 requirements).
