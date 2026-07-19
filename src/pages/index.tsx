@@ -54,7 +54,7 @@ const products: Product[] = [
     description:
       'A GitHub-native delivery factory that moves scoped issues through investigation, build, verification, pull requests, and learning loops.',
     href: '/docs/Products/faktorial',
-    logo: '/img/products/faktorial-home.png',
+    logo: '/img/products/faktorial-home-thumb.png',
     logoVariant: 'screenshot',
     proof: 'Pilot + managed service',
   },
@@ -64,7 +64,7 @@ const products: Product[] = [
     description:
       'A commercial product with a public launching-soon page and contact path for early updates while the fuller product surface comes online.',
     href: '/docs/Products/bokabra',
-    logo: '/img/products/bokabra-home.png',
+    logo: '/img/products/bokabra-home-thumb.png',
     logoVariant: 'screenshot',
     proof: 'Launching soon',
   },
@@ -74,7 +74,7 @@ const products: Product[] = [
     description:
       'A self-hosted connector runtime for typed state, document triggers, durable propagation, and AI-assisted integration workflows.',
     href: '/docs/Products/inmem',
-    logo: '/img/products/inmem-home.png',
+    logo: '/img/products/inmem-home-thumb.png',
     logoVariant: 'screenshot',
     proof: 'Reactive connectors',
   },
