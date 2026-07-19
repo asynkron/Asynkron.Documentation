@@ -11,8 +11,10 @@ This repository hosts the [Docusaurus](https://docusaurus.io/) configuration and
 Install the project dependencies once after cloning the repository:
 
 ```bash
-npm install
+npm ci
 ```
+
+This installs the dependency versions committed in `package-lock.json` for a reproducible local environment.
 
 ## Local Development
 
