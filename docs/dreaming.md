@@ -15,8 +15,9 @@ where future capabilities belong.
 The current repository is a Docusaurus documentation site. It contains product
 documentation for Proto.Actor, Durable Functions, OcppServer, Faktorial,
 BokaBra, and Inmem / Matcha. Its checked-in configuration enables Mermaid,
-Algolia search, and strict broken-link handling, while its explicit sidebar
-does not currently include this page.
+Algolia search, and strict broken-link handling. This page is internal working
+material outside Docusaurus's configured `./docs/products` publication root;
+it is not part of the published documentation site.
 
 Everything else below is an aspiration. In particular, the ingestion pipeline,
 knowledge graph, governance services, publishing control plane, analytics, and
@@ -104,6 +105,44 @@ flowchart LR
 | Publishing Platform | Builds, promotes, delivers, and rolls back immutable releases. | Approved release candidates. | Deployed artifacts and release state to Experience Delivery. |
 | Feedback and Intelligence | Converts minimized outcome data into prioritized improvements. | Reader feedback, search behavior, and freshness signals. | Recommendations and work signals to Supply and Governance. |
 | Platform Foundations | Provides identity, configuration, observability, audit, and recovery. | Policies and operational state from all modules. | Shared controls and operational services to all modules. |
+
+## Module boundary contracts
+
+The module seams below define authority and failure containment without choosing
+a transport, schema, service boundary, or deployment topology. Durable domain
+records are the authoritative state a module owns. Projections can be rebuilt
+from those records, while advisory signals must return through the normal
+contribution and approval path before they can change published knowledge.
+
+```mermaid
+flowchart LR
+    Sources[Product and contributor sources] -->|source snapshots and edits| Supply[Content Supply Chain]
+    Supply -->|normalized change set and provenance| Core[Knowledge Core]
+    Core -->|versioned candidate from durable knowledge| Quality[Quality and Governance]
+    Quality -->|governed lifecycle status| Core
+    Quality -->|durable approval record| Publishing[Publishing Platform]
+    Publishing -->|active immutable release and rollback state| Experience[Experience Delivery]
+    Core -->|governed knowledge and rebuildable discovery projection| Experience
+    Experience -->|minimized outcome events| Intelligence[Feedback and Intelligence]
+    Intelligence -->|advisory work proposals| Supply
+    Intelligence -->|advisory quality signals| Quality
+    Foundations[Platform Foundations] -.->|shared controls and operational services| Supply
+    Foundations -.-> Core
+    Foundations -.-> Quality
+    Foundations -.-> Publishing
+    Foundations -.-> Experience
+    Foundations -.-> Intelligence
+```
+
+| Module | Authoritative record | Accepted inputs | Emitted outputs | Failure and ownership boundary |
+| --- | --- | --- | --- | --- |
+| Content Supply Chain | Accepted source snapshots, normalized change sets, and contribution provenance until the Knowledge Core accepts them. | Versioned product sources, public facts, contributor edits, templates, and advisory work proposals. | Normalized change sets with product, version, ownership, and provenance metadata. | Intake or normalization failure leaves the Knowledge Core unchanged; Supply cannot approve content or write around the Core's acceptance boundary. |
+| Knowledge Core | Versioned content, taxonomy, relationships, assets, examples, and their provenance. | Normalized change sets accepted from Supply and governed lifecycle updates. | Versioned candidates for Governance plus knowledge and rebuildable discovery projections for Experience. | A failed write cannot expose partial knowledge; indexes and other projections may be rebuilt, but no projection becomes a competing source of truth. |
+| Quality and Governance | Ownership, policy, validation evidence, lifecycle state, and approval decision records. | Versioned candidates from the Core, review decisions, validation findings, and advisory intelligence signals. | Approved release candidates with evidence, or actionable findings routed back to contributors. | Governance alone approves; missing evidence or unavailable review blocks approval, and neither Publishing nor Feedback may infer it. |
+| Publishing Platform | Immutable release artifacts and manifests, the active-release pointer, and rollback history. | Governance-approved release candidates and release-health evidence. | Preview or deployed artifacts, active release state, and rollback outcomes for Experience and Governance. | Publishing alone activates a release; build or health failure preserves the last healthy pointer and rollback never mutates an artifact in place. |
+| Experience Delivery | No durable knowledge or approval record; navigation, search indexes, caches, and rendered outputs are rebuildable projections. | Active immutable releases, governed knowledge and discovery projections, explicit version choices, and reader context. | Accessible answers, machine and offline outputs, and minimized outcome events. | Delivery failure cannot mutate upstream knowledge or release authority; the experience degrades independently and remains usable without analytics. |
+| Feedback and Intelligence | Minimized feedback, aggregate outcome measures, and explained recommendation records. | Voluntary reader feedback, minimized outcome events, search-gap measures, freshness signals, and release outcomes. | Advisory recommendations and reviewable work proposals routed to Supply and Governance. | Intelligence may prioritize and explain but never silently changes content, grants approval, or controls a release; its failure does not interrupt published documentation. |
+| Platform Foundations | Shared identity, permission, configuration, audit, observability, backup, and recovery records; no domain record or domain decision. | Module policies, protected configuration, audit events, health signals, and recovery requirements. | Least-privilege controls, operational telemetry, audit evidence, and recovery services for every module. | Foundations contains platform failures and restores capability but cannot take content, approval, or release authority; each module remains accountable for applying its controls. |
 
 ## Content Supply Chain
 
@@ -603,7 +642,8 @@ sequenceDiagram
 ## How to use this dream
 
 Future work should name the target module and component it advances, state what
-current repository fact it starts from, and preserve the boundaries above.
-This dream intentionally does not choose vendors, deployment topology, or a
-delivery roadmap. Those decisions require evidence and owner review when an
+current repository fact it starts from, identify the authoritative record and
+handoff it affects, and preserve the contracts and boundaries above. This dream
+intentionally does not choose vendors, deployment topology, or a delivery
+roadmap. Those decisions require evidence and owner review when an
 implementation is proposed.
