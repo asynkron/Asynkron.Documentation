@@ -19,7 +19,7 @@ Asynkron is a team of distributed-systems veterans who have spent the last decad
       <img src="/img/protoactor-logo.png" alt="Proto.Actor logo" width="120" />
     </td>
     <td valign="top">
-      <p><a href="/docs/ProtoActor/">Proto.Actor</a> is our flagship actor framework for .NET and Go. It gives you a lightweight, cloud-native runtime for building resilient, distributed systems with message-driven actors, virtual actors, and cluster support. Explore the getting started guide, core concepts, and advanced modules like persistence, clustering, and testing utilities.</p>
+      <p><a href="/ProtoActor/">Proto.Actor</a> is our flagship actor framework for .NET and Go. It gives you a lightweight, cloud-native runtime for building resilient, distributed systems with message-driven actors, virtual actors, and cluster support. Explore the getting started guide, core concepts, and advanced modules like persistence, clustering, and testing utilities.</p>
     </td>
   </tr>
 </table>
@@ -32,20 +32,7 @@ Asynkron is a team of distributed-systems veterans who have spent the last decad
       <img src="/img/durable-functions-logo.svg" alt="Durable Functions logo" width="120" />
     </td>
     <td valign="top">
-      <p><a href="/docs/DurableFunctions/">Asynkron Durable Functions</a> lets you build long-running, reliable workflows in any .NET application using the durable orchestrator model. Start with the getting started guide, then dive into hosting guidance, orchestration patterns, and the operations handbook to ship resilient automation in production.</p>
-    </td>
-  </tr>
-</table>
-
-## OcppServer - Massive scale EV charging
-
-<table>
-  <tr>
-    <td width="140" valign="top">
-      <img src="/img/ocpp-server.png" alt="OcppServer logo" width="120" />
-    </td>
-    <td valign="top">
-      <p><a href="/docs/OcppServer/">Asynkron.OcppServer</a> is currently under active development as our next-generation OCPP platform. Check back soon for setup guidance, integration examples, and operational playbooks once preview builds are ready.</p>
+      <p><a href="/DurableFunctions/">Asynkron Durable Functions</a> lets you build long-running, reliable workflows in any .NET application using the durable orchestrator model. Start with the getting started guide, then dive into hosting guidance, orchestration patterns, and the operations handbook to ship resilient automation in production.</p>
     </td>
   </tr>
 </table>
@@ -60,7 +47,7 @@ These products are public Asynkron product lines, but they do not currently publ
       <img src="/img/products/faktorial-home.png" alt="Faktorial home page screenshot" width="160" />
     </td>
     <td valign="top">
-      <p><a href="/docs/Products/faktorial">Faktorial</a> automates GitHub backlog delivery through traceable investigate, build, verify, deploy, and learn stages. The public site positions it for pilot programs and managed delivery with review and quality gates.</p>
+      <p><a href="/Faktorial/">Faktorial</a> automates GitHub backlog delivery through traceable investigate, build, verify, deploy, and learn stages. The public site positions it for pilot programs and managed delivery with review and quality gates.</p>
     </td>
   </tr>
   <tr>

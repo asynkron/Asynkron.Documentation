@@ -17,7 +17,7 @@ or a report of current financial performance.
 
 ### Confirmed repository facts
 
-- [The public Faktorial product page](../products/Products/faktorial.md) describes a
+- [The public Faktorial product page](../Faktorial/index.md) describes a
   GitHub-native delivery loop covering investigation, build, verification,
   deployment, and learning. It also describes configurable quality gates and
   approval points.

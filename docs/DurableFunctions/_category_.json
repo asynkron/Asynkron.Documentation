@@ -1,0 +1,10 @@
+{
+  "label": "Asynkron.DurableFunctions",
+  "position": 3,
+  "collapsible": true,
+  "collapsed": true,
+  "link": {
+    "type": "doc",
+    "id": "index"
+  }
+}

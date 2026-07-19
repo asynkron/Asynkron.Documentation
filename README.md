@@ -4,7 +4,7 @@ This repository hosts the [Docusaurus](https://docusaurus.io/) configuration and
 
 ## Documentation Layout
 
-`docs/products` is the only public documentation source ingested by Docusaurus. It contains the product overview and the complete Products, Proto.Actor, Durable Functions, and OcppServer documentation trees.
+`docs/products` (product overview and Products), `docs/ProtoActor`, and `docs/DurableFunctions` are the public documentation sources ingested by Docusaurus, each served as its own dedicated section with its own sidebar.
 
 The other content under `docs`—including `dreaming.md`, `product`, `adrs`, and `journal`—is internal Faktorial and documentation-platform working material and is not published on the documentation site.
 

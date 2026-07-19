@@ -13,7 +13,7 @@ where future capabilities belong.
 ## Current facts and target assumptions
 
 The current repository is a Docusaurus documentation site. It contains product
-documentation for Proto.Actor, Durable Functions, OcppServer, Faktorial,
+documentation for Proto.Actor, Durable Functions, Faktorial,
 BokaBra, and Inmem / Matcha. Its checked-in configuration enables Mermaid,
 Algolia search, and strict broken-link handling. This page is internal working
 material outside Docusaurus's configured `./docs/products` publication root;
@@ -200,7 +200,7 @@ flowchart LR
 ## Knowledge Core
 
 The Knowledge Core is the source of truth for documentation knowledge. The
-product taxonomy covers Proto.Actor, Durable Functions, OcppServer, Faktorial,
+product taxonomy covers Proto.Actor, Durable Functions, Faktorial,
 BokaBra, and Inmem / Matcha without coupling storage to a product-specific site.
 
 ```mermaid

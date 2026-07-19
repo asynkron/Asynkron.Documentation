@@ -26,7 +26,7 @@ const products: Product[] = [
     label: 'Actor runtime',
     description:
       'A lightweight actor framework for .NET and Go with clustering, virtual actors, supervision, persistence, and message-driven concurrency.',
-    href: '/docs/ProtoActor/',
+    href: '/ProtoActor/',
     logo: '/img/protoactor-logo.png',
     proof: '.NET + Go',
   },
@@ -35,25 +35,16 @@ const products: Product[] = [
     label: 'Workflow engine',
     description:
       'Long-running, reliable workflows for .NET applications using durable orchestration patterns, hosting guidance, and operational playbooks.',
-    href: '/docs/DurableFunctions/',
+    href: '/DurableFunctions/',
     logo: '/img/durable-functions-logo.svg',
     proof: 'Reliable automation',
-  },
-  {
-    name: 'OcppServer',
-    label: 'EV charging',
-    description:
-      'A next-generation OCPP platform for massive-scale charging networks, integration scenarios, and operational guidance.',
-    href: '/docs/OcppServer/',
-    logo: '/img/ocppserver-logo.svg',
-    proof: 'Preview track',
   },
   {
     name: 'Faktorial',
     label: 'Autonomous delivery',
     description:
       'A GitHub-native delivery factory that moves scoped issues through investigation, build, verification, pull requests, and learning loops.',
-    href: '/docs/Products/faktorial',
+    href: '/Faktorial/',
     logo: '/img/products/faktorial-home-thumb.png',
     logoVariant: 'screenshot',
     proof: 'Pilot + managed service',
@@ -83,13 +74,12 @@ const products: Product[] = [
 const signals: Signal[] = [
   {value: '10+ years', label: 'distributed-systems experience'},
   {value: '.NET + Go', label: 'runtime ecosystems covered'},
-  {value: '6 product lines', label: 'documented from one control plane'},
+  {value: '5 product lines', label: 'documented from one control plane'},
 ];
 
 const deliveryStages = [
   'Design resilient actors',
   'Orchestrate durable work',
-  'Operate charging networks',
 ];
 
 function ProductCard({product, index}: {product: Product; index: number}) {
@@ -149,7 +139,7 @@ function Home(): ReactNode {
             <aside className={styles.controlPanel} aria-label="Asynkron product map">
               <div className={styles.panelHeader}>
                 <span>asynkron://docs/live</span>
-                <span>6 products</span>
+                <span>{products.length} products</span>
               </div>
               <div className={styles.panelGrid}>
                 {products.map((product) => (
@@ -200,12 +190,7 @@ function Home(): ReactNode {
               <p>Reliable orchestration, hosting, operations, and long-running automation.</p>
             </div>
             <div className={styles.layer}>
-              <span>Layer 03 / Infrastructure</span>
-              <strong>OcppServer</strong>
-              <p>EV charging infrastructure, integration scenarios, and operational guidance.</p>
-            </div>
-            <div className={styles.layer}>
-              <span>Layer 04 / Commercial products</span>
+              <span>Layer 03 / Commercial products</span>
               <strong>Faktorial, BokaBra, Inmem / Matcha</strong>
               <p>Autonomous delivery, booking, and reactive integration products with public documentation entry points.</p>
             </div>

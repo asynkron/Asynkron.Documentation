@@ -57,24 +57,44 @@ const config: Config = {
           // Remove this to remove the "edit this page" links.
           editUrl: 'https://github.com/Asynkron/Asynkron.Documentation/tree/main/',
         },
-        blog: {
-          showReadingTime: true,
-          feedOptions: {
-            type: ['rss', 'atom'],
-            xslt: true,
-          },
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl: 'https://github.com/Asynkron/Asynkron.Documentation/tree/main/',
-          // Useful options to enforce blogging best practices
-          onInlineTags: 'warn',
-          onInlineAuthors: 'warn',
-          onUntruncatedBlogPosts: 'warn',
-        },
+        blog: false,
         theme: {
           customCss: './src/css/custom.css',
         },
       } satisfies Preset.Options,
+    ],
+  ],
+
+  plugins: [
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'protoActor',
+        path: './docs/ProtoActor',
+        routeBasePath: 'ProtoActor',
+        sidebarPath: './sidebarsProtoActor.ts',
+        editUrl: 'https://github.com/Asynkron/Asynkron.Documentation/tree/main/',
+      },
+    ],
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'durableFunctions',
+        path: './docs/DurableFunctions',
+        routeBasePath: 'DurableFunctions',
+        sidebarPath: './sidebarsDurableFunctions.ts',
+        editUrl: 'https://github.com/Asynkron/Asynkron.Documentation/tree/main/',
+      },
+    ],
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'faktorial',
+        path: './docs/Faktorial',
+        routeBasePath: 'Faktorial',
+        sidebarPath: './sidebarsFaktorial.ts',
+        editUrl: 'https://github.com/Asynkron/Asynkron.Documentation/tree/main/',
+      },
     ],
   ],
 
@@ -152,7 +172,27 @@ const config: Config = {
           position: 'left',
           label: 'Docs',
         },
-        { to: '/blog', label: 'Blog', position: 'left' },
+        {
+          type: 'docSidebar',
+          docsPluginId: 'protoActor',
+          sidebarId: 'protoActorSidebar',
+          position: 'left',
+          label: 'Proto.Actor',
+        },
+        {
+          type: 'docSidebar',
+          docsPluginId: 'durableFunctions',
+          sidebarId: 'durableFunctionsSidebar',
+          position: 'left',
+          label: 'Durable Functions',
+        },
+        {
+          type: 'docSidebar',
+          docsPluginId: 'faktorial',
+          sidebarId: 'faktorialSidebar',
+          position: 'left',
+          label: 'Faktorial',
+        },
         {
           href: 'https://github.com/Asynkron/Asynkron.Documentation',
           label: 'GitHub',
@@ -184,10 +224,9 @@ const config: Config = {
         {
           title: 'Products',
           items: [
-            { label: 'Proto.Actor', to: '/docs/ProtoActor/' },
-            { label: 'Durable Functions', to: '/docs/DurableFunctions/' },
-            { label: 'OcppServer', to: '/docs/OcppServer/' },
-            { label: 'Faktorial', to: '/docs/Products/faktorial' },
+            { label: 'Proto.Actor', to: '/ProtoActor/' },
+            { label: 'Durable Functions', to: '/DurableFunctions/' },
+            { label: 'Faktorial', to: '/Faktorial/' },
             { label: 'BokaBra', to: '/docs/Products/bokabra' },
             { label: 'Inmem / Matcha', to: '/docs/Products/inmem' },
           ],
@@ -196,7 +235,6 @@ const config: Config = {
           title: 'Company',
           items: [
             { label: 'Asynkron AB', href: 'https://asynkron.se' },
-            { label: 'Blog', to: '/blog' },
             { label: 'Product Overview', to: '/docs/intro' },
             { label: 'Contact', href: 'mailto:info@asynkron.se' },
           ],
