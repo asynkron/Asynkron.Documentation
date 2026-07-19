@@ -31,9 +31,9 @@ function test(name, run) {
 test("committed declaration exactly matches the adapter producer", async () => {
   const config = JSON.parse(await readFile(path.join(REPO_ROOT, ".faktorial/main-verify.json"), "utf8"));
   assert.equal(config.schema_version, "main-verify.v2");
-  assert.deepEqual(config.commands, ["npm run quality"]);
+  assert.deepEqual(config.commands, ["make quality"]);
   assert.deepEqual(config.evidence, [{
-    command: "npm run quality",
+    command: "make quality",
     producer_id: PRODUCER_ID,
     kind: "test-results",
     payload_schema: PAYLOAD_SCHEMA,
