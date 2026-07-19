@@ -8,6 +8,11 @@
 .docusaurus
 .cache-loader
 
+# Local diagnostic and export artifacts
+/build.log
+/build_output.txt
+/comments.json
+
 # Misc
 .DS_Store
 .env.local
