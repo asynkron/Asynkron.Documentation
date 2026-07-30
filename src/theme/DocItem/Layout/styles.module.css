@@ -8,8 +8,14 @@
    * Upstream caps this at 75% to leave room for the right-hand table of
    * contents. That column is gone, so cap the content on measure instead to
    * keep line length readable on wide screens.
+   *
+   * The padding is asymmetric on purpose: the extra room on the left separates
+   * the text from the sidebar, and dropping it on the right lets the content
+   * use the full measure rather than stopping short of it.
    */
   .docItemCol {
     max-width: 900px !important;
+    padding-left: 3.25rem;
+    padding-right: 0;
   }
 }

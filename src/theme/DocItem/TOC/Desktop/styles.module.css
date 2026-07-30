@@ -1,8 +1,16 @@
 /*
  * The table of contents is portaled into a sidebar <li>, so it has to read as a
  * nested menu rather than as the floating right-hand column it replaces.
+ *
+ * Resting colour comes from retargeting --ifm-toc-link-color, so the theme's
+ * own rule produces it. The active colour is set directly and uses a concrete
+ * token: redefining --ifm-color-primary here instead would form a reference
+ * cycle, because --ifm-menu-color-active is itself derived from it, and a
+ * cycle makes the value invalid so colour silently falls back to inherit.
  */
 .sidebarToc {
+  --ifm-toc-link-color: var(--ifm-menu-color);
+
   position: static;
   max-height: none;
   margin: 0.25rem 0 0.5rem;
@@ -22,10 +30,11 @@
 
 .sidebarToc :global(.table-of-contents__link) {
   padding: 0.2rem 0;
-  color: var(--ifm-menu-color);
   line-height: 1.35;
 }
 
-.sidebarToc :global(.table-of-contents__link:hover) {
-  color: var(--ifm-menu-color-active);
+.sidebarToc :global(.table-of-contents__link--active),
+.sidebarToc :global(.table-of-contents__link--active) code {
+  color: var(--asynkron-toc-active);
+  font-weight: 600;
 }
