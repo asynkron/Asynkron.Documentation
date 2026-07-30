@@ -4,16 +4,12 @@
 }
 
 @media (min-width: 997px) {
-  /* Upstream width, kept for pages that still show the right-hand column. */
-  .docItemCol {
-    max-width: 75% !important;
-  }
-
   /*
-   * When the table of contents moves into the sidebar the column is gone, so
-   * cap the content on measure instead to keep line length readable.
+   * Upstream caps this at 75% to leave room for the right-hand table of
+   * contents. That column is gone, so cap the content on measure instead to
+   * keep line length readable on wide screens.
    */
-  .docItemColWide {
+  .docItemCol {
     max-width: 900px !important;
   }
 }
