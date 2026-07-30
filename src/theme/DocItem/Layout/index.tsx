@@ -1,8 +1,6 @@
 import type {ReactNode} from 'react';
-import clsx from 'clsx';
-import {useLocation} from '@docusaurus/router';
 import {useWindowSize} from '@docusaurus/theme-common';
-import {useDoc, useDocsSidebar} from '@docusaurus/plugin-content-docs/client';
+import {useDoc} from '@docusaurus/plugin-content-docs/client';
 import DocItemPaginator from '@theme/DocItem/Paginator';
 import DocVersionBanner from '@theme/DocVersionBanner';
 import DocVersionBadge from '@theme/DocVersionBadge';
@@ -14,7 +12,6 @@ import DocBreadcrumbs from '@theme/DocBreadcrumbs';
 import ContentVisibility from '@theme/ContentVisibility';
 import type {Props} from '@theme/DocItem/Layout';
 
-import {hasSidebarLinkEntry} from '@site/src/utils/sidebarTocSlot';
 import styles from './styles.module.css';
 
 /**
@@ -40,21 +37,9 @@ function useDocTOC() {
 export default function DocItemLayout({children}: Props): ReactNode {
   const docTOC = useDocTOC();
   const {metadata} = useDoc();
-  const sidebar = useDocsSidebar();
-  const {pathname} = useLocation();
-
-  // Leaf sidebar entries render a slot the TOC portals into, so those pages
-  // drop the right-hand column. Category-linked pages keep it.
-  const tocInSidebar = hasSidebarLinkEntry(sidebar?.items, pathname);
-
   return (
     <div className="row">
-      <div
-        className={clsx(
-          'col',
-          !docTOC.hidden && !tocInSidebar && styles.docItemCol,
-          tocInSidebar && styles.docItemColWide,
-        )}>
+      <div className={`col ${styles.docItemCol}`}>
         <ContentVisibility metadata={metadata} />
         <DocVersionBanner />
         <div className={styles.docItemContainer}>
@@ -68,13 +53,12 @@ export default function DocItemLayout({children}: Props): ReactNode {
           <DocItemPaginator />
         </div>
       </div>
-      {docTOC.desktop &&
-        (tocInSidebar ? (
-          // Renders null in place and portals into the sidebar.
-          docTOC.desktop
-        ) : (
-          <div className="col col--3">{docTOC.desktop}</div>
-        ))}
+      {/*
+        No right-hand column: the desktop table of contents portals itself into
+        the left sidebar. It still has to be rendered somewhere for the portal
+        to exist, and it returns null in place.
+      */}
+      {docTOC.desktop}
     </div>
   );
 }
