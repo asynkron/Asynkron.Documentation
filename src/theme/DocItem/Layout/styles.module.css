@@ -1,0 +1,19 @@
+.docItemContainer header + *,
+.docItemContainer article > *:first-child {
+  margin-top: 0;
+}
+
+@media (min-width: 997px) {
+  /* Upstream width, kept for pages that still show the right-hand column. */
+  .docItemCol {
+    max-width: 75% !important;
+  }
+
+  /*
+   * When the table of contents moves into the sidebar the column is gone, so
+   * cap the content on measure instead to keep line length readable.
+   */
+  .docItemColWide {
+    max-width: 900px !important;
+  }
+}

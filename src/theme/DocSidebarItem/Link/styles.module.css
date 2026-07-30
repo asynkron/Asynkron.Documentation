@@ -1,0 +1,14 @@
+/* Mirrors the upstream theme styles; this component is ejected to add the
+   table-of-contents slot, not to restyle the link itself. */
+
+.menuExternalLink {
+  align-items: center;
+}
+
+.linkLabel {
+  overflow: hidden;
+  display: -webkit-box;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
