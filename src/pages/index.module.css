@@ -174,6 +174,11 @@
   margin: 1rem 0;
 }
 
+/* An odd product count would otherwise leave a hole in the last row. */
+.panelTile:nth-child(odd):last-child {
+  grid-column: 1 / -1;
+}
+
 .panelTile,
 .pipelineStep,
 .layer,
@@ -325,12 +330,31 @@
   border-bottom: 1px solid var(--landing-line);
 }
 
+/*
+ * Six tracks rather than three, so a trailing row that is short of a full three
+ * cards can widen to fill the row instead of leaving bordered empty cells.
+ */
 .productGrid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(6, minmax(0, 1fr));
   gap: 1px;
   background: var(--landing-line);
   border: 1px solid var(--landing-line);
+}
+
+.productCard {
+  grid-column: span 2;
+}
+
+/* Last row holds two cards: split the row between them. */
+.productCard:nth-child(3n + 1):nth-last-child(2),
+.productCard:nth-child(3n + 1):nth-last-child(2) ~ .productCard {
+  grid-column: span 3;
+}
+
+/* Last row holds one card: let it run the full width. */
+.productCard:nth-child(3n + 1):last-child {
+  grid-column: span 6;
 }
 
 .productCard {
@@ -468,6 +492,14 @@
   .signalGrid,
   .productGrid {
     grid-template-columns: 1fr;
+  }
+
+  /* Single column: reset the span rules from the wide layout. */
+  .productCard,
+  .productCard:nth-child(3n + 1):nth-last-child(2),
+  .productCard:nth-child(3n + 1):nth-last-child(2) ~ .productCard,
+  .productCard:nth-child(3n + 1):last-child {
+    grid-column: auto;
   }
 
   .layer {
