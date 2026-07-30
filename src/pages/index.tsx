@@ -121,10 +121,10 @@ function Home(): ReactNode {
               <span className={styles.kicker}>Asynkron Documentation</span>
               <h1>Build distributed systems with a sharper operating model.</h1>
               <p className={styles.heroLead}>
-                Asynkron brings actor runtimes, durable workflows, and EV
-                charging infrastructure together with autonomous delivery,
-                booking, and reactive integration products
-                into one documentation surface for teams shipping high-scale systems.
+                Asynkron brings actor runtimes and durable workflows together
+                with autonomous delivery, booking, and reactive integration
+                products into one documentation surface for teams shipping
+                high-scale systems.
               </p>
               <div className={styles.heroActions}>
                 <Link className={styles.primaryAction} to="/docs/intro">
