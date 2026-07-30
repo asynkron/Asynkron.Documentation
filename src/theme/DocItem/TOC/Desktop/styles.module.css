@@ -1,0 +1,31 @@
+/*
+ * The table of contents is portaled into a sidebar <li>, so it has to read as a
+ * nested menu rather than as the floating right-hand column it replaces.
+ */
+.sidebarToc {
+  position: static;
+  max-height: none;
+  margin: 0.25rem 0 0.5rem;
+  padding: 0 0 0 var(--ifm-menu-link-padding-horizontal);
+  overflow: visible;
+  border-left: 1px solid var(--ifm-toc-border-color, var(--asynkron-color-border));
+  font-size: 0.85rem;
+}
+
+.sidebarToc ul {
+  padding-left: 0.75rem;
+}
+
+.sidebarToc li {
+  margin: 0;
+}
+
+.sidebarToc :global(.table-of-contents__link) {
+  padding: 0.2rem 0;
+  color: var(--ifm-menu-color);
+  line-height: 1.35;
+}
+
+.sidebarToc :global(.table-of-contents__link:hover) {
+  color: var(--ifm-menu-color-active);
+}
