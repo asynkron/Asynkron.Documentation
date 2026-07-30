@@ -174,7 +174,12 @@ const config: Config = {
     // Replace with your project's social card
     image: 'img/docusaurus-social-card.jpg',
     colorMode: {
-      respectPrefersColorScheme: true,
+      defaultMode: 'light',
+      // Light is the default for everyone, including visitors whose OS is set
+      // to dark. Leaving this on would hand the choice back to the OS and make
+      // defaultMode a no-op for them. The navbar toggle still switches modes,
+      // and the choice is remembered.
+      respectPrefersColorScheme: false,
     },
     navbar: {
       title: 'Asynkron Docs',
