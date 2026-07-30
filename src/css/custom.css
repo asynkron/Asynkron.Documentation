@@ -188,6 +188,17 @@
   }
 }
 
+/*
+ * The sidebar menu has no font-size of its own, so it inherited the 16px base
+ * and towered over the table of contents nested inside it, which Infima sets to
+ * 0.8rem (12.8px). 14px sits one clear step above the TOC: the levels stay
+ * distinguishable without the jump being jarring.
+ */
+.theme-doc-sidebar-container .menu__link,
+.theme-doc-sidebar-container .menu__caret {
+  font-size: 0.875rem;
+}
+
 .navbar-logo-link {
   display: flex;
   align-items: center;
