@@ -70,6 +70,9 @@
   --ifm-link-color: var(--ifm-color-primary-darkest);
   --ifm-link-hover-color: #005a7d;
   --ifm-menu-color-active: var(--ifm-color-primary-darkest);
+  /* Concrete, not derived: the sidebar TOC redefines Infima tokens, and a
+     value that points back at one of them would form a reference cycle. */
+  --asynkron-toc-active: #006a94;
   /* Remove borders on tables and TOC in light mode */
   --ifm-table-border-color: transparent;
   --ifm-toc-border-color: transparent;
@@ -114,6 +117,7 @@
   --ifm-link-color: var(--ifm-color-primary);
   --ifm-link-hover-color: var(--ifm-color-primary-light);
   --ifm-menu-color-active: var(--ifm-color-primary);
+  --asynkron-toc-active: #4fd0ff;
 
   --ifm-color-primary: #4fd0ff;
   --ifm-color-primary-dark: #2fc4ff;
@@ -182,18 +186,6 @@
   .navbar-logo {
     height: 26px;
   }
-}
-
-/*
- * The active TOC entry renders in the same grey as the inactive ones, so weight
- * is what distinguishes it. Colour is deliberately left to the theme here: a
- * colour override on this selector does not take effect even with !important
- * and higher specificity, so it would be dead code. The inherited grey is
- * 7.2:1 on white, so this is a legibility fix, not a contrast one.
- */
-.table-of-contents .table-of-contents__link--active,
-.table-of-contents .table-of-contents__link--active code {
-  font-weight: 600;
 }
 
 .navbar-logo-link {
